@@ -1,0 +1,37 @@
+codecov:
+  token: 9412bf30-173b-497e-b5e0-5adba4e1adb9
+  notify:
+    require_ci_to_pass: no
+
+coverage:
+  precision: 2
+  round: down
+  range: "10..70"
+
+  status:
+    project:
+      default:
+        target: auto
+        threshold: null
+        branches:
+          - master
+          - samantha-dev
+          - isaac-dev
+          - gh-pages
+
+        patch:
+          default:
+            target: auto
+            branches:
+              - master
+              - samantha-dev
+              - isaac-dev
+              - gh-pages
+comment:
+  layout: "header, diff, changes, sunburst, uncovered, tree"
+  branches:
+    - master
+    - samantha-dev
+    - isaac-dev
+    - gh-pages
+  behavior: default

@@ -15,7 +15,7 @@ coverageconfig:
 	./ContinuousIntegration/Build/generateCoverageConfig.sh > ./coverageConfig.json
 
 instrument: coverageconfig
-	mono ./tools/SharpCover/SharpCover.exe instrument .././coverageConfig.json
+	mono ./SojournerGUI/SojournerGUI/obj/x86/Debug/SojournerGUI.exe instrument .././coverageConfig.json
 
 coverage: compile instrument test
-	-mono ./tools/SharpCover/SharpCover.exe check
+	-mono ./SojournerGUI/SojournerGUI/obj/x86/Debug/SojournerGUI.exe check

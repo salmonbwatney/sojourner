@@ -1,4 +1,5 @@
-# TEJ4M - Final Project ![license](https://img.shields.io/badge/license-GPL_v3-blue.svg?style=flat)
+# TEJ4M - Final Project  ![license](https://img.shields.io/badge/license-GPL_v3-blue.svg?style=flat)
+## Sojouner (and Pathfinder but nobody really cares about Pathfinder)
 
 ### Task List
 
@@ -22,7 +23,7 @@ Create iso and "exploded view" models for parts listed:
 * Turning mechanism
 * Sensors
 * Wheels
-* Custom attachment pieces (To attach the foam board. These will be 3D printed)
+* ~~Custom attachment pieces (To attach the foam board. These will be 3D printed)~~ Not anymore we're not
 #### Parts List
 These parts will be listed in the file parts.md
 
@@ -31,10 +32,13 @@ This needs to be done before we start the code. We need to know the position of
 all the parts and before programming is done of maximum efficiency.
 
 #### Wheel Control Test program
-The wheels and motors will be controlled through an Arduino. The model used will
-probably be the Arduino Uno, but if needed, we'll scale up to an Intel Edison +
-Arduino Breakout Board for extra processing capability
-
+The wheels and motors will be controlled through ~~an Arduino~~ Raspberry Pi
+(Unstable but it works).
 #### Constructing the rest of the frame
-The body of the car is most likely to be made using lego pieces and the foam
-board body will attach to the frame with custom pieces
+~~The body of the car is most likely to be made using lego pieces and the foam
+board body will attach to the frame with custom pieces~~
+Literally just lego and foam board loosely attached to each other.
+
+#### Extra Features
+* Solar Panel that isn't connected to anything and provides nothing but
+// a e s t h e t i c //

@@ -7,8 +7,8 @@
 | :--------------------------------------: | :--------: | :-------------: | :-------------: |
 | Preliminary Design                       | In Progress| Nov 24 - Nov 30 | ---             |
 | Get parts                                | In Progress| Dec 1 - Dec 2   | ---             |
-| Build basic chassis for wheel test       | Incomplete | Dec 5 - Dec 7   | ---             |
-| Write and Test program for wheel control | Incomplete | Dec 8 - Dec 13  | ---             |
+| Build basic chassis for wheel test       | Complete   | Dec 5 - Dec 7   | Nov 29 2016     |
+| Write and Test program for wheel control | In Progress| Dec 8 - Dec 13  | ---             |
 | Build rest of frame                      | Incomplete | Dec 14 - Dec 19 | ---             |
 | Create main program                      | Incomplete | Dec 14 - Dec 30 | ---             |
 | Finishing Touches                        | Incomplete | Dec 30 - Jan 13 | ---             |

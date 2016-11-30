@@ -5,8 +5,8 @@
 
 | Task                                     | State      | Scheduled for   | Date Finished   |
 | :--------------------------------------: | :--------: | :-------------: | :-------------: |
-| Preliminary Design                       | In Progress| Nov 24 - Nov 30 | ---             |
-| Get parts                                | In Progress| Dec 1 - Dec 2   | ---             |
+| Preliminary Design                       | Complete   | Nov 24 - Nov 30 | Nov 28 2016     |
+| Get parts                                | Complete   | Dec 1 - Dec 2   | Nov 28 2016     |
 | Build basic chassis for wheel test       | Complete   | Dec 5 - Dec 7   | Nov 29 2016     |
 | Write and Test program for wheel control | In Progress| Dec 8 - Dec 13  | ---             |
 | Build rest of frame                      | Incomplete | Dec 14 - Dec 19 | ---             |

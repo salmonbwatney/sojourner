@@ -13,55 +13,52 @@
     limitations under the License.
 
     Program Created by: Samantha Rachel Belnavis
-    Date Last Modified: November 28, 2016
-    File Name: servoControl.rb
+    Date Last Modified: November 30, 2016
+    File Name: servoControl.ino
     File Description: Controls the Servo Motors
+
+    Adopted from sketch by zoomkat
 */
 
-// Declare Variables
-int turnLeft = 0;
-int turnRight = 0;
-int pos = 0
-const int turnCycles = 100 // Number of cycles that need to be done in order to turn
-const int turnSpeed = 20 //How fast the servo controlling steering will move
+#include <Servo.h>                      //  You need to include Servo.h as it is used by the HB-25 Library
+#include "HB25MotorControl.h"
 
-// Import project specific libraries
-#include <Servo.h>
+const byte controlPin = 9;              //  Pin Definition
+String readString;
 
-Servo myservo ; //Create Servo object
+HB25MotorControl motorControl(controlPin);
 
 void setup() {
-  myservo.attach(9); //Attach object to pin 9
+  Serial.begin(9600);
+  Serial.println("HB-25 Motor Control Library Test");
+  Serial.println("Enter a speed between -500 and 500.");
+  Serial.println("A negative speed will reverse the motor direction. 0 will stop.");
+  motorControl.begin();
 }
 
 void loop() {
-  //Turn Left
-  if (turnLeft == 1) {
-    for (pos = 0; i < turnCycles; i += 1) {
-      myservo.write(pos);
-      delay(turnSpeed);
-    }
+  while (Serial.available()) {
+    char c = Serial.read();             //  Gets one byte from the serial buffer
+    readString += c;
+    delay(2);                           //  Slow looping to allow buffer to fill with the next character
   }
 
-  //Turn Right
-  if (turnRight == 1) {
-    for (pos = 0; i < turnCycles; pos -= 1) {
-      myservo.write(pos);
-      delay(turnSpeed);
-    }
-  }
+  if (readString.length() > 0) {
+    Serial.print("\nString entered: ");
+    Serial.print(readString);        // Echo captured string
+    int n = readString.toInt();        // Convert readString into a number
+    n = constrain(n, -500, 500);
 
-  //Reset Position if input not detected
-  if (turnLeft == 0 && turnRight == 0){
-    //Check position
-    if (pos < 0; pos += 1) {
-      myservo.write(pos);
-      delay(turnSpeed);
+    if (n > 0) {
+      Serial.print("Set Forward Speed: ");
+    } else if (n < 0) {
+      Serial.print("Set Reverse Speed: ");
+    } else {
+      Serial.print("Stop Motor. Speed: ");
     }
+    Serial.println(n);
+    motorControl.moveAtSpeed(n);
 
-    if (pos > 0; pos -= 1) {
-      myservo.write(pos);
-      delay(turnLeft);
-    }
+    readString = "";                  //  Empty string for the next input
   }
 }

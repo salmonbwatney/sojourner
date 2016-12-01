@@ -14,7 +14,7 @@
 
     Program Created by: Samantha Rachel Belnavis
     Date Last Modified: November 30, 2016
-    File Name: servoControl.ino
+    File Name: servoControl.c
     File Description: Controls the Servo Motors
 
     Adopted from sketch by zoomkat
@@ -25,5 +25,20 @@
 #include <servo.h> //Servo Library
 #include "ParallaxServoLib.h" //Library for Parallax Servo Control
 
-const byte controlPin = 9; //Set Pin
-String readString;
+const byte ctlPin1 = 12; //Set Pin for first servo
+const byte ctlPint2 = 11; //Set Pin for first servo
+
+String readString; //String for terminal commands
+ParallaxServoLib servoControl(ctlPin1); //New servo object
+
+void setup() {
+  servoControl.begin(); //Start Servo Control
+
+  //Setup wiringPi integration
+  int wiringPiSetupGpio(ctlPin1); //Using BCM
+
+}
+
+void loop() {
+
+}

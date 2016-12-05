@@ -21,21 +21,21 @@
 */
 
 #include <stdio.h>
-#include <wiringPi.h>
-#include <servo.h> //Servo Library
-#include "ParallaxServoLib.h" //Library for Parallax Servo Control
+#include "libraries/wiringPi/wiringPi.h"
+#include "libraries/servo.h" //Servo Library
+#include "libraries/ParallaxServoLib.h" //Library for Parallax Servo Control
 
-const byte ctlPin1 = 12; //Set Pin for first servo
-const byte ctlPint2 = 11; //Set Pin for first servo
+const int ctlPin1 = 12; //Set Pin for first servo
+const int ctlPint2 = 11; //Set Pin for first servo
 
 String readString; //String for terminal commands
 ParallaxServoLib servoControl(ctlPin1); //New servo object
 
 void setup() {
-  servoControl.begin(); //Start Servo Control
-
   //Setup wiringPi integration
-  int wiringPiSetupGpio(ctlPin1); //Using BCM
+  int wiringPiSetupGpio(void); //Using BCM
+
+  servoControl.begin(); //Start Servo Control
 
 }
 

@@ -1,18 +1,3 @@
-# TEJ4M - Final Project ![license](https://img.shields.io/badge/license-GPL_v3-blue.svg?style=flat)
-
-### Task List
-
-| Task                                     | State      | Scheduled for   | Date Finished   |Assigned to |
-| :--------------------------------------: | :--------: | :-------------: | :-------------: | :-----------: |
-| Preliminary Design                       | In Progress| Nov 24 - Nov 30 | ---             | ---           |
-| Get parts                                | Incomplete | Dec 1 - Dec 2   | ---             | ---           |
-| Build basic chassis for wheel test       | Incomplete | Dec 5 - Dec 7   | ---             | ---           |
-| Write and Test program for wheel control | Incomplete | Dec 8 - Dec 13  | ---             | ---           |
-| Build rest of frame                      | Incomplete | Dec 14 - Dec 19 | ---             | ---           |
-| Create main program                      | Incomplete | Dec 14 - Dec 30 | ---             | ---           |
-| Finishing Touches                        | Incomplete | Dec 30 - Jan 13 | ---             | ---           |  
-| Extra features                           | Incomplete | Dec 30 - Jan 13 | ---             | ---           |
-
 # TEJ4M - Final Project  ![license](https://img.shields.io/badge/license-GPL_v3-blue.svg?style=flat)
 ## Sojouner (and Pathfinder but nobody really cares about Pathfinder)
 

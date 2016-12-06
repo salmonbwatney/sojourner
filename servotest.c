@@ -14,6 +14,7 @@
 
     Program Created by: Samantha Rachel Belnavis
     Date Last Modified: November 30, 2016
+    File Name: servoControl.ino
     File Name: servoControl.c
     File Description: Controls the Servo Motors
 
@@ -21,6 +22,12 @@
 */
 
 #include <stdio.h>
+#include <wiringPi.h>
+#include <servo.h> //Servo Library
+#include "ParallaxServoLib.h" //Library for Parallax Servo Control
+
+const byte controlPin = 9; //Set Pin
+String readString;
 #include "libraries/wiringPi/wiringPi.h"
 #include "libraries/servo.h" //Servo Library
 #include "libraries/ParallaxServoLib.h" //Library for Parallax Servo Control

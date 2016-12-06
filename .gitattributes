@@ -6,3 +6,4 @@ libraries/gpio/gpio.1 linguist-vendored=true
 .deps/ParallaxServoLib.Po linguist-vendored=true
 Makefile.* linguist-vendored=true
 /libraries/*/Makefile linguist-vendored=true
+*sh linguist-vendored=true

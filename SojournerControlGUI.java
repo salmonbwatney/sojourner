@@ -19,7 +19,7 @@
 */
 
 //Import required files / libraries
-import java.awt;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.BufferedReader;
@@ -42,7 +42,7 @@ public class SojournerControlGUI extends JApplet implements ActionListener {
 
   //Fields and labels
   TextField sendField;
-  JLabel sendLable;
+  JLabel sendLabel;
 
   //Networking Variables
   String input = null;
@@ -101,11 +101,6 @@ public class SojournerControlGUI extends JApplet implements ActionListener {
     sendField = new TextField("p 0",35);
     sendField.setBounds(350, 70, 170, 30);
 
-    speed = new Button("Speed");
-    speed.setBounds(505, 170, 60, 30);
-    speed.setBackground(Color.black);
-    speed.setForeground(Color.pink);
-
     //Add the things to GUI
     add(fwd);
     add(rev);
@@ -137,8 +132,8 @@ public class SojournerControlGUI extends JApplet implements ActionListener {
       //Get socket output stream and open new printwriter
       serverOut = new PrintWriter(new BufferedWriter(new OutputStreamWriter(socket.getOutputStream())));
 
-      in = new BufferredReader(new InputStreamReader(socket.getInputStream()));
-      stdIn = new BufferredReader(new InputStreamReader(System.in));
+      in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
+      stdIn = new BufferedReader(new InputStreamReader(System.in));
 
     } catch (Exception e) {
       System.out.println(e);
@@ -147,10 +142,10 @@ public class SojournerControlGUI extends JApplet implements ActionListener {
   }
 
   //Method for mouse events
-  public void actionPerformed(ActionEvent evnt) {
+  public void actionPerformed(ActionEvent evt) {
     if (evt.getSource() == fwd){
       System.out.println("FWD pressed");
-      input = "fwd 1"
+      input = "fwd 1";
     }
     else if (evt.getSource() == rev) {
       System.out.println("REV was pressed");
@@ -170,9 +165,9 @@ public class SojournerControlGUI extends JApplet implements ActionListener {
     }
     else if (evt.getSource() == reset) {
       System.out.println("Reset was pressed");
-      input = "command to be set"
+      input = "command to be set";
     }
-    else if (evt.getSource() = send) {
+    else if (evt.getSource() == send) {
       input = sendField.getText(); //Get Text from box
       //Close connection if user types "exit"
       if("exit".equals(input)){

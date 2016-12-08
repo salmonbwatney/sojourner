@@ -23,7 +23,7 @@
 #define ParallaxServoLib_h
 
 //Include Servo control library
-#include "Servo.h"
+#include <Servo.h>
 
 //Define Actions
 #define REVERSE         1000
@@ -32,14 +32,15 @@
 #define HOLD_OFF_TIME   8
 
 //Create new class
-public class ParallaxServoLib {
-
-  unsigned uint64_t _timeLastCmd;
+class ParallaxServoLib {
+private:
+  unsigned long _timeLastCmd
   void _chkHoldOffTime();
   Servo _servo; //Servo object
-  int _ctlPin; //Control Pin
+  byte _ctlPin; //Control Pin
 
-  ParallaxServoLib(int ctlPin);
+public:
+  ParallaxServoLib(byte ctlPin)l
   void begin();
   void stop();
   void fullForward();

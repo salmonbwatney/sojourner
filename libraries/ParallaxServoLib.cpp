@@ -20,19 +20,18 @@
 
 #include "ParallaxServoLib.h"
 
-ParallaxServoLib::ParallaxServoLib(int ctlPin) {
+ParallaxServoLib::ParallaxServoLib(byte ctlPin) {
   _ctlPin = ctlPin;
 }
 
 //  Private Methods
 
 void ParallaxServoLib::_chkHoldOffTime() {
-  /*  Check that time since the last command is greater than the HOLD_OFF_TIME.
+  //  Check that time since the last command is greater than the HOLD_OFF_TIME.
+  //
+  //  Note - ms() returns the number of mseconds since the Arduino board began running the current program.
+  //  This number will overflow (go back to zero), after approximately 50 days. We will check for this overflow.
 
-      Note - ms() returns the number of mseconds since the Arduino board began
-      running the current program. This number will overflow (go back to zero),
-      after 18,446,744,073,709,551,616 ms (Or 584,554,531 years)
-  */
   uint64_t timeSinceStartUp = ms();
 
   if (timeSinceStartUp <= _timeLastCmd) {   //  ms() Overflow

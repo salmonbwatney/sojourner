@@ -1,4 +1,0 @@
-SojournerControls.Droid.MainActivity, SojournerControls.Droid;md53944572634969b6a08aa789767cf20ba.MainActivity
-SojournerControls.Droid.MainActivity, SojournerControls.Droid, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null;md53944572634969b6a08aa789767cf20ba.MainActivity
-SojournerControls.Droid.MainActivity;md53944572634969b6a08aa789767cf20ba.MainActivity
-sojournercontrols.droid.MainActivity;md53944572634969b6a08aa789767cf20ba.MainActivity

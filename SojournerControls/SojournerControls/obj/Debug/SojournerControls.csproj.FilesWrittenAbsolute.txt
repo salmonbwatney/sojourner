@@ -1,5 +1,0 @@
-/Users/Samantha/sojourner/SojournerControls/SojournerControls/obj/Debug/.NETPortable,Version=v4.5,Profile=Profile259.AssemblyAttribute.cs
-/Users/Samantha/sojourner/SojournerControls/SojournerControls/bin/Debug/SojournerControls.dll.mdb
-/Users/Samantha/sojourner/SojournerControls/SojournerControls/bin/Debug/SojournerControls.dll
-/Users/Samantha/sojourner/SojournerControls/SojournerControls/obj/Debug/SojournerControls.dll
-/Users/Samantha/sojourner/SojournerControls/SojournerControls/obj/Debug/SojournerControls.dll.mdb

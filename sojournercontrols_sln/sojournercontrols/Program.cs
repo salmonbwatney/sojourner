@@ -18,6 +18,7 @@
 
 //Import required libraries
 using System;
+using System.Collections;
 using System.IO;
 using Gtk;
 
@@ -27,27 +28,21 @@ using Gtk;
 namespace sojournercontrols
 {
 
-	class MainClass
+	class MainClass 
 	{
-		//Declare GUI Objects
-		Button fwd, rev, stop, left, right, send, reset;
+		
 
-		String input = null;
-		String serverResponse = null;
-		Socket socket;
-		StreamReader data_out;
-		BufferedStream data_in;
-		BufferedStream std_In;
-
-		public static void Start()
+		public static void Start() 
 		{
-
-			//Create the buttons and things
-			fwd = new Button("Forwards");
-			fwd.SetBounds;
+			
 		}
-
-		public static void Main(string[] args)
+		private void KeyDown(KeyEventArgs e)
+		{
+			if (e.KeyCode == Keys.Left)
+			{
+			}
+		}
+		public static void Main(string[] args) 
 		{
 			Application.Init();
 			MainWindow win = new MainWindow();

@@ -42,7 +42,7 @@ namespace sojournercontrols
 		BufferedStream data_in;
 		BufferedStream std_In;
 
-		public static void Start()
+		public void Start()
 		{
 			
 			//Create the buttons and things

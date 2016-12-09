@@ -34,10 +34,10 @@
 //Create new class
 class ParallaxServoLib {
 private:
-  unsigned uint64_t _timeLastCmd
+  unsigned long _timeLastCmd
   void _chkHoldOffTime();
   Servo _servo; //Servo object
-  int _ctlPin; //Control Pin
+  byte _ctlPin; //Control Pin
 
 public:
   ParallaxServoLib(byte ctlPin)l

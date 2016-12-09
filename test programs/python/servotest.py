@@ -6,16 +6,14 @@ GPIO.setmode(GPIO.BOARD)
 GPIO.setup(12, GPIO.OUT)
 
 p = GPIO.PWM(12, 50)
-p.start(7.5)
+duty_cycle = 70.0
+delay_time = 20 #in ms
+p.start(duty_cycle)
 
 try:
     while True:
-        p.ChangeDutyCycle(7.5)
-        time.sleep(1)
-        p.ChangeDutyCycle(2.5)
-        time.sleep(1)
-        p.ChangeDutyCycle(12.5)
-        time.sleep(1)
+        p.ChangeDutyCycle(duty_cycle)
+        time.sleep(delay_time)
 except KeyboardInterrupt:
     p.stop()
     GPIO.cleanup()

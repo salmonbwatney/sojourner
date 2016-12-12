@@ -19,28 +19,23 @@
 //Import required libraries
 using System;
 using System.Collections;
-using System.Windows.Input;
-using System.Runtime.InteropServices;
-using System.IO;
 using Gtk;
 using Raspberry.IO.GeneralPurpose;
 
-//Suppress "unused" warnings
+//Supress "unused" warnings
+
 #pragma warning disable CS0414, CS0169
 
-namespace sojournercontrols
+namespace SojournerMotorControl
 {
+	//Assign GPIO pin to motor
+	var driveMotor = ConnectorPin.P1Pin12.Output();
+	var steeringMotor = ConnectorPin.P1Pin11.Output();
 
-	public abstract class SojournerController 
+	//Set PWM
+
+	public static void Main(string[] args)
 	{
+		Application.Init();
 
-
-		public static void Main(string[] args) 
-		{
-			Application.Init();
-			MainWindow win = new MainWindow();
-			win.Show();
-			Application.Run();
-		}
-	}
 }

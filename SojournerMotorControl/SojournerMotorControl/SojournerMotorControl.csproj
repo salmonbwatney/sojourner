@@ -3,10 +3,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
-    <ProjectGuid>{79B6D224-E065-41F7-AED0-F95B5E85DB9A}</ProjectGuid>
+    <ProjectGuid>{A374D032-7754-49D8-BD7D-6B4272821D54}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>sojournercontrols</RootNamespace>
-    <AssemblyName>sojournercontrols</AssemblyName>
+    <RootNamespace>SojournerMotorControl</RootNamespace>
+    <AssemblyName>SojournerMotorControl</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
@@ -47,6 +47,9 @@
       <SpecificVersion>False</SpecificVersion>
     </Reference>
     <Reference Include="Mono.Posix" />
+    <Reference Include="Raspberry.System">
+      <HintPath>..\packages\Raspberry.System.2.0.0\lib\net40\Raspberry.System.dll</HintPath>
+    </Reference>
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="Raspberry.IO">
@@ -57,9 +60,6 @@
     </Reference>
     <Reference Include="Raspberry.IO.Interop">
       <HintPath>..\packages\Raspberry.IO.GeneralPurpose.2.4\lib\net40\Raspberry.IO.Interop.dll</HintPath>
-    </Reference>
-    <Reference Include="Raspberry.System">
-      <HintPath>..\packages\Raspberry.System.2.1\lib\net40\Raspberry.System.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>

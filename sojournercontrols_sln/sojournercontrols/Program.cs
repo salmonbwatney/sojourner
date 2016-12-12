@@ -22,6 +22,7 @@ using System.Collections;
 using System.IO;
 using Gtk;
 using Raspberry.IO.GeneralPurpose;
+using Raspberry.System;
 
 
 //Suppress "unused" warnings

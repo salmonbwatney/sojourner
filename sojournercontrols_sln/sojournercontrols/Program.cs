@@ -21,6 +21,8 @@ using System;
 using System.Collections;
 using System.IO;
 using Gtk;
+using Raspberry.IO.GeneralPurpose;
+
 
 //Suppress "unused" warnings
 #pragma warning disable CS0414, CS0169

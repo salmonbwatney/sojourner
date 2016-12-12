@@ -1,9 +1,5 @@
 ﻿<Properties StartupConfiguration="{79B6D224-E065-41F7-AED0-F95B5E85DB9A}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="sojournercontrols/Program.cs">
-    <Files>
-      <File FileName="sojournercontrols/Program.cs" Line="42" Column="5" />
-    </Files>
-  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workbench />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />

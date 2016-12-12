@@ -37,14 +37,15 @@ all the parts and before programming is done of maximum efficiency.
 ~~The wheels and motors will be controlled through an Arduino. The model used will
 probably be the Arduino Uno, but if needed, we'll scale up to an Intel Edison +
 Arduino Breakout Board for extra processing capability~~
-xw
+
 I lied, we did it through a raspi because we're poor
 
 #### Constructing the rest of the frame
 ~~The body of the car is most likely to be made using lego pieces and the foam
 board body will attach to the frame with custom pieces~~
+
 Literally just lego and foam board loosely attached to each other.
 
 #### Extra Features
-* ~~Solar Panel that isn't connected to anything and provides nothing but~~ No muns
+* ~~Solar Panel that isn't connected to anything and provides nothing but~~    No muns
 // a e s t h e t i c //

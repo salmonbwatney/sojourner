@@ -1,7 +1,7 @@
-﻿<Properties StartupConfiguration="{79B6D224-E065-41F7-AED0-F95B5E85DB9A}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="sojournercontrols/Program.cs">
+﻿<Properties StartupConfiguration="{C036CD62-3DE8-41B5-921B-FC0EE4EDC393}|Default">
+  <MonoDevelop.Ide.Workbench ActiveDocument="SojournerGUI/Program.cs">
     <Files>
-      <File FileName="sojournercontrols/Program.cs" Line="36" Column="3" />
+      <File FileName="SojournerGUI/Program.cs" Line="16" Column="53" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" />
@@ -9,6 +9,6 @@
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
-  <MonoDevelop.Ide.ItemProperties.sojournercontrols PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.ItemProperties.SojournerGUI PreferredExecutionTarget="MonoDevelop.Default" />
   <MultiItemStartupConfigurations />
 </Properties>

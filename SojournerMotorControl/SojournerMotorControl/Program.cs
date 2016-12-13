@@ -28,14 +28,27 @@ using Raspberry.IO.GeneralPurpose;
 
 namespace SojournerMotorControl
 {
-	//Assign GPIO pin to motor
-	var driveMotor = ConnectorPin.P1Pin12.Output();
-	var steeringMotor = ConnectorPin.P1Pin11.Output();
-
-	//Set PWM
-
-	public static void Main(string[] args)
+	public abstract class SojournerMotorControl
 	{
-		Application.Init();
+		//Setup control for the driving motor
+		void driveMotorControl()
+		{
+
+			//Variables for the motor
+			float duty_cycle_fwd = 7.0;
+			float duty_cycle_rev = 70.0;
+			float delay_time = 20;
+
+			//Assign motor to the pin
+			var driveMotor = ConnectorPin.P1Pin12.Output();
+
+			//Create and initialize connection to GPIO Pin
+			var driveMotorConnection = new GpioConnection(driveMotor);
+		}
+		public static void Main(string[] args)
+		{
+			
+		}
+	}
 
 }

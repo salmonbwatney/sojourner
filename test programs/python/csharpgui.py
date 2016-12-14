@@ -10,4 +10,8 @@ s.listen(1)
 conn, addr = s.accept()
 print ('Connected by', addr)
 
+if __name__ == "__main__":
+    while(1):
+        Sojourner, Client = PySocket.recvfrom(1024)
+        print(Sojourner)
 

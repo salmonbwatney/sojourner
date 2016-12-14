@@ -17,45 +17,61 @@
 */
 
 using System;
-using System.Collections;
-using System.IO;
 using System.Net.Sockets;
+using System.Threading;
+using System.Diagnostics;
+using System.Runtime.InteropServices;
+
 using Gtk;
+using GLib;
 
 //Suppress warnings
 #pragma warning disable CS0414, CS0169, CS0219
 
 namespace SojournerGUI
 {
-	class MainClass
+	public class PyConnect
 	{
-		static MainClass()
+		//Connection method for connecting to Python Server
+		public NetworkStream Connection()
 		{
+			//Create new connection socket
 			TcpClient socket = new TcpClient();
 			socket.Connect("localhost", 4000);
 			NetworkStream network = socket.GetStream();
-			System.IO.StreamWriter streamWriter = new System.IO.StreamWriter(network);
+			return network;
+		}
+
+		// Get Key states and write to network stream
+		[GLib.ConnectBefore()]
+		public static tvoid KeyPressEvent(object obj, KeyPressEventArgs args)
+		{
+			//Write to console
+			System.Console.WriteLine("Keypress: {0}", args.Event.Key);
+
+			//New Storage Variable for the key pressed
+			var dataOutput = args.Event.Key;
+
+			PyConnect activeConnection = new PyConnect();
+
+			//New StreamWriter
+			var netStream = activeConnection.Connection();
+			System.IO.StreamWriter streamWriter = new System.IO.StreamWriter(netStream);
+
+			//Send data to server
+			streamWriter.WriteLine(args.Event.Key);
+			//streamWriter.Flush();
+			
 		}
 
 		public static void Main(string[] args)
 		{
-			//New TCP client
-			TcpClient socket = new TcpClient();
-
-			//Establish new connection settings
-			socket.Connect("localhost", 4000);
-			NetworkStream network = socket.GetStream();
-			System.IO.StreamWriter streamWriter = new System.IO.StreamWriter(network);
-
 			Application.Init();
 			MainWindow win = new MainWindow();
-			win.Show();
+			win.KeyPressEvent += new KeyPressEventHandler(KeyPressEvent);
+			win.ShowAll();
 			Application.Run();
-
-			//Write out test message
-			streamWriter.WriteLine("test");
-			streamWriter.Flush();
-			network.Close();
 		}
+
 	}
 }

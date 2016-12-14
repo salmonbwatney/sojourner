@@ -1,7 +1,7 @@
 ﻿<Properties StartupConfiguration="{C036CD62-3DE8-41B5-921B-FC0EE4EDC393}|Default">
   <MonoDevelop.Ide.Workbench ActiveDocument="SojournerGUI/Program.cs">
     <Files>
-      <File FileName="SojournerGUI/Program.cs" Line="16" Column="53" />
+      <File FileName="SojournerGUI/Program.cs" Line="47" Column="18" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" />

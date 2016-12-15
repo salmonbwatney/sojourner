@@ -27,7 +27,7 @@ using System.Windows.Forms;
 using Gtk;
 using GLib;
 
-//Suppress warnings
+//Suppress "unused private variable" / "unused class" / "unused variable"
 #pragma warning disable CS0414, CS0169, CS0219
 
 namespace SojournerGUI
@@ -35,7 +35,6 @@ namespace SojournerGUI
 	public class PyConnect
 	{
 		//Connection method for connecting to Python Server
-		/*
 		public NetworkStream Connection()
 		{
 			//Create new connection socket
@@ -43,14 +42,6 @@ namespace SojournerGUI
 			socket.Connect("localhost", 4001);
 			NetworkStream network = socket.GetStream();
 			return network;
-		}*/
-
-		public static void PythonServer(object netOut, NetworkStream e)
-		{
-			TcpClient socket = new TcpClient();
-			socket.Connect("localhost", 4001);
-			NetworkStream network = socket.GetStream();
-
 		}
 
 		// Get Key states and write to network stream
@@ -64,11 +55,11 @@ namespace SojournerGUI
 			//New Storage Variable for the key pressed
 			var dataOutput = args.Event.Key;
 
-			//PyConnect activeConnection = new PyConnect();
+			PyConnect activeConnection = new PyConnect();
 
 			//New StreamWriter
-			var netStream = activeConnection.Connection;
-			System.IO.StreamWriter streamWriter = new System.IO.StreamWriter();
+			var netStream = activeConnection.Connection();
+			System.IO.StreamWriter streamWriter = new System.IO.StreamWriter(netStream);
 
 
 			// -------------- Key definitions --------------
@@ -118,8 +109,11 @@ namespace SojournerGUI
 			}
 
 			//If key pressed is "l" or "L"
-			if (args.Event.KeyValue == 0x04c || args.Event.KeyValue
+			if (args.Event.KeyValue == 0x04c || args.Event.KeyValue == 0x06c)
+			{
 
+			}
+		}
 
 		public static void Main(string[] args)
 		{

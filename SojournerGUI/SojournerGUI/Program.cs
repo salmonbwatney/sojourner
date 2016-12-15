@@ -22,6 +22,8 @@ using System.Threading;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
 
+using System.Windows.Forms;
+
 using Gtk;
 using GLib;
 
@@ -33,44 +35,99 @@ namespace SojournerGUI
 	public class PyConnect
 	{
 		//Connection method for connecting to Python Server
+		/*
 		public NetworkStream Connection()
 		{
 			//Create new connection socket
 			TcpClient socket = new TcpClient();
-			socket.Connect("localhost", 4000);
+			socket.Connect("localhost", 4001);
 			NetworkStream network = socket.GetStream();
 			return network;
+		}*/
+
+		public static void PythonServer(object netOut, NetworkStream e)
+		{
+			TcpClient socket = new TcpClient();
+			socket.Connect("localhost", 4001);
+			NetworkStream network = socket.GetStream();
+
 		}
 
 		// Get Key states and write to network stream
 		[GLib.ConnectBefore()]
-		public static tvoid KeyPressEvent(object obj, KeyPressEventArgs args)
+		public static void KeyPressEvent(object sender, Gtk.KeyPressEventArgs args)
 		{
 			//Write to console
-			System.Console.WriteLine("Keypress: {0}", args.Event.Key);
+			//System.Console.WriteLine("Keypress: {0}", args.Event.Key);
+
 
 			//New Storage Variable for the key pressed
 			var dataOutput = args.Event.Key;
 
-			PyConnect activeConnection = new PyConnect();
+			//PyConnect activeConnection = new PyConnect();
 
 			//New StreamWriter
-			var netStream = activeConnection.Connection();
-			System.IO.StreamWriter streamWriter = new System.IO.StreamWriter(netStream);
+			var netStream = activeConnection.Connection;
+			System.IO.StreamWriter streamWriter = new System.IO.StreamWriter();
 
-			//Send data to server
-			streamWriter.WriteLine(args.Event.Key);
-			//streamWriter.Flush();
-			
-		}
+
+			// -------------- Key definitions --------------
+
+			//If key pressed / held is "w" or "W"
+			if (args.Event.KeyValue == 0x057 || args.Event.KeyValue == 0x077)
+			{
+				Console.WriteLine("Keypress: {0}", args.Event.Key);
+				streamWriter.WriteLine("mov_fwd");
+				streamWriter.Flush();
+			}
+
+			//If key pressed / held is "a" or "A"
+			if (args.Event.KeyValue == 0x041 || args.Event.KeyValue == 0x061)
+			{
+				Console.WriteLine("Keypress: {0}", args.Event.Key);
+				streamWriter.WriteLine("turn_left");
+				streamWriter.Flush();
+			}
+
+			//If key pressed / held is "s" or "S"
+			if (args.Event.KeyValue == 0x053 || args.Event.KeyValue == 0x073)
+			{
+				Console.WriteLine("Keypress: {0}", args.Event.Key);
+				streamWriter.WriteLine("mov_rev");
+				streamWriter.Flush();
+			}
+
+			//If key pressed / held is "d" or "D"
+			if (args.Event.KeyValue == 0x044 || args.Event.KeyValue == 0x064)
+			{
+				Console.WriteLine("Keypress: {0}", args.Event.Key);
+				streamWriter.WriteLine("turn_right");
+				streamWriter.Flush();
+			}
+
+			//Extra Peripherals
+
+			//If key pressed is "c" or "C"
+			if (args.Event.KeyValue == 0x043 || args.Event.KeyValue == 0x063)
+			{
+				Console.WriteLine("Keypress: {0}", args.Event.Key);
+				streamWriter.WriteLine("toggle_camera");
+				streamWriter.Flush();
+
+				//@TODO Camera control code
+			}
+
+			//If key pressed is "l" or "L"
+			if (args.Event.KeyValue == 0x04c || args.Event.KeyValue
+
 
 		public static void Main(string[] args)
 		{
-			Application.Init();
+			Gtk.Application.Init();
 			MainWindow win = new MainWindow();
-			win.KeyPressEvent += new KeyPressEventHandler(KeyPressEvent);
+			win.KeyPressEvent += new Gtk.KeyPressEventHandler(PyConnect.KeyPressEvent);
 			win.ShowAll();
-			Application.Run();
+			Gtk.Application.Run();
 		}
 
 	}

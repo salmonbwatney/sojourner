@@ -19,38 +19,41 @@
 //Import required libraries
 using System;
 using System.Collections;
-using System.IO;
 using Gtk;
 using Raspberry.IO.GeneralPurpose;
+<<<<<<< HEAD:SojournerMotorControl/SojournerMotorControl/Program.cs
+
+//Supress "unused" warnings
+=======
 using Raspberry.System;
 
+>>>>>>> master:sojournercontrols_sln/sojournercontrols/Program.cs
 
-//Suppress "unused" warnings
 #pragma warning disable CS0414, CS0169
 
-namespace sojournercontrols
+namespace SojournerMotorControl
 {
-
-	class MainClass 
+	public abstract class SojournerMotorControl
 	{
-		
+		//Setup control for the driving motor
+		void driveMotorControl()
+		{
 
-		public static void Start() 
+			//Variables for the motor
+			float duty_cycle_fwd = 7.0;
+			float duty_cycle_rev = 70.0;
+			float delay_time = 20;
+
+			//Assign motor to the pin
+			var driveMotor = ConnectorPin.P1Pin12.Output();
+
+			//Create and initialize connection to GPIO Pin
+			var driveMotorConnection = new GpioConnection(driveMotor);
+		}
+		public static void Main(string[] args)
 		{
 			
 		}
-		private void KeyDown(KeyEventArgs e)
-		{
-			if (e.KeyCode == Keys.Left)
-			{
-			}
-		}
-		public static void Main(string[] args) 
-		{
-			Application.Init();
-			MainWindow win = new MainWindow();
-			win.Show();
-			Application.Run();
-		}
 	}
+
 }

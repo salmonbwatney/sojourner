@@ -21,8 +21,13 @@ using System;
 using System.Collections;
 using Gtk;
 using Raspberry.IO.GeneralPurpose;
+<<<<<<< HEAD:SojournerMotorControl/SojournerMotorControl/Program.cs
 
 //Supress "unused" warnings
+=======
+using Raspberry.System;
+
+>>>>>>> master:sojournercontrols_sln/sojournercontrols/Program.cs
 
 #pragma warning disable CS0414, CS0169
 

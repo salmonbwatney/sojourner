@@ -21,79 +21,90 @@ using System.Net.Sockets;
 using System.Threading;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
-
+using System.Text;
 using System.Windows.Forms;
 
 using Gtk;
 using GLib;
 
-//Suppress "unused private variable" / "unused class" / "unused variable"
-#pragma warning disable CS0414, CS0169, CS0219
+//Suppress "unused private variable" / "unused class" / "unused variable" / "declared but never used"
+#pragma warning disable CS0414, CS0169, CS0219, CS0168
 
 namespace SojournerGUI
 {
 	public class PyConnect
 	{
 		//Connection method for connecting to Python Server
-		public NetworkStream Connection()
+		public static System.Net.Sockets.Socket Connection()
 		{
-			//Create new connection socket
-			TcpClient socket = new TcpClient();
-			socket.Connect("localhost", 4001);
-			NetworkStream network = socket.GetStream();
-			return network;
+			while (true)
+			{
+				try
+				{
+					System.Net.Sockets.Socket sck = new System.Net.Sockets.Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
+
+					//Write Connection details to application output console
+					Console.WriteLine(sck.Connected.ToString());
+
+					System.Net.IPEndPoint destAddress = new System.Net.IPEndPoint(System.Net.IPAddress.Parse("192.168.1.13"), 4001);
+					sck.Connect(destAddress);
+
+					//Write to console again
+					Console.WriteLine(sck.Connected.ToString());
+
+					//Return socket details
+					if (sck.Connected == true)
+					{
+						return sck;
+					}
+				}
+				//Reconnect if it fails
+				catch (Exception ex)
+				{
+					Console.WriteLine("Could not connect to server. Retrying in 3 seconds");
+					//Sleep before reconnecting
+					System.Threading.Thread.Sleep(3000);
+				}
+			}
 		}
 
 		// Get Key states and write to network stream
 		[GLib.ConnectBefore()]
 		public static void KeyPressEvent(object sender, Gtk.KeyPressEventArgs args)
 		{
-			//Write to console
-			//System.Console.WriteLine("Keypress: {0}", args.Event.Key);
+			//Storage for key pressed
+			var keyOut = args.Event.Key;
 
-
-			//New Storage Variable for the key pressed
-			var dataOutput = args.Event.Key;
-
-			PyConnect activeConnection = new PyConnect();
-
-			//New StreamWriter
-			var netStream = activeConnection.Connection();
-			System.IO.StreamWriter streamWriter = new System.IO.StreamWriter(netStream);
-
-
+			//New Connection
+			PyConnect.Connection netStreamSocket = new PyConnect.Connection();
+			
 			// -------------- Key definitions --------------
 
 			//If key pressed / held is "w" or "W"
 			if (args.Event.KeyValue == 0x057 || args.Event.KeyValue == 0x077)
 			{
 				Console.WriteLine("Keypress: {0}", args.Event.Key);
-				streamWriter.WriteLine("mov_fwd");
-				streamWriter.Flush();
+				byte[] msgOut = new byte[] { };
+				msgOut = Encoding.ASCII.GetBytes("mov_fwd");
+				//netStream.Send(msgOut);
 			}
 
 			//If key pressed / held is "a" or "A"
 			if (args.Event.KeyValue == 0x041 || args.Event.KeyValue == 0x061)
 			{
 				Console.WriteLine("Keypress: {0}", args.Event.Key);
-				streamWriter.WriteLine("turn_left");
-				streamWriter.Flush();
 			}
 
 			//If key pressed / held is "s" or "S"
 			if (args.Event.KeyValue == 0x053 || args.Event.KeyValue == 0x073)
 			{
 				Console.WriteLine("Keypress: {0}", args.Event.Key);
-				streamWriter.WriteLine("mov_rev");
-				streamWriter.Flush();
 			}
 
 			//If key pressed / held is "d" or "D"
 			if (args.Event.KeyValue == 0x044 || args.Event.KeyValue == 0x064)
 			{
 				Console.WriteLine("Keypress: {0}", args.Event.Key);
-				streamWriter.WriteLine("turn_right");
-				streamWriter.Flush();
 			}
 
 			//Extra Peripherals
@@ -102,9 +113,6 @@ namespace SojournerGUI
 			if (args.Event.KeyValue == 0x043 || args.Event.KeyValue == 0x063)
 			{
 				Console.WriteLine("Keypress: {0}", args.Event.Key);
-				streamWriter.WriteLine("toggle_camera");
-				streamWriter.Flush();
-
 				//@TODO Camera control code
 			}
 

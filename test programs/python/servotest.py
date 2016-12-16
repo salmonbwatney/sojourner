@@ -6,7 +6,7 @@ GPIO.setmode(GPIO.BOARD)
 GPIO.setup(12, GPIO.OUT)
 
 p = GPIO.PWM(12, 50)
-duty_cycle = 70.0
+duty_cycle = 7
 delay_time = 20 #in ms
 p.start(duty_cycle)
 

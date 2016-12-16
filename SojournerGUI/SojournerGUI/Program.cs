@@ -76,7 +76,7 @@ namespace SojournerGUI
 			var keyOut = args.Event.Key;
 
 			//New Connection
-			PyConnect.Connection netStreamSocket = new PyConnect.Connection();
+			//PyConnect.Connection netStreamSocket = new PyConnect.Connection();
 			
 			// -------------- Key definitions --------------
 

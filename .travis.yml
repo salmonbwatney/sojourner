@@ -1,14 +1,31 @@
 language: csharp
-solution: /SojournerGUI/SojournerGUI.sln
+os:
+  - osx
+  - windows
+  - linux
+solution: ~/SojournerGUI/SojournerGUI.sln
 matrix:
   include:
-    - dotnet: dotnet-dev-osx-x64.1.0.0-preview2-1-003177
+    - os: osx
+      dotnet: dotnet-dev-osx-x64.1.0.0-preview2-1-003177
       mono: none
       env: DOTNETCORE=1
-    - mono: 4.8.0
+    - os: osx
+      osx_image: xcode8.2
+      mono: 4.8.0
+  allow_failures:
+    - os: linux
+    - os: windows
 
+before_install:
+  - if [["$TRAVIS_OS_NAME" == "osx"]]; then brew update; fi
+  - if [["$TRAVIS_OS_NAME" == "osx"]]; then brew install nuget; fi
+
+install:
+  - nuget install NUnit.Runners -Version 2.6.4 -OutputDirectory testruns
+  - nuget restore ~/SojournerGUI/SojournerGUI.sln
+
+script:
+  xbuild /p:Configuration=Debug ~/SojournerGUI/SojournerGUI.sln
 after_test:
-    - .\packages\OpenCover.4.6.519\OpenCover.Console.exe -register:user -target:"C:\Program Files (x86)\Microsoft Visual Studio 12.0\Common7\IDE\MSTest.exe" -targetargs:"/noresults /noisolation /testcontainer:"".\MyProject Unit Tests\bin\Debug\MyProject.UnitTests.dll" -filter:"+[MyProject]*  -[MyProject]MyProject.Properties.*" -excludebyattribute:*.ExcludeFromCodeCoverage* -hideskipped:All -output:.\MyProject_coverage.xml
-    - "SET PATH=C:\\Python34;C:\\Python34\\Scripts;%PATH%"
-    - pip install codecov
-    - codecov -f "MyProject_coverage.xml"
+    - bash <(curl -s https://codecov.io/bash) || echo "Codecov did not collect coverage reports"

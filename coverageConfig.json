@@ -1,0 +1,5 @@
+{
+  "assemblies": [""],
+  "typeInclude": "Codecov.Example.*",
+  "typeExclude": "Codecov.Example.*Tests*"
+}

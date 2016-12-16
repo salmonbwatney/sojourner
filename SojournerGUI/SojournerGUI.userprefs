@@ -1,8 +1,23 @@
 ﻿<Properties StartupConfiguration="{C036CD62-3DE8-41B5-921B-FC0EE4EDC393}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="SojournerGUI/Program.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="SojournerUnitTests/Test.cs">
     <Files>
-      <File FileName="SojournerGUI/Program.cs" Line="70" Column="1" />
+      <File FileName="SojournerGUI/Program.cs" Line="56" Column="3" />
+      <File FileName="SojournerUnitTests/Test.cs" Line="9" Column="18" NotebookId="1" />
     </Files>
+    <Pads>
+      <Pad Id="MonoDevelop.UnitTesting.TestPad">
+        <State name="__root__">
+          <Node name="SojournerGUI" expanded="True">
+            <Node name="SojournerGUI" selected="True" />
+            <Node name="SojournerUnitTests" expanded="True">
+              <Node name="SojournerUnitTests" expanded="True">
+                <Node name="Test" expanded="True" />
+              </Node>
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

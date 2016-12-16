@@ -27,3 +27,11 @@ coverage:
               - samantha-dev
               - isaac-dev
               - gh-pages
+comment:
+  layout: "header, diff, changes, sunburst, uncovered, tree"
+  branches:
+    - master
+    - samantha-dev
+    - isaac-dev
+    - gh-pages
+  behavior: default

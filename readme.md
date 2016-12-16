@@ -1,5 +1,12 @@
 # Sojouner (nobody likes you pathfinder)![license](https://img.shields.io/badge/license-GPL_v3-blue.svg?style=flat)
 
+! Note !
+Be sure to check the [Projects Tab](https://github.com/markwatneyy/sojourner/projects)
+for work that needs to be done, and the [Issues Tab](https://github.com/markwatneyy/sojourner/issues)
+for any issues that need to be resolved.
+
+All commits must be done to your own personal development branch or fork where
+it will be merged with the 'master' branch via PR.
 
 ### Task List
 

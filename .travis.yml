@@ -5,11 +5,6 @@ matrix:
   include:
     - os: osx
       osx_image: xcode8.2
-      dotnet: dotnet-dev-osx-x64.1.0.0-preview2-1-003177
-      mono: none
-      env: DOTNETCORE=1
-    - os: osx
-      osx_image: xcode8.2
       mono: 4.8.0
     - os: linux
       sudo: false

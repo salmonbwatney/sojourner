@@ -1,12 +1,21 @@
-# Sojouner (nobody likes you pathfinder)![license](https://img.shields.io/badge/license-GPL_v3-blue.svg?style=flat)
+# Sojouner (nobody likes you pathfinder) ![license](https://img.shields.io/badge/license-GPL_v3-green.svg?style=flat-square) ![platform](https://img.shields.io/badge/platform-OS_X 10.11+-lightgrey.svg?style=flat-square) ![platform](https://img.shields.io/badge/platform-Ubuntu_14.04_| 16.04-orange.svg?style=flat-square) ![mono version](https://img.shields.io/badge/mono_version-4.8.0-6cdbea.svg?style=flat-square)
 
-! Note !
+###### Note
 Be sure to check the [Projects Tab](https://github.com/markwatneyy/sojourner/projects)
 for work that needs to be done, and the [Issues Tab](https://github.com/markwatneyy/sojourner/issues)
 for any issues that need to be resolved.
 
 All commits must be done to your own personal development branch or fork where
 it will be merged with the 'master' branch via PR.
+
+### Repository Information
+
+| Branch     | Maintained by                             | CI Status | CodeCov |
+|:----------:|:-----------------------------------------:|:---------:|:-------:|
+|master      | Git protected branch. Access limited to approved contributers                      | [![Build Status](https://img.shields.io/travis/markwatneyy/sojourner/master.svg?style=flat-square)](https://travis-ci.org/markwatneyy/sojourner)| [![codecov](https://img.shields.io/codecov/c/markwatneyy/sojourner/branch/master/graph/master.svg?style=flat-square)](https://codecov.io/gh/markwatneyy/sojourner)|
+|samantha-dev | [Samantha](https://github.com/markwatneyy)| [![Build Status](https://img.shields.io/travis/markwatneyy/sojourner/samantha-dev.svg?style=flat-square)](https://travis-ci.org/markwatneyy/sojourner)| [![codecov](https://img.shields.io/codecov/c/markwatneyy/sojourner/branch/master/graph/samantha-dev.svg?style=flat-square)](https://codecov.io/gh/markwatneyy/sojourner)|
+|isaac-dev   | [Isaac](https://github.com/dinolover637)|[![Build Status](https://img.shields.io/travis/markwatneyy/sojourner/isaac-dev.svg?style=flat-square)](https://travis-ci.org/markwatneyy/sojourner)| [![codecov](https://img.shields.io/codecov/c/markwatneyy/sojourner/branch/master/graph/isaac-dev.svg?style=flat-square)](https://codecov.io/gh/markwatneyy/sojourner)|
+|gh-pages    | [Samantha](https://github.com/markwatneyy)| N/A | N/A|
 
 ### Task List
 

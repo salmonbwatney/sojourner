@@ -1,31 +1,33 @@
 language: csharp
-os:
-  - osx
-  - windows
-  - linux
-solution: ~/SojournerGUI/SojournerGUI.sln
+solution: SojournerGUI/SojournerGUI.sln
+
 matrix:
   include:
     - os: osx
+      osx_image: xcode8.2
       dotnet: dotnet-dev-osx-x64.1.0.0-preview2-1-003177
       mono: none
       env: DOTNETCORE=1
     - os: osx
       osx_image: xcode8.2
       mono: 4.8.0
+    - os: linux
+      sudo: false
+      dist: trusty
+      mono: latest
   allow_failures:
     - os: linux
-    - os: windows
 
 before_install:
   - if [["$TRAVIS_OS_NAME" == "osx"]]; then brew update; fi
+  - if [["$TRAVIS_OS_NAME" == "osx"]]; then brew install gtk; fi
   - if [["$TRAVIS_OS_NAME" == "osx"]]; then brew install nuget; fi
 
 install:
   - nuget install NUnit.Runners -Version 2.6.4 -OutputDirectory testruns
-  - nuget restore ~/SojournerGUI/SojournerGUI.sln
+  - nuget restore SojournerGUI/SojournerGUI.sln
 
 script:
-  xbuild /p:Configuration=Debug ~/SojournerGUI/SojournerGUI.sln
+  xbuild /p:Configuration=Debug SojournerGUI/SojournerGUI.sln
 after_test:
     - bash <(curl -s https://codecov.io/bash) || echo "Codecov did not collect coverage reports"

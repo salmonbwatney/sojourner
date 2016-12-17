@@ -1,18 +1,12 @@
-﻿<Properties StartupConfiguration="{C036CD62-3DE8-41B5-921B-FC0EE4EDC393}|Default" GitUserInfo="UsingGIT">
+﻿<Properties StartupConfiguration="{226161BD-FF05-4D22-9E8C-2010FC6ABA98}|Unit Tests" GitUserInfo="UsingGIT">
   <MonoDevelop.Ide.Workbench ActiveDocument="SojournerGUI Status">
     <Files>
       <File FileName="SojournerGUI/Program.cs" Line="63" Column="6" />
+      <File FileName="SojournerUnitTests/Test.cs" Line="14" Column="11" />
       <File FileName="SojournerGUI Status" />
     </Files>
-    <Pads>
-      <Pad Id="MonoDevelop.UnitTesting.TestPad">
-        <State name="__root__">
-          <Node name="SojournerGUI" expanded="True" selected="True" />
-        </State>
-      </Pad>
-    </Pads>
   </MonoDevelop.Ide.Workbench>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Release" />
   <MonoDevelop.Ide.ItemProperties.SojournerUnitTests PreferredExecutionTarget="MonoDevelop.Default" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />

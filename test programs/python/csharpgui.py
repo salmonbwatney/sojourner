@@ -41,24 +41,6 @@ oprCycleToLeft = 50     # Operation cycles for steering
 oprCycleToMid = 50      # Operation cycles for steering
 oprCycleToRight = 50    # Operation cycles for steering
 
-GPIO.setmode(GPIO.BOARD)
-
-GPIO.setup(11, GPIO.OUT)
-
-p = GPIO.PWM(11, 50)
-duty_cycle = 70.0
-delay_time = 20 #in ms
-p.start(duty_cycle)
-
-try:
-    while True:
-        p.ChangeDutyCycle(duty_cycle)
-        time.sleep(delay_time)
-except KeyboardInterrupt:
-    p.stop()
-    GPIO.cleanup()
-
-
 #Input Catch
 def heard(phraseIn):
     Msgin, Client = sigIn.recv(1024)

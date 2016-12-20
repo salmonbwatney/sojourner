@@ -5,17 +5,17 @@ clean:
 
 compile: clean
 	nuget restore SojournerGUI/SojournerGUI.sln
-	xbuild /p:TargetFrameworkVersion="v4.5" /p:Configuration=Release SojournerGUI/SojournerGUI.sln
+	xbuild /p:TargetFrameworkVersion="v4.5" /p:Configuration=Debug SojournerGUI/SojournerGUI.sln
 
 test:
 	nuget install NUnit.Runners -Version 3.0.1 -OutputDirectory tools
-	mono ./tools/NUnit.Console.3.0.1/tools/nunit3-console.exe -workers 1 `(find SojournerUnitTests -name *Tests.dll | grep -v obj/Release)`
+	mono ./tools/NUnit.Console.3.0.1/tools/nunit3-console.exe -workers 1 `(find SojournerUnitTests -name *Tests.dll | grep -v obj/Debug)`
 
 coverageconfig:
 	./ContinuousIntegration/Build/generateCoverageConfig.sh > ./coverageConfig.json
 
 instrument: coverageconfig
-	mono ./tools/SharpCover/SharpCover.exe instrument .././coverageConfig.json
+	mono ./SojournerGUI/SojournerGUI/obj/x86/Debug/SojournerGUI.exe instrument ./coverageConfig.json
 
 coverage: compile instrument test
-	-mono ./tools/SharpCover/SharpCover.exe check
+	-mono ./SojournerGUI/SojournerGUI/obj/x86/Debug/SojournerGUI.exe check

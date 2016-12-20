@@ -50,6 +50,57 @@
     <Reference Include="glade-sharp, Version=2.12.0.0, Culture=neutral, PublicKeyToken=35e10195dab3c99f" />
     <Reference Include="pango-sharp, Version=2.12.0.0, Culture=neutral, PublicKeyToken=35e10195dab3c99f" />
     <Reference Include="atk-sharp, Version=2.12.0.0, Culture=neutral, PublicKeyToken=35e10195dab3c99f" />
+    <Reference Include="Paraiba">
+      <HintPath>..\packages\Paraiba.1.0.0.10\lib\net40\Paraiba.dll</HintPath>
+    </Reference>
+    <Reference Include="Paraiba.Experiment">
+      <HintPath>..\packages\Paraiba.Experiment.1.0.1.15\lib\net40\Paraiba.Experiment.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Runtime">
+      <HintPath>..\packages\Code2Xml.1.4.0.2\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="Code2Xml.Core">
+      <HintPath>..\packages\Code2Xml.1.4.0.2\lib\Code2Xml.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Code2Xml.Languages.C">
+      <HintPath>..\packages\Code2Xml.1.4.0.2\lib\Code2Xml.Languages.C.dll</HintPath>
+    </Reference>
+    <Reference Include="Code2Xml.Languages.CSharp">
+      <HintPath>..\packages\Code2Xml.1.4.0.2\lib\Code2Xml.Languages.CSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="Code2Xml.Languages.Java">
+      <HintPath>..\packages\Code2Xml.1.4.0.2\lib\Code2Xml.Languages.Java.dll</HintPath>
+    </Reference>
+    <Reference Include="Code2Xml.Languages.JavaScript">
+      <HintPath>..\packages\Code2Xml.1.4.0.2\lib\Code2Xml.Languages.JavaScript.dll</HintPath>
+    </Reference>
+    <Reference Include="Code2Xml.Languages.Lua">
+      <HintPath>..\packages\Code2Xml.1.4.0.2\lib\Code2Xml.Languages.Lua.dll</HintPath>
+    </Reference>
+    <Reference Include="Code2Xml.Languages.Python2">
+      <HintPath>..\packages\Code2Xml.1.4.0.2\lib\Code2Xml.Languages.Python2.dll</HintPath>
+    </Reference>
+    <Reference Include="Code2Xml.Languages.Python3">
+      <HintPath>..\packages\Code2Xml.1.4.0.2\lib\Code2Xml.Languages.Python3.dll</HintPath>
+    </Reference>
+    <Reference Include="Code2Xml.Languages.Ruby18">
+      <HintPath>..\packages\Code2Xml.1.4.0.2\lib\Code2Xml.Languages.Ruby18.dll</HintPath>
+    </Reference>
+    <Reference Include="IronRuby">
+      <HintPath>..\packages\Code2Xml.1.4.0.2\lib\IronRuby.dll</HintPath>
+    </Reference>
+    <Reference Include="IronRuby.Libraries">
+      <HintPath>..\packages\Code2Xml.1.4.0.2\lib\IronRuby.Libraries.dll</HintPath>
+    </Reference>
+    <Reference Include="IronRuby.Libraries.Yaml">
+      <HintPath>..\packages\Code2Xml.1.4.0.2\lib\IronRuby.Libraries.Yaml.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Dynamic">
+      <HintPath>..\packages\Code2Xml.1.4.0.2\lib\Microsoft.Dynamic.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Scripting">
+      <HintPath>..\packages\Code2Xml.1.4.0.2\lib\Microsoft.Scripting.dll</HintPath>
+    </Reference>
     <Reference Include="nunit.framework">
       <HintPath>..\packages\NUnit.3.5.0\lib\net45\nunit.framework.dll</HintPath>
     </Reference>
@@ -68,6 +119,38 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+    <None Include="Tools\ReportGenerator\ReportGenerator.XML" />
+    <None Include="Tools\ReportGenerator\ReportGenerator.Reporting.XML" />
+    <None Include="Tools\ReportGenerator\ReportGenerator.Reporting.dll" />
+    <None Include="Tools\ReportGenerator\ReportGenerator.exe" />
+    <None Include="Tools\ReportGenerator\log4net.dll" />
+    <None Include="Tools\ReportGenerator\ICSharpCode.NRefactory.dll" />
+    <None Include="Tools\ReportGenerator\ICSharpCode.NRefactory.CSharp.dll" />
+    <None Include="Tools\OpenCover\x86\OpenCover.Profiler.dll" />
+    <None Include="Tools\OpenCover\x64\OpenCover.Profiler.dll" />
+    <None Include="Tools\OpenCover\OpenCover.Framework.pdb" />
+    <None Include="Tools\OpenCover\OpenCover.Framework.dll" />
+    <None Include="Tools\OpenCover\OpenCover.Extensions.pdb" />
+    <None Include="Tools\OpenCover\OpenCover.Extensions.dll" />
+    <None Include="Tools\OpenCover\OpenCover.Console.pdb" />
+    <None Include="Tools\OpenCover\OpenCover.Console.exe.config" />
+    <None Include="Tools\OpenCover\OpenCover.Console.exe" />
+    <None Include="Tools\OpenCover\Mono.Cecil.Pdb.dll" />
+    <None Include="Tools\OpenCover\Mono.Cecil.Mdb.dll" />
+    <None Include="Tools\OpenCover\Mono.Cecil.dll" />
+    <None Include="Tools\OpenCover\log4net.dll" />
+    <None Include="Tools\OpenCover\log4net.config" />
+    <None Include="Tools\OpenCover\Gendarme.Rules.Maintainability.dll" />
+    <None Include="Tools\OpenCover\Gendarme.Framework.dll" />
+    <None Include="Tools\OpenCover\Autofac.dll" />
+    <None Include="Tools\OpenCover\Autofac.Configuration.dll" />
+    <None Include="Thirdparties.html" />
+    <None Include="CodeCoverageGenerationTool.vshost.exe.manifest" />
+    <None Include="CodeCoverageGenerationTool.vshost.exe.config" />
+    <None Include="CodeCoverageGenerationTool.vshost.exe" />
+    <None Include="CodeCoverageGenerationTool.pdb" />
+    <None Include="CodeCoverageGenerationTool.exe.config" />
+    <None Include="CodeCoverageGenerationTool.exe" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\Xamarin.Forms.2.3.3.175\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+Xamarin.iOS10+xamarinmac20\Xamarin.Forms.targets" Condition="Exists('..\packages\Xamarin.Forms.2.3.3.175\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+Xamarin.iOS10+xamarinmac20\Xamarin.Forms.targets')" />

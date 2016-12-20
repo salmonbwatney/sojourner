@@ -23,7 +23,7 @@ using System.Diagnostics;
 using System.Runtime.InteropServices;
 using System.Text;
 using System.Windows.Forms;
-
+using NUnit.Framework;
 using Gtk;
 using GLib;
 
@@ -46,7 +46,7 @@ namespace SojournerGUI
 					//Write Connection details to application output console
 					Console.WriteLine(sck.Connected.ToString());
 
-					System.Net.IPEndPoint destAddress = new System.Net.IPEndPoint(System.Net.IPAddress.Parse("192.168.1.13"), 4001);
+					System.Net.IPEndPoint destAddress = new System.Net.IPEndPoint(System.Net.IPAddress.Parse("localhost"), 4001);
 					sck.Connect(destAddress);
 
 					//Write to console again
@@ -68,6 +68,7 @@ namespace SojournerGUI
 			}
 		}
 
+
 		// Get Key states and write to network stream
 		[GLib.ConnectBefore()]
 		public static void KeyPressEvent(object sender, Gtk.KeyPressEventArgs args)
@@ -86,7 +87,7 @@ namespace SojournerGUI
 				Console.WriteLine("Keypress: {0}", args.Event.Key);
 				byte[] msgOut = new byte[] { };
 				msgOut = Encoding.ASCII.GetBytes("mov_fwd");
-				//netStream.Send(msgOut);
+				netStream.Send(msgOut);
 			}
 
 			//If key pressed / held is "a" or "A"

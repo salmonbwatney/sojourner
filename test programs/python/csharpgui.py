@@ -84,7 +84,3 @@ while network.isConnected():
 
     else:
         drive_servo.ChangeDutyCycle(dutyCycleIdle)
-except KeyboardInterrupt:
-    drive_servo.stop()
-    steering_servo.stop()
-    GPIO.cleanup()

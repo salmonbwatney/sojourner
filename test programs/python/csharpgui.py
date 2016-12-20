@@ -4,17 +4,18 @@ import sys
 import network
 import time
 
+'''
 HOST = '0.0.0.0'  # Symbolic name meaning all available interfaces
 PORT = 4001      # Arbitrary non-privileged port
 sigIn = socket.socket(socket.AF_INET, socket.SOCK_STREAM) # Create new socket
 sigIn.bind((HOST, PORT)) # Bind to the connection details specified above
-sigIn.listen(1) 
+sigIn.listen(1)
 conn, addr = sigIn.accept()
 print ('Connected by', addr)
-
+'''
 # Servo variables
-steering_pin = 17 # Physical pin 11
-drive_pin = 27 # Physical pin 13
+steering_pin = 11 # Physical pin 11
+drive_pin = 12 # Physical pin 13
 
 dutyCycleDriveFwd = 5.0     # Drive Forwards
 dutyCycleDriveRev = 55.0    # Drive Backwards
@@ -25,7 +26,7 @@ dutyCycleIdle = 0.0         # Do nothing
 driveDelay = 20
 steeringDelay = 50
 
-GPIO.setmode(GPIO.BCM) #Set GPIO Ref No. to Broadcom Pin Numbering
+GPIO.setmode(GPIO.BOARD) #Set GPIO Ref No. to Broadcom Pin Numbering
 GPIO.setup(steering_pin, GPIO.OUT)
 GPIO.setup(drive_pin, GPIO.OUT)
 
@@ -48,7 +49,7 @@ if (len(sys.argv) >= 2):
     network.call(sys.argv[1], whenHearCall=heard)
 else:
     network.wait(whenHearCall=heard)
-    
+
 while network.isConnected():
 
     # If mov_fwd command sent
@@ -64,7 +65,7 @@ while network.isConnected():
                 steer_servo.ChangeDutyCycle(dutyCycleTurnRight)
                 time.sleep(steeringDelay)
 
-    # If mov_rev command sent               
+    # If mov_rev command sent
     elif (Msgin == "mov_rev"):
         while True:
             drive_servo.ChangeDutyCycle(dutyCycleDriveRev)
@@ -77,10 +78,13 @@ while network.isConnected():
                 steer_servo.ChangeDutyCycle(dutyCycleTurnRight)
                 time.sleep(steeringDelay)
 
-    # If stop command sent            
+    # If stop command sent
     elif (Msgin == "mov_stp"):
         drive_servo.ChangeDutyCycle(dutyCycleIdle)
 
     else:
         drive_servo.ChangeDutyCycle(dutyCycleIdle)
-
+except KeyboardInterrupt:
+    drive_servo.stop()
+    steering_servo.stop()
+    GPIO.cleanup()

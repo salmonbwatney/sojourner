@@ -1,0 +1,4 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<test-run start-time="2016-12-17 00:41:47Z">
+  <command-line><![CDATA[/Users/Samantha/sojourner/tools/NUnit.Console.3.0.1/tools/nunit3-console.exe -workers 1 SojournerGUI/SojournerUnitTests/bin/Debug/SojournerUnitTests.dll SojournerGUI/SojournerUnitTests/bin/Release/SojournerUnitTests.dll SojournerGUI/SojournerUnitTests/obj/Release/SojournerUnitTests.dll]]></command-line>
+</test-run>

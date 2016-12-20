@@ -1,9 +1,8 @@
-﻿<Properties StartupConfiguration="{226161BD-FF05-4D22-9E8C-2010FC6ABA98}|Unit Tests" GitUserInfo="UsingGIT">
-  <MonoDevelop.Ide.Workbench ActiveDocument="SojournerGUI Status">
+﻿<Properties StartupConfiguration="{C036CD62-3DE8-41B5-921B-FC0EE4EDC393}|Default" GitUserInfo="UsingGIT">
+  <MonoDevelop.Ide.Workbench ActiveDocument="SojournerGUI/Program.cs">
     <Files>
-      <File FileName="SojournerGUI/Program.cs" Line="63" Column="6" />
+      <File FileName="SojournerGUI/Program.cs" Line="53" Column="5" />
       <File FileName="SojournerUnitTests/Test.cs" Line="14" Column="11" />
-      <File FileName="SojournerGUI Status" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Release" />

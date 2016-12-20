@@ -1,7 +1,7 @@
 ﻿<Properties StartupConfiguration="{C036CD62-3DE8-41B5-921B-FC0EE4EDC393}|Default" GitUserInfo="UsingGIT">
   <MonoDevelop.Ide.Workbench ActiveDocument="SojournerGUI/Program.cs">
     <Files>
-      <File FileName="SojournerGUI/Program.cs" Line="53" Column="5" />
+      <File FileName="SojournerGUI/Program.cs" Line="90" Column="5" />
       <File FileName="SojournerUnitTests/Test.cs" Line="14" Column="11" />
     </Files>
   </MonoDevelop.Ide.Workbench>

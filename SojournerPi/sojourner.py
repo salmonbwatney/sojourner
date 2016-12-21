@@ -48,11 +48,6 @@ def heard(cmd):
                 dServo.ChangeDutyCycle(cycleIdle)
                 time.sleep(d_delay)
 
-if (len(sys.argv) >= 2):
-  network.call(sys.argv[1], whenHearCall=heard)
-else:
-  network.wait(whenHearCall=heard)
-
 while True:
     print ("awaiting connection")
     network.wait(whenHearCall = heard)
@@ -60,5 +55,6 @@ while True:
 
     while network.isConnected():
         print ("server is running")
-
+        time.sleep(1)
+        
     print ("connection closed")

@@ -17,16 +17,15 @@ GPIO.setup(dPin, GPIO.OUT)
 GPIO.setup(sPin, GPIO.OUT)
 GPIO.cleanup()
 
+dServo = GPIO.PWM(dPin, 50)
+stServo = GPIO.PWM(sPin, 50)
+
 # Duty Cycles
 cycleFwd = 5.0
 cycleRev = 55.0
 cycleLeft = 45.0
 cycleRight = 95.0
 cycleIdle = 0.0
-
-# Delay times
-d_delay = 20 # Delay time for drive servo
-s_delay = 50 # Delay time for steering servo
 
 # Servo Assignment
 dServo = GPIO.PWM(dPin, 50)

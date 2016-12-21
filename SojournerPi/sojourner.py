@@ -5,9 +5,15 @@ import sys
 import network
 import time
 
-# Pin setup
+# Pin mode setup
 GPIO.setmode(GPIO.BOARD) # Set GPIO referencing numbers to Broadcom Pin Numbering
 
+# GPIO Setup
+GPIO.setup(dPin, GPIO.OUT)
+GPIO.setup(sPin, GPIO.OUT)
+GPIO.cleanup()
+
+#Pin Variables
 sPin = 11 # Steering assigned to physical pin 11
 dPin = 12 # Drive assigned to physical pin 12
 
@@ -21,11 +27,6 @@ cycleIdle = 0.0
 # Delay times
 d_delay = 20 # Delay time for drive servo
 s_delay = 50 # Delay time for steering servo
-
-# GPIO Setup
-GPIO.setup(dPin, GPIO.OUT)
-GPIO.setup(sPin, GPIO.OUT)
-GPIO.cleanup()
 
 # Servo Assignment
 dServo = GPIO.PWM(dPin, 50)

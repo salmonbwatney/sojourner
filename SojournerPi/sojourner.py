@@ -5,6 +5,10 @@ import sys
 import network
 import time
 
+#Pin Variables
+sPin = 11 # Steering assigned to physical pin 11
+dPin = 12 # Drive assigned to physical pin 12
+
 # Pin mode setup
 GPIO.setmode(GPIO.BOARD) # Set GPIO referencing numbers to Broadcom Pin Numbering
 
@@ -12,10 +16,6 @@ GPIO.setmode(GPIO.BOARD) # Set GPIO referencing numbers to Broadcom Pin Numberin
 GPIO.setup(dPin, GPIO.OUT)
 GPIO.setup(sPin, GPIO.OUT)
 GPIO.cleanup()
-
-#Pin Variables
-sPin = 11 # Steering assigned to physical pin 11
-dPin = 12 # Drive assigned to physical pin 12
 
 # Duty Cycles
 cycleFwd = 5.0

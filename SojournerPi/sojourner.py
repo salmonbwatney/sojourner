@@ -15,7 +15,6 @@ GPIO.setmode(GPIO.BOARD) # Set GPIO referencing numbers to Broadcom Pin Numberin
 # GPIO Setup
 GPIO.setup(dPin, GPIO.OUT)
 GPIO.setup(sPin, GPIO.OUT)
-GPIO.cleanup()
 
 dServo = GPIO.PWM(dPin, 50)
 stServo = GPIO.PWM(sPin, 50)

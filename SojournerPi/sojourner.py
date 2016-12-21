@@ -50,16 +50,9 @@ def heard(cmd):
                 time.sleep(d_delay)
         '''
 
-while True:
-    print ("awaiting connection")
-    network.wait(whenHearCall = heard)
-    print ("connected")
-
-    while network.isConnected():
-        print ("server is running")
-        time.sleep(1)
-        cmd = input()
-        print("server: " + cmd)
-        network.say(cmd)
-
-    print ("connection closed")
+while network.isConnected():
+    print ("server is running")
+    time.sleep(1)
+    cmd = input()
+    print("server: " + cmd)
+    network.say(cmd)

@@ -57,8 +57,3 @@ while True:
         print ("server is running")
 
     print ("connection closed")
-
-except KeyboardInterrupt:
-    dServo.stop()
-    stServo.stop()
-    GPIO.cleanup()

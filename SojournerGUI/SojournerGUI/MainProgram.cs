@@ -11,9 +11,9 @@
     limitations under the License.
     Program Created by: 	Samantha Rachel Belnavis
 	Date Created:			December 12, 2016
-	Date Last Modified: 	December 12, 2016
-    File Name: 				Program.cs
-    File Description: 		GUI controller for Sojourner
+	Date Last Modified: 	December 20, 2016
+    File Name: 				MainProgram.cs
+    File Description: 		Main GUI controller for Sojourner
 */
 
 using System;
@@ -34,8 +34,9 @@ namespace SojournerGUI
 {
 	public class PyConnect
 	{
+
 		//Connection method for connecting to Python Server
-		public static System.Net.Sockets.Socket Connection()
+		public static System.Net.Sockets.Socket ConnSocket()
 		{
 			while (true)
 			{
@@ -68,7 +69,6 @@ namespace SojournerGUI
 			}
 		}
 
-
 		// Get Key states and write to network stream
 		[GLib.ConnectBefore()]
 		public static void KeyPressEvent(object sender, Gtk.KeyPressEventArgs args)
@@ -76,8 +76,6 @@ namespace SojournerGUI
 			//Storage for key pressed
 			var keyOut = args.Event.Key;
 
-			//New Connection
-			//PyConnect.Connection netStreamSocket = new PyConnect.Connection();
 			
 			// -------------- Key definitions --------------
 
@@ -87,7 +85,7 @@ namespace SojournerGUI
 				Console.WriteLine("Keypress: {0}", args.Event.Key);
 				byte[] msgOut = new byte[] { };
 				msgOut = Encoding.ASCII.GetBytes("mov_fwd");
-				netStream.Send(msgOut);
+
 			}
 
 			//If key pressed / held is "a" or "A"
@@ -124,12 +122,38 @@ namespace SojournerGUI
 			}
 		}
 
+		// GUI Specific Events
+
+		//Runs when the window is cloaed
+		static void delete_event(object obj, DeleteEventArgs args)
+		{
+			Gtk.Application.Quit();
+		}
+
+		// Runs when the "test button" button is pressed
+		static void test(object obj, EventArgs args)
+		{
+			Console.WriteLine("button was pressed");
+		}
+
 		public static void Main(string[] args)
 		{
 			Gtk.Application.Init();
+
+			//New Button
+			Gtk.Button btn = new Gtk.Button("Test Button");
+
+			// Run something when a button is pressed 
+			btn.Clicked += new EventHandler(test);
+
+
 			MainWindow win = new MainWindow();
 			win.KeyPressEvent += new Gtk.KeyPressEventHandler(PyConnect.KeyPressEvent);
+
+			//Add buttons to new window
+			win.Add(btn);
 			win.ShowAll();
+
 			Gtk.Application.Run();
 		}
 

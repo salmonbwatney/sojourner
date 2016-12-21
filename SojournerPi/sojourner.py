@@ -37,6 +37,7 @@ stServo.start(cycleIdle)
 #Detect incoming commands
 def heard(cmd):
     print("incoming command: " + cmd)
+    '''
     for a in cmd:
         if a == "\r" or a == "\n":
             pass
@@ -47,6 +48,7 @@ def heard(cmd):
             else:
                 dServo.ChangeDutyCycle(cycleIdle)
                 time.sleep(d_delay)
+        '''
 
 while True:
     print ("awaiting connection")
@@ -56,5 +58,8 @@ while True:
     while network.isConnected():
         print ("server is running")
         time.sleep(1)
-        
+        cmd = input()
+        print("server: " + cmd)
+        network.say(cmd)
+
     print ("connection closed")

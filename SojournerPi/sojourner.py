@@ -49,14 +49,14 @@ def heard(cmd):
                 time.sleep(d_delay)
 
 while True:
-    print "awaiting connection"
+    print ("awaiting connection")
     network.wait(whenHearCall = heard)
-    print "connected"
+    print ("connected")
 
     while network.isConnected():
-        print "server is running"
+        print ("server is running")
 
-    print "connection closed"
+    print ("connection closed")
 
 except KeyboardInterrupt:
     dServo.stop()

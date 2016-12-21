@@ -24,6 +24,7 @@ s_delay = 50 # Delay time for steering servo
 GPIO.setmode(GPIO.BCM) # Set GPIO referencing numbers to Broadcom Pin Numbering
 GPIO.setup(dPin, GPIO.OUT)
 GPIO.setup(sPin, GPIO.OUT)
+GPIO.cleanup()
 
 # Servo Assignment
 dServo = GPIO.PWM(dPin, 50)
@@ -36,11 +37,28 @@ stServo.start(cycleIdle)
 #Detect incoming commands
 def heard(cmd):
     print("incoming command: " + cmd)
+    for a in cmd:
+        if a == "\r" or a == "\n":
+            pass
+        else:
+            if (cmd == "mov_fwd"):
+                dServo.ChangeDutyCycle(cycleFwd)
+                time.sleep(d_delay)
+            else:
+                dServo.ChangeDutyCycle(cycleIdle)
+                time.sleep(d_delay)
 
-if (len(sys.argv) >= 2):
-    network.call(sys.argv[1], whenHearCall=heard)
-else:
-    network.wait(whenHearCall=heard)
+while True:
+    print "awaiting connection"
+    network.wait(whenHearCall = heard)
+    print "connected"
 
-while network.isConnected():
-    
+    while network.isConnected():
+        print "server is running"
+
+    print "connection closed"
+
+except KeyboardInterrupt:
+    dServo.stop()
+    stServo.stop()
+    GPIO.cleanup()

@@ -6,10 +6,10 @@ import network
 import time
 
 # Pin setup
-GPIO.setmode(GPIO.BCM) # Set GPIO referencing numbers to Broadcom Pin Numbering
+GPIO.setmode(GPIO.BOARD) # Set GPIO referencing numbers to Broadcom Pin Numbering
 
-sPin = 17 # Steering assigned to physical pin 11
-dPin = 18 # Drive assigned to physical pin 12
+sPin = 11 # Steering assigned to physical pin 11
+dPin = 12 # Drive assigned to physical pin 12
 
 # Duty Cycles
 cycleFwd = 5.0

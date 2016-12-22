@@ -13,4 +13,6 @@ print ('Connected by', addr)
 
 while 1:
     data = conn.recv(1024)
-    print(data)
+    if not data: break
+    if (data == "test_btn"):
+        print(data)

@@ -11,9 +11,9 @@
     limitations under the License.
     Program Created by: 	Samantha Rachel Belnavis
 	Date Created:			December 12, 2016
-	Date Last Modified: 	December 12, 2016
-    File Name: 				Program.cs
-    File Description: 		GUI controller for Sojourner
+	Date Last Modified: 	December 20, 2016
+    File Name: 				MainProgram.cs
+    File Description: 		Main GUI controller for Sojourner
 */
 
 using System;
@@ -26,59 +26,65 @@ using System.Windows.Forms;
 using NUnit.Framework;
 using Gtk;
 using GLib;
+using System.IO;
 
 //Suppress "unused private variable" / "unused class" / "unused variable" / "declared but never used"
 #pragma warning disable CS0414, CS0169, CS0219, CS0168
 
 namespace SojournerGUI
 {
-	public class PyConnect
+
+	// TCP Stream Class
+	public class CreateTcpStream
 	{
-		//Connection method for connecting to Python Server
-		public static System.Net.Sockets.Socket Connection()
+		delegate void Delegate(NetworkStream netStream);
+
+		public NetworkStream MainConnection()
 		{
-			while (true)
-			{
-				try
-				{
-					System.Net.Sockets.Socket sck = new System.Net.Sockets.Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
+			System.Net.Sockets.TcpClient socket = new TcpClient();
+			socket.Connect("192.168.0.4", 8888);
+			NetworkStream netStream = socket.GetStream();
 
-					//Write Connection details to application output console
-					Console.WriteLine(sck.Connected.ToString());
-
-					System.Net.IPEndPoint destAddress = new System.Net.IPEndPoint(System.Net.IPAddress.Parse("localhost"), 4001);
-					sck.Connect(destAddress);
-
-					//Write to console again
-					Console.WriteLine(sck.Connected.ToString());
-
-					//Return socket details
-					if (sck.Connected == true)
-					{
-						return sck;
-					}
-				}
-				//Reconnect if it fails
-				catch (Exception ex)
-				{
-					Console.WriteLine("Could not connect to server. Retrying in 3 seconds");
-					//Sleep before reconnecting
-					System.Threading.Thread.Sleep(3000);
-				}
-			}
+			return netStream;
 		}
+	}
 
+
+	// Streamwriter Class
+	public class CreateStreamWriter
+	{
+		delegate void Delegate(StreamWriter streamWriter);
+
+		public StreamWriter writeCmd()
+		{
+			var streamInstance = new CreateTcpStream();
+			streamInstance.MainConnection();
+
+			var netStreamStore = streamInstance.MainConnection();
+
+			StreamWriter cmdStream = new StreamWriter(netStreamStore);
+
+			return cmdStream;
+		}
+	}
+
+
+	// GUI Class
+	public class MainGui
+	{
 
 		// Get Key states and write to network stream
 		[GLib.ConnectBefore()]
 		public static void KeyPressEvent(object sender, Gtk.KeyPressEventArgs args)
 		{
-			//Storage for key pressed
+			// Storage for key pressed
 			var keyOut = args.Event.Key;
 
-			//New Connection
-			//PyConnect.Connection netStreamSocket = new PyConnect.Connection();
-			
+			var streamWriterInstance = new CreateStreamWriter();
+			streamWriterInstance.writeCmd();
+
+			var writeCmd = streamWriterInstance.writeCmd();
+
 			// -------------- Key definitions --------------
 
 			//If key pressed / held is "w" or "W"
@@ -87,7 +93,8 @@ namespace SojournerGUI
 				Console.WriteLine("Keypress: {0}", args.Event.Key);
 				byte[] msgOut = new byte[] { };
 				msgOut = Encoding.ASCII.GetBytes("mov_fwd");
-				netStream.Send(msgOut);
+				writeCmd.WriteLine(msgOut);
+				writeCmd.Flush();
 			}
 
 			//If key pressed / held is "a" or "A"
@@ -124,14 +131,43 @@ namespace SojournerGUI
 			}
 		}
 
+
+
+		// GUI Specific Events
+
+		//Runs when the window is cloaed
+		static void delete_event(object obj, DeleteEventArgs args)
+		{
+			Gtk.Application.Quit();
+		}
+
+		// Runs when the "test button" button is pressed
+		static void test(object obj, EventArgs args)
+		{
+			Console.WriteLine("button was pressed");
+		}
+
+
+		// Main Method
 		public static void Main(string[] args)
 		{
 			Gtk.Application.Init();
+
+			//New Button
+			Gtk.Button btn = new Gtk.Button("Test Button");
+
+			// Run something when a button is pressed 
+			btn.Clicked += new EventHandler(test);
+
+
 			MainWindow win = new MainWindow();
-			win.KeyPressEvent += new Gtk.KeyPressEventHandler(PyConnect.KeyPressEvent);
+			win.KeyPressEvent += new Gtk.KeyPressEventHandler(MainGui.KeyPressEvent);
+
+			//Add buttons to new window
+			win.Add(btn);
 			win.ShowAll();
+
 			Gtk.Application.Run();
 		}
-
 	}
 }

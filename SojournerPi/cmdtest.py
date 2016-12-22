@@ -16,8 +16,7 @@ conn, addr = s.accept()
 print ('Connected by', addr)
 
 while 1:
-    data = conn.recv(16).decode()
-    data_recv += len(data)
+    data = conn.recv(4096).decode()
     if not data: break
     if (data == "test_btn"):
         print >> (sys.stderr, 'recieved "%s" %data')

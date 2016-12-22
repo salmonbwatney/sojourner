@@ -3,8 +3,8 @@ import os
 import sys
 import time
 
-HOST = '192.168.1.12'  # Symbolic name meaning all available interfaces
-PORT = 9050        # Arbitrary non-privileged port
+HOST = '192.168.1.3'  # Symbolic name meaning all available interfaces
+PORT = 8888        # Arbitrary non-privileged port
 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 s.bind((HOST, PORT))
 s.listen(1)

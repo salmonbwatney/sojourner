@@ -1,19 +1,16 @@
 import socket
 import os
 import sys
-import network
 import time
 
-def heard(cmd):
-    print("cmd in: " + cmd)
+HOST = '192.168.1.12'  # Symbolic name meaning all available interfaces
+PORT = 9050        # Arbitrary non-privileged port
+s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+s.bind((HOST, PORT))
+s.listen(1)
+conn, addr = s.accept()
+print ('Connected by', addr)
 
-if (len(sys.argv) >= 2):
-    network.call(sys.argv[1], whenHearCall = heard)
-    print("Sucessfully Connected to client")
-else:
-    network.wait(whenHearCall = heard)
-
-while network.isConnected():
-    phrase = input()
-    print("cmd out: " + phrase)
-    network.say(phrase)
+while 1:
+    data = conn.recv(1024)
+    print(data)

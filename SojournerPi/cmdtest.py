@@ -3,16 +3,20 @@ import os
 import sys
 import time
 
-HOST = '192.168.1.3'  # Symbolic name meaning all available interfaces
-PORT = 8888        # Arbitrary non-privileged port
+host = '192.168.1.3'  # Symbolic name meaning all available interfaces
+port = 8888        # Arbitrary non-privileged port
+
+#Debug Data
+print("host: " + host)
+print("port: " + port)
 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-s.bind((HOST, PORT))
+s.bind((host, port))
 s.listen(1)
 conn, addr = s.accept()
 print ('Connected by', addr)
 
 while 1:
-    data = conn.recv(16)
+    data = conn.recv(16).decode()
     data_recv += len(data)
     if not data: break
     if (data == "test_btn"):

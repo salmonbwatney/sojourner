@@ -16,4 +16,4 @@ while 1:
     data_recv += len(data)
     if not data: break
     if (data == "test_btn"):
-        print >> sys.stderr, 'recieved "%s" %data"
+        print >> (sys.stderr, 'recieved "%s" %data')

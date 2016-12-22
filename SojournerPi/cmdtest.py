@@ -3,7 +3,7 @@ import os
 import sys
 
 HOST = '192.168.1.3'
-PORT = '8888'
+PORT = 8888
 
 sck = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 sck.bind ((HOST, PORT))

@@ -1,25 +1,19 @@
 import socket
 import os
 import sys
+import network
+import time
 
-HOST = '192.168.1.3'
-PORT = 8888
+def heard(cmd):
+    print("cmd in: " + cmd)
 
-sck = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-sck.bind ((HOST, PORT))
-sck.listen(1)
+if (len(sys.argv) >= 2):
+    network.call(sys.argv[1], whenHearCall = heard)
+    print("Sucessfully Connected to client")
+else:
+    network.wait(whenHearCall = heard)
 
-conn, addr = sck.accept()
-print("Connected by: ", addr)
-
-while 1:
-    data = conn.recv(1024)
-    if not data: break
-    if data == "1":
-        print("test input 1")
-    if data == "2":
-        print("test input 2")
-    conn.sendall(data)
-    os.system(str(data))
-    conn.sendall(data)
-conn.close()
+while network.isConnected():
+    phrase = input()
+    print("cmd out: " + phrase)
+    network.say(phrase)

@@ -42,7 +42,7 @@ namespace SojournerGUI
 		public NetworkStream MainConnection()
 		{
 			System.Net.Sockets.TcpClient socket = new TcpClient();
-			socket.Connect("192.168.0.4", 8888);
+			socket.Connect("192.168.1.13", 8888);
 			NetworkStream netStream = socket.GetStream();
 
 			return netStream;

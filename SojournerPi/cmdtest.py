@@ -16,5 +16,5 @@ conn, addr = s.accept()
 print ('Connected by', addr)
 
 while True:
-    data= conn.recv(16).decode("utf-8")
+    data=conn.recv(16).decode("ascii")
     print(data)

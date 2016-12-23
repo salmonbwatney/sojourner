@@ -2,7 +2,6 @@ import RPi.GPIO as GPIO
 import socket
 import os
 import sys
-import network
 import time
 
 #Pin Variables
@@ -30,33 +29,30 @@ cycleIdle = 0.0
 dServo = GPIO.PWM(dPin, 50)
 stServo = GPIO.PWM(sPin, 50)
 
+# Cycle Delays
+driveDelay = 20
+steerDelay = 200
+
 # Initialize Servo control
 dServo.start(cycleIdle)
 stServo.start(cycleIdle)
 
-#Detect incoming commands
-def heard(cmd):
-    print("incoming command: " + cmd)
-    '''
-    for a in cmd:
-        if a == "\r" or a == "\n":
-            pass
-        else:
-            if (cmd == "mov_fwd"):
-                dServo.ChangeDutyCycle(cycleFwd)
-                time.sleep(d_delay)
-            else:
-                dServo.ChangeDutyCycle(cycleIdle)
-                time.sleep(d_delay)
-        '''
-if (len(sys.argv) >= 2):
-    network.call(sys.argv[1], whenHearCall=heard)
-else:
-    network.wait(whenHearCall=heard)
+# Connection Stuff
+host = '192.168.0.4'
+port = 8888
 
-while network.isConnected():
-    print ("server is running")
-    time.sleep(1)
-    cmd = input()
-    print("server: " + cmd)
-    network.say(cmd)
+serverSocket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+serverSocket.bind((host, port))
+serverSocket.listen(1)
+serverConnection, clientAddress = serverSocket.accept()
+print("Client is connecting from:  ", clientAddress)
+
+# Where the magic happens
+while 1:
+    rawData = serverConnection.recv(32) # Store incoming data, set buffer size to 32 bytes
+    command = rawData.decode('utf-8')
+    if not rawData: break
+    if (command = "mov_fwd"):
+        dServo.ChangeDutyCycle(cycleFwd)
+        time.sleep(driveDelay)
+        print(command)

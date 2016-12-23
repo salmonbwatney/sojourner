@@ -17,4 +17,4 @@ print ('Connected by', addr)
 
 while True:
     data= conn.recv(16).decode("utf-8")
-    print >> sys.stderr, 'received "%s" %data'
+    print(data)

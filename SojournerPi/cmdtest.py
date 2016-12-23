@@ -21,6 +21,5 @@ while 1:
     if not data: break
     if (readData =="test button"):
         print("button test recieved")
-    else:
-
+    os.system(str(data))
 conn.close()

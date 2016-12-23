@@ -43,7 +43,7 @@ port = 8888
 
 serverSocket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 serverSocket.bind((host, port))
-serverSocket.listen(1)
+serverSocket.listen()
 serverConnection, clientAddress = serverSocket.accept()
 print("Client is connecting from:  ", clientAddress)
 

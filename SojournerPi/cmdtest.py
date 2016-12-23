@@ -16,6 +16,7 @@ conn, addr = s.accept()
 print ('Connected by', addr)
 
 while 1:
-    cmd = input()
-    print(input)
-    
+    data = conn.recv(16).decode(encoding='UTF-8',errors='strict')
+    if not data: break
+    if (data == "test_btn"):
+        print >> (sys.stderr, 'recieved "%s" %data')

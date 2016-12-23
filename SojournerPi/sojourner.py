@@ -54,8 +54,13 @@ while 1:
     
     if not rawData:
         time.sleep(1)
-        
+
+    #move forward
     if (command == "mov_fwd"):
         dServo.ChangeDutyCycle(cycleFwd)
         time.sleep(driveDelay)
         print("moving forward")
+
+    if (command == "stop"):
+        dServo.ChangeDutyCycle(cycleIdle)
+        print("stopped")

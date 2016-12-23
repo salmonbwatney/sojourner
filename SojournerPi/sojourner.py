@@ -52,8 +52,6 @@ while True:
     rawData = serverConnection.recv(32) # Store incoming data, set buffer size to 32 bytes
     command = rawData.decode('utf-8')
     
-    if not rawData:
-        time.sleep(1)
 
     #move forward
     if (command == "mov_fwd"):

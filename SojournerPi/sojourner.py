@@ -51,8 +51,11 @@ print("Client is connecting from:  ", clientAddress)
 while 1:
     rawData = serverConnection.recv(32) # Store incoming data, set buffer size to 32 bytes
     command = rawData.decode('utf-8')
-    #if not rawData: break
+    
+    if not rawData:
+        time.sleep(1)
+        
     if (command == "mov_fwd"):
         dServo.ChangeDutyCycle(cycleFwd)
         time.sleep(driveDelay)
-        print(command)
+        print("moving forward")

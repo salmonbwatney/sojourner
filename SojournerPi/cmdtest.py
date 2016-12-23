@@ -3,7 +3,7 @@ import os
 import sys
 import time
 
-host = '192.168.1.3'  # Symbolic name meaning all available interfaces
+host = 'localhost'  # Symbolic name meaning all available interfaces
 port = 8888        # Arbitrary non-privileged port
 
 #Debug Data
@@ -15,6 +15,12 @@ s.listen(1)
 conn, addr = s.accept()
 print ('Connected by', addr)
 
-while True:
-    data=s.recv(2048)
-    stringdata = data.decode('utf-8')
+while 1:
+    data=conn.recv(2048)
+    readData = data.decode('utf-8')
+    if not data: break
+    if (readData =="test button"):
+        print("button test recieved")
+    else:
+
+conn.close()

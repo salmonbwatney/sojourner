@@ -3,7 +3,7 @@ import os
 import sys
 import time
 
-host = '192.168.1.2'  # Symbolic name meaning all available interfaces
+host = '192.168.1.3'  # Symbolic name meaning all available interfaces
 port = 8888        # Arbitrary non-privileged port
 
 #Debug Data

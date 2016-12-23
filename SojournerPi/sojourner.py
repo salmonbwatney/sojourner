@@ -48,7 +48,7 @@ serverConnection, clientAddress = serverSocket.accept()
 print("Client is connecting from:  ", clientAddress)
 
 # Where the magic happens
-while 1:
+while True:
     rawData = serverConnection.recv(32) # Store incoming data, set buffer size to 32 bytes
     command = rawData.decode('utf-8')
     

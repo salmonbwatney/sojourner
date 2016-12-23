@@ -51,8 +51,12 @@ print("Client is connecting from:  ", clientAddress)
 while True:
     rawData = serverConnection.recv(32) # Store incoming data, set buffer size to 32 bytes
     command = rawData.decode('utf-8')
+    if not data:
+        print '\nDisconnected from chat server'
+        sys.exit()
+    else:
+        sys.stdout.write(command)
     
-
     #move forward
     if (command == "mov_fwd"):
         dServo.ChangeDutyCycle(cycleFwd)

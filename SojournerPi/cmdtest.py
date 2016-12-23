@@ -16,7 +16,7 @@ conn, addr = s.accept()
 print ('Connected by', addr)
 
 while 1:
-    data=sock.recv(16)
+    data=s.recv(16).decode("utf-8")
     amount_received+=len(data)
     if not data: break
     if data:

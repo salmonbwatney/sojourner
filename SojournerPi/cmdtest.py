@@ -16,7 +16,8 @@ conn, addr = s.accept()
 print ('Connected by', addr)
 
 while 1:
-    data = conn.recv(16)
+    data=sock.recv(16)
+    amount_received+=len(data)
     if not data: break
-    if (data == "test_btn"):
-        print ("Command: " + data.decode('UTF-8','strict'))
+    if data:
+        print >> sys.stderr, 'received "%s" %data'

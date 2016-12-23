@@ -15,9 +15,6 @@ s.listen(1)
 conn, addr = s.accept()
 print ('Connected by', addr)
 
-while 1:
+while True:
     data= conn.recv(16).decode("utf-8")
-    amount_received+=len(data)
-    if not data: break
-    if data:
-        print >> sys.stderr, 'received "%s" %data'
+    print >> sys.stderr, 'received "%s" %data'

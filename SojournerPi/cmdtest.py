@@ -19,4 +19,4 @@ while 1:
     data = conn.recv(16)
     if not data: break
     if (data == "test_btn"):
-        print ("Command: " + data.decode('UTF-8','strict')
+        print ("Command: " + data.decode('UTF-8','strict'))

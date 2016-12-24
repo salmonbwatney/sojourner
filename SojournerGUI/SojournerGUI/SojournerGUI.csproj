@@ -114,9 +114,9 @@
     <Compile Include="gtk-gui\generated.cs" />
     <Compile Include="MainWindow.cs" />
     <Compile Include="gtk-gui\MainWindow.cs" />
-    <Compile Include="MainProgram.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Buttons.cs" />
+    <Compile Include="MainProgram.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

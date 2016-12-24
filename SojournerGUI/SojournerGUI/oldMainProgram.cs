@@ -33,23 +33,50 @@ using System.IO;
 
 namespace SojournerGUI
 {
-	// Main Class
-	public class MainClass
+	
+	// TCP Stream Class
+	public class CreateNewSocket
+	{
+		delegate void Delegate(NetworkStream netStream);
+
+		public System.Net.Sockets.Socket MainConnection()
+		{
+			System.Net.Sockets.Socket clientSocket = new System.Net.Sockets.Socket(AddressFamily.InterNetwork, SocketType.Stream,
+																				   ProtocolType.Tcp);
+
+			return clientSocket;
+		}
+	}
+
+	/*
+	// Streamwriter Class
+	public class CreateStreamWriter
+	{
+		delegate void Delegate(StreamWriter streamWriter);
+
+		public StreamWriter writeCmd()
+		{
+			var streamInstance = new CreateTcpStream();
+			streamInstance.MainConnection();
+
+			var netStreamStore = streamInstance.MainConnection();
+
+			StreamWriter cmdStream = new StreamWriter(netStreamStore);
+
+			return cmdStream;
+		}
+	}*/
+
+
+	// GUI Class
+	public class MainGui
 	{
 
 		// Get Key states and write to network stream
 		[GLib.ConnectBefore()]
 		public static void KeyPressEvent(object sender, Gtk.KeyPressEventArgs args)
 		{
-			string server = "192.168.0.4";
-			int port = 8888;
-
-			System.Net.Sockets.Socket clientSocket = new System.Net.Sockets.Socket(AddressFamily.InterNetwork, SocketType.Stream,
-																				   ProtocolType.Tcp);
-			System.Net.IPAddress ipAdd = System.Net.IPAddress.Parse(server);
-			System.Net.IPEndPoint destination = new System.Net.IPEndPoint(ipAdd, port);
-
-
+			
 			// Storage for key pressed
 			var keyOut = args.Event.Key;
 
@@ -65,44 +92,26 @@ namespace SojournerGUI
 			//If key pressed / held is "w" or "W"
 			if (args.Event.KeyValue == 0x057 || args.Event.KeyValue == 0x077)
 			{
-				byte[] dataOutput = System.Text.Encoding.UTF8.GetBytes("mov_fwd");
-				clientSocket.Connect(destination);
-				clientSocket.Send(dataOutput);
-				//clientSocket.Close();
-
 				Console.WriteLine("Keypress: {0}", args.Event.Key);
+				byte[] cmdOut = Encoding.UTF8.GetBytes(cmdMovFwd);
+				//netStream.W(cmdOut, cmdOut.Length);
 			}
 
 			//If key pressed / held is "a" or "A"
 			if (args.Event.KeyValue == 0x041 || args.Event.KeyValue == 0x061)
 			{
-				byte[] dataOutput = System.Text.Encoding.UTF8.GetBytes("turn_left");
-				clientSocket.Connect(destination);
-				clientSocket.Send(dataOutput);
-				clientSocket.Close();
-
 				Console.WriteLine("Keypress: {0}", args.Event.Key);
 			}
 
 			//If key pressed / held is "s" or "S"
 			if (args.Event.KeyValue == 0x053 || args.Event.KeyValue == 0x073)
 			{
-				byte[] dataOutput = System.Text.Encoding.UTF8.GetBytes("mov_rev");
-				clientSocket.Connect(destination);
-				clientSocket.Send(dataOutput);
-				clientSocket.Close();
-
 				Console.WriteLine("Keypress: {0}", args.Event.Key);
 			}
 
 			//If key pressed / held is "d" or "D"
 			if (args.Event.KeyValue == 0x044 || args.Event.KeyValue == 0x064)
 			{
-				byte[] dataOutput = System.Text.Encoding.UTF8.GetBytes("turn_right");
-				clientSocket.Connect(destination);
-				clientSocket.Send(dataOutput);
-				clientSocket.Close();
-
 				Console.WriteLine("Keypress: {0}", args.Event.Key);
 			}
 
@@ -119,17 +128,6 @@ namespace SojournerGUI
 			if (args.Event.KeyValue == 0x04c || args.Event.KeyValue == 0x06c)
 			{
 
-			}
-
-			//If spacebar is pressed
-			if (args.Event.KeyValue == 0x020)
-			{
-				byte[] dataOutput = System.Text.Encoding.UTF8.GetBytes("stop");
-				clientSocket.Connect(destination);
-				clientSocket.Send(dataOutput);
-				//clientSocket.Close();
-
-				Console.WriteLine("spacebar was pressed");
 			}
 		}
 
@@ -154,26 +152,23 @@ namespace SojournerGUI
 
 			string server = "192.168.0.4";
 			int port = 8888;
-			/*
+
 			var connSocket = new CreateNewSocket();
 			connSocket.MainConnection();
 
 			var clientSocket = connSocket.MainConnection();
-			*/
 
-			System.Net.Sockets.Socket clientSocket = new System.Net.Sockets.Socket(AddressFamily.InterNetwork, SocketType.Stream,
-																				   ProtocolType.Tcp);
 			System.Net.IPAddress ipAdd = System.Net.IPAddress.Parse(server);
 			System.Net.IPEndPoint destination = new System.Net.IPEndPoint(ipAdd, port);
 			clientSocket.Connect(destination);
 
 			Console.WriteLine("Connected to Server");
 
-			byte[] dataOutput = System.Text.Encoding.UTF8.GetBytes("test button");
+			byte[] dataOutput = System.Text.Encoding.UTF8.GetBytes("test message");
 			clientSocket.Send(dataOutput);
-			//clientSocket.Close();
+			clientSocket.Close();
 
-
+			                          
 
 			Console.WriteLine("button was pressed");
 		}
@@ -183,6 +178,21 @@ namespace SojournerGUI
 		public static void Main(string[] args)
 		{
 
+			//Server Connection Details
+
+			string server = "192.168.0.4";
+			int port = 8888;
+
+			//Establish connection
+			var connSocket = new CreateNewSocket();
+			connSocket.MainConnection();
+
+			var clientSocket = connSocket.MainConnection();
+
+			System.Net.IPAddress ipAdd = System.Net.IPAddress.Parse(server);
+			System.Net.IPEndPoint destination = new System.Net.IPEndPoint(ipAdd, port);
+			clientSocket.Connect(destination);
+
 			Gtk.Application.Init();
 
 			//New Button
@@ -190,9 +200,9 @@ namespace SojournerGUI
 
 			// Run something when a button is pressed 
 			btn.Clicked += new EventHandler(test);
-
+			
 			MainWindow win = new MainWindow();
-			win.KeyPressEvent += new Gtk.KeyPressEventHandler(MainClass.KeyPressEvent);
+			win.KeyPressEvent += new Gtk.KeyPressEventHandler(MainGui.KeyPressEvent);
 
 			//Add buttons to new window
 			win.Add(btn);

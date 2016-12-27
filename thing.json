@@ -1,0 +1,39 @@
+{ "match": {
+
+"request": { "methods": [
+
+"_ALL_"
+
+],
+
+"schemes": [
+
+"_ALL_"
+
+],
+
+"url": "*"
+
+}
+
+},
+
+"threshold": 50,
+
+"period": 1,
+
+"action": {
+
+"mode": "ban",
+
+"timeout": 3600
+
+
+
+},
+
+"description": "my first Cloudflare rate limiting rule"
+
+}
+
+5.

@@ -1,11 +1,10 @@
 ﻿<Properties StartupConfiguration="{C036CD62-3DE8-41B5-921B-FC0EE4EDC393}|Default" GitUserInfo="UsingGIT">
-  <MonoDevelop.Ide.Workbench ActiveDocument="SojournerGUI/Program.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="SojournerGUI/MainProgram.cs">
     <Files>
-      <File FileName="SojournerGUI/Program.cs" Line="90" Column="5" />
-      <File FileName="SojournerUnitTests/Test.cs" Line="14" Column="11" />
+      <File FileName="SojournerGUI/MainProgram.cs" Line="64" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Release" />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" />
   <MonoDevelop.Ide.ItemProperties.SojournerUnitTests PreferredExecutionTarget="MonoDevelop.Default" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />

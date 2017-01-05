@@ -2,16 +2,28 @@
 
 # import libraries
 from tkinter import *
-from PIL import Image
+from PIL import Image, ImageTk
 import subprocess
 import time
-import picamera as camera
+from picamera import PiCamera
 import os
 import sys
 import time
 import RPi.GPIO as gpio
+import cv2
+import cv2.cv as cv
 
+
+#Create new tkinter window object
 mainWindow = Tk()
+
+#Create new picamera object
+camera = PiCamera()
+
+#Camera setup
+camera.resoultion = (1920, 1080) #HD or nothing
+camera.framerate = 15
+camera.start_preview()
 
 
 # car setup
@@ -100,5 +112,7 @@ mainWindow.bind('<b>', keydown)
 mainWindow.bind('<N>', keydown)
 mainWindow.bind('<n>', keydown)
 
+#The GUI Stuff actually starts here
+Label(mainWindow, text "Video Feed").grid(row=0)
 mainWindow.mainloop()
         

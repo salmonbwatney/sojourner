@@ -1,11 +1,11 @@
-#!/usr/bin/python3
-
 # import libraries
-from tkinter import *
-from PIL import Image, ImageTk
+from Tkinter import *
+from PIL import Image
+from PIL import ImageTk
 import subprocess
 import time
-from picamera import PiCamera
+import picamera
+import picamera.array
 import os
 import sys
 import time
@@ -17,14 +17,16 @@ import cv2.cv as cv
 #Create new tkinter window object
 mainWindow = Tk()
 
-#Create new picamera object
-camera = PiCamera()
-
-#Camera setup
-camera.resoultion = (1920, 1080) #HD or nothing
-camera.framerate = 15
-camera.start_preview()
-
+#Camera Setup
+def vidFeed():
+    with picamera.PiCamera() as camera:
+        captureImg = picamera.array.PiRGBArray(camera)
+        camera.resolution = (300, 300)
+        camera.start_preview()
+        time.sleep(.01)
+        camera.capture(captureImg, format="bgr")
+        global img
+        img = captureImg.array
 
 # car setup
 drivePin = 12  # attached to physical pin 12
@@ -113,6 +115,20 @@ mainWindow.bind('<N>', keydown)
 mainWindow.bind('<n>', keydown)
 
 #The GUI Stuff actually starts here
-Label(mainWindow, text "Video Feed").grid(row=0)
+Label(mainWindow, text="Video Feed").grid(row=0, column=2)
+
+def cameraDisplay():
+    b,g,r = cv2.split(img)
+    newImg = cv2.merge((r,g,b))
+    newImgFromArray = Image.fromarray(newImg)
+    global imgTkin
+    imgTkin = ImageTk.PhotoImage(image=newImgFromArray)
+
+    Label(mainWindow, image=imgTkin).grid(row=1, column=2)    
+
+
+vidFeed()
+cameraDisplay()
+    
 mainWindow.mainloop()
         

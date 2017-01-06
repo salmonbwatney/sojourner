@@ -1,0 +1,16 @@
+
+{
+	"sources" : 
+	[
+		
+		{
+			"file" : "/Users/Samantha/sojourner/Raspi Dependancies/opencv_contrib/modules/xphoto/samples/inpainting.cpp",
+			"labels" : [ "Extra", "opencv_xphoto", "Sample" ]
+		}
+	],
+	"target" : 
+	{
+		"labels" : [ "Extra", "opencv_xphoto", "Sample" ],
+		"name" : "example_xphoto_inpainting"
+	}
+}

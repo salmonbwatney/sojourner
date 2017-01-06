@@ -1,0 +1,16 @@
+
+{
+	"sources" : 
+	[
+		
+		{
+			"file" : "/Users/Samantha/sojourner/Raspi Dependancies/opencv_contrib/modules/structured_light/samples/cap_pattern.cpp",
+			"labels" : [ "Extra", "opencv_structured_light", "Sample" ]
+		}
+	],
+	"target" : 
+	{
+		"labels" : [ "Extra", "opencv_structured_light", "Sample" ],
+		"name" : "example_structured_light_cap_pattern"
+	}
+}

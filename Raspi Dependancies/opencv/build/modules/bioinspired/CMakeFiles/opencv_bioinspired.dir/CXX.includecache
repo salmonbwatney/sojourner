@@ -1,0 +1,528 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/Users/Samantha/sojourner/Raspi Dependancies/opencv/build/modules/bioinspired/opencl_kernels_bioinspired.cpp
+precomp.hpp
+/Users/Samantha/sojourner/Raspi Dependancies/opencv/build/modules/bioinspired/precomp.hpp
+cvconfig.h
+/Users/Samantha/sojourner/Raspi Dependancies/opencv/build/modules/bioinspired/cvconfig.h
+opencl_kernels_bioinspired.hpp
+/Users/Samantha/sojourner/Raspi Dependancies/opencv/build/modules/bioinspired/opencl_kernels_bioinspired.hpp
+
+/Users/Samantha/sojourner/Raspi Dependancies/opencv/build/modules/bioinspired/opencl_kernels_bioinspired.hpp
+opencv2/core/ocl.hpp
+/Users/Samantha/sojourner/Raspi Dependancies/opencv/build/modules/bioinspired/opencv2/core/ocl.hpp
+opencv2/core/ocl_genbase.hpp
+/Users/Samantha/sojourner/Raspi Dependancies/opencv/build/modules/bioinspired/opencv2/core/ocl_genbase.hpp
+opencv2/core/opencl/ocl_defs.hpp
+/Users/Samantha/sojourner/Raspi Dependancies/opencv/build/modules/bioinspired/opencv2/core/opencl/ocl_defs.hpp
+
+/Users/Samantha/sojourner/Raspi Dependancies/opencv/modules/core/include/opencv2/core.hpp
+opencv2/core/cvdef.h
+/Users/Samantha/sojourner/Raspi Dependancies/opencv/modules/core/include/opencv2/opencv2/core/cvdef.h
+opencv2/core/version.hpp
+/Users/Samantha/sojourner/Raspi Dependancies/opencv/modules/core/include/opencv2/opencv2/core/version.hpp
+opencv2/core/base.hpp
+/Users/Samantha/sojourner/Raspi Dependancies/opencv/modules/core/include/opencv2/opencv2/core/base.hpp
+opencv2/core/cvstd.hpp
+/Users/Samantha/sojourner/Raspi Dependancies/opencv/modules/core/include/opencv2/opencv2/core/cvstd.hpp
+opencv2/core/traits.hpp
+/Users/Samantha/sojourner/Raspi Dependancies/opencv/modules/core/include/opencv2/opencv2/core/traits.hpp
+opencv2/core/matx.hpp
+/Users/Samantha/sojourner/Raspi Dependancies/opencv/modules/core/include/opencv2/opencv2/core/matx.hpp
+opencv2/core/types.hpp
+/Users/Samantha/sojourner/Raspi Dependancies/opencv/modules/core/include/opencv2/opencv2/core/types.hpp
+opencv2/core/mat.hpp
+/Users/Samantha/sojourner/Raspi Dependancies/opencv/modules/core/include/opencv2/opencv2/core/mat.hpp
+opencv2/core/persistence.hpp
+/Users/Samantha/sojourner/Raspi Dependancies/opencv/modules/core/include/opencv2/opencv2/core/persistence.hpp
+opencv2/opencv.hpp
+/Users/Samantha/sojourner/Raspi Dependancies/opencv/modules/core/include/opencv2/opencv2/opencv.hpp
+opencv2/xfeatures2d.hpp
+/Users/Samantha/sojourner/Raspi Dependancies/opencv/modules/core/include/opencv2/opencv2/xfeatures2d.hpp
+opencv2/core/operations.hpp
+/Users/Samantha/sojourner/Raspi Dependancies/opencv/modules/core/include/opencv2/opencv2/core/operations.hpp
+opencv2/core/cvstd.inl.hpp
+/Users/Samantha/sojourner/Raspi Dependancies/opencv/modules/core/include/opencv2/opencv2/core/cvstd.inl.hpp
+opencv2/core/utility.hpp
+/Users/Samantha/sojourner/Raspi Dependancies/opencv/modules/core/include/opencv2/opencv2/core/utility.hpp
+opencv2/core/optim.hpp
+/Users/Samantha/sojourner/Raspi Dependancies/opencv/modules/core/include/opencv2/opencv2/core/optim.hpp
+opencv2/core/ovx.hpp
+/Users/Samantha/sojourner/Raspi Dependancies/opencv/modules/core/include/opencv2/opencv2/core/ovx.hpp
+
+/Users/Samantha/sojourner/Raspi Dependancies/opencv/modules/core/include/opencv2/core/base.hpp
+opencv2/opencv_modules.hpp
+/Users/Samantha/sojourner/Raspi Dependancies/opencv/modules/core/include/opencv2/core/opencv2/opencv_modules.hpp
+climits
+-
+algorithm
+-
+opencv2/core/cvdef.h
+/Users/Samantha/sojourner/Raspi Dependancies/opencv/modules/core/include/opencv2/core/opencv2/core/cvdef.h
+opencv2/core/cvstd.hpp
+/Users/Samantha/sojourner/Raspi Dependancies/opencv/modules/core/include/opencv2/core/opencv2/core/cvstd.hpp
+opencv2/core/neon_utils.hpp
+/Users/Samantha/sojourner/Raspi Dependancies/opencv/modules/core/include/opencv2/core/opencv2/core/neon_utils.hpp
+
+/Users/Samantha/sojourner/Raspi Dependancies/opencv/modules/core/include/opencv2/core/bufferpool.hpp
+
+/Users/Samantha/sojourner/Raspi Dependancies/opencv/modules/core/include/opencv2/core/core_c.h
+opencv2/core/types_c.h
+/Users/Samantha/sojourner/Raspi Dependancies/opencv/modules/core/include/opencv2/core/opencv2/core/types_c.h
+cxcore.h
+/Users/Samantha/sojourner/Raspi Dependancies/opencv/modules/core/include/opencv2/core/cxcore.h
+cxcore.h
+/Users/Samantha/sojourner/Raspi Dependancies/opencv/modules/core/include/opencv2/core/cxcore.h
+opencv2/core/utility.hpp
+/Users/Samantha/sojourner/Raspi Dependancies/opencv/modules/core/include/opencv2/core/opencv2/core/utility.hpp
+
+/Users/Samantha/sojourner/Raspi Dependancies/opencv/modules/core/include/opencv2/core/cvdef.h
+limits.h
+-
+opencv2/core/hal/interface.h
+/Users/Samantha/sojourner/Raspi Dependancies/opencv/modules/core/include/opencv2/core/opencv2/core/hal/interface.h
+emmintrin.h
+-
+pmmintrin.h
+-
+tmmintrin.h
+-
+smmintrin.h
+-
+nmmintrin.h
+-
+nmmintrin.h
+-
+popcntintrin.h
+-
+immintrin.h
+-
+immintrin.h
+-
+Intrin.h
+-
+arm_neon.h
+-
+arm_neon.h
+-
+intrin.h
+-
+
+/Users/Samantha/sojourner/Raspi Dependancies/opencv/modules/core/include/opencv2/core/cvstd.hpp
+opencv2/core/cvdef.h
+/Users/Samantha/sojourner/Raspi Dependancies/opencv/modules/core/include/opencv2/core/opencv2/core/cvdef.h
+cstddef
+-
+cstring
+-
+cctype
+-
+string
+-
+algorithm
+-
+utility
+-
+cstdlib
+-
+cmath
+-
+opencv2/core/ptr.inl.hpp
+/Users/Samantha/sojourner/Raspi Dependancies/opencv/modules/core/include/opencv2/core/opencv2/core/ptr.inl.hpp
+
+/Users/Samantha/sojourner/Raspi Dependancies/opencv/modules/core/include/opencv2/core/cvstd.inl.hpp
+complex
+-
+ostream
+-
+
+/Users/Samantha/sojourner/Raspi Dependancies/opencv/modules/core/include/opencv2/core/eigen.hpp
+opencv2/core.hpp
+/Users/Samantha/sojourner/Raspi Dependancies/opencv/modules/core/include/opencv2/core/opencv2/core.hpp
+
+/Users/Samantha/sojourner/Raspi Dependancies/opencv/modules/core/include/opencv2/core/fast_math.hpp
+opencv2/core/cvdef.h
+/Users/Samantha/sojourner/Raspi Dependancies/opencv/modules/core/include/opencv2/core/opencv2/core/cvdef.h
+fastmath.h
+-
+cmath
+-
+math.h
+-
+tegra_round.hpp
+/Users/Samantha/sojourner/Raspi Dependancies/opencv/modules/core/include/opencv2/core/tegra_round.hpp
+
+/Users/Samantha/sojourner/Raspi Dependancies/opencv/modules/core/include/opencv2/core/hal/interface.h
+cstddef
+-
+stddef.h
+-
+stdbool.h
+-
+cstdint
+-
+stdint.h
+-
+
+/Users/Samantha/sojourner/Raspi Dependancies/opencv/modules/core/include/opencv2/core/mat.hpp
+opencv2/core/matx.hpp
+/Users/Samantha/sojourner/Raspi Dependancies/opencv/modules/core/include/opencv2/core/opencv2/core/matx.hpp
+opencv2/core/types.hpp
+/Users/Samantha/sojourner/Raspi Dependancies/opencv/modules/core/include/opencv2/core/opencv2/core/types.hpp
+opencv2/core/bufferpool.hpp
+/Users/Samantha/sojourner/Raspi Dependancies/opencv/modules/core/include/opencv2/core/opencv2/core/bufferpool.hpp
+opencv2/core/mat.inl.hpp
+/Users/Samantha/sojourner/Raspi Dependancies/opencv/modules/core/include/opencv2/core/opencv2/core/mat.inl.hpp
+
+/Users/Samantha/sojourner/Raspi Dependancies/opencv/modules/core/include/opencv2/core/mat.inl.hpp
+
+/Users/Samantha/sojourner/Raspi Dependancies/opencv/modules/core/include/opencv2/core/matx.hpp
+opencv2/core/cvdef.h
+/Users/Samantha/sojourner/Raspi Dependancies/opencv/modules/core/include/opencv2/core/opencv2/core/cvdef.h
+opencv2/core/base.hpp
+/Users/Samantha/sojourner/Raspi Dependancies/opencv/modules/core/include/opencv2/core/opencv2/core/base.hpp
+opencv2/core/traits.hpp
+/Users/Samantha/sojourner/Raspi Dependancies/opencv/modules/core/include/opencv2/core/opencv2/core/traits.hpp
+opencv2/core/saturate.hpp
+/Users/Samantha/sojourner/Raspi Dependancies/opencv/modules/core/include/opencv2/core/opencv2/core/saturate.hpp
+
+/Users/Samantha/sojourner/Raspi Dependancies/opencv/modules/core/include/opencv2/core/neon_utils.hpp
+opencv2/core/cvdef.h
+/Users/Samantha/sojourner/Raspi Dependancies/opencv/modules/core/include/opencv2/core/opencv2/core/cvdef.h
+
+/Users/Samantha/sojourner/Raspi Dependancies/opencv/modules/core/include/opencv2/core/ocl.hpp
+opencv2/core.hpp
+/Users/Samantha/sojourner/Raspi Dependancies/opencv/modules/core/include/opencv2/core/opencv2/core.hpp
+
+/Users/Samantha/sojourner/Raspi Dependancies/opencv/modules/core/include/opencv2/core/ocl_genbase.hpp
+
+/Users/Samantha/sojourner/Raspi Dependancies/opencv/modules/core/include/opencv2/core/opencl/ocl_defs.hpp
+opencv2/core/utility.hpp
+/Users/Samantha/sojourner/Raspi Dependancies/opencv/modules/core/include/opencv2/core/opencl/opencv2/core/utility.hpp
+
+/Users/Samantha/sojourner/Raspi Dependancies/opencv/modules/core/include/opencv2/core/operations.hpp
+cstdio
+-
+
+/Users/Samantha/sojourner/Raspi Dependancies/opencv/modules/core/include/opencv2/core/optim.hpp
+opencv2/core.hpp
+/Users/Samantha/sojourner/Raspi Dependancies/opencv/modules/core/include/opencv2/core/opencv2/core.hpp
+
+/Users/Samantha/sojourner/Raspi Dependancies/opencv/modules/core/include/opencv2/core/ovx.hpp
+cvdef.h
+/Users/Samantha/sojourner/Raspi Dependancies/opencv/modules/core/include/opencv2/core/cvdef.h
+
+/Users/Samantha/sojourner/Raspi Dependancies/opencv/modules/core/include/opencv2/core/persistence.hpp
+opencv2/core/types.hpp
+/Users/Samantha/sojourner/Raspi Dependancies/opencv/modules/core/include/opencv2/core/opencv2/core/types.hpp
+opencv2/core/mat.hpp
+/Users/Samantha/sojourner/Raspi Dependancies/opencv/modules/core/include/opencv2/core/opencv2/core/mat.hpp
+opencv2/opencv.hpp
+/Users/Samantha/sojourner/Raspi Dependancies/opencv/modules/core/include/opencv2/core/opencv2/opencv.hpp
+time.h
+-
+
+/Users/Samantha/sojourner/Raspi Dependancies/opencv/modules/core/include/opencv2/core/private.hpp
+opencv2/core.hpp
+/Users/Samantha/sojourner/Raspi Dependancies/opencv/modules/core/include/opencv2/core/opencv2/core.hpp
+cvconfig.h
+/Users/Samantha/sojourner/Raspi Dependancies/opencv/modules/core/include/opencv2/core/cvconfig.h
+Eigen/Core
+-
+opencv2/core/eigen.hpp
+/Users/Samantha/sojourner/Raspi Dependancies/opencv/modules/core/include/opencv2/core/opencv2/core/eigen.hpp
+tbb/tbb.h
+/Users/Samantha/sojourner/Raspi Dependancies/opencv/modules/core/include/opencv2/core/tbb/tbb.h
+tbb/task.h
+/Users/Samantha/sojourner/Raspi Dependancies/opencv/modules/core/include/opencv2/core/tbb/task.h
+immintrin.h
+-
+ipp.h
+/Users/Samantha/sojourner/Raspi Dependancies/opencv/modules/core/include/opencv2/core/ipp.h
+
+/Users/Samantha/sojourner/Raspi Dependancies/opencv/modules/core/include/opencv2/core/ptr.inl.hpp
+algorithm
+-
+
+/Users/Samantha/sojourner/Raspi Dependancies/opencv/modules/core/include/opencv2/core/saturate.hpp
+opencv2/core/cvdef.h
+/Users/Samantha/sojourner/Raspi Dependancies/opencv/modules/core/include/opencv2/core/opencv2/core/cvdef.h
+opencv2/core/fast_math.hpp
+/Users/Samantha/sojourner/Raspi Dependancies/opencv/modules/core/include/opencv2/core/opencv2/core/fast_math.hpp
+
+/Users/Samantha/sojourner/Raspi Dependancies/opencv/modules/core/include/opencv2/core/traits.hpp
+opencv2/core/cvdef.h
+/Users/Samantha/sojourner/Raspi Dependancies/opencv/modules/core/include/opencv2/core/opencv2/core/cvdef.h
+
+/Users/Samantha/sojourner/Raspi Dependancies/opencv/modules/core/include/opencv2/core/types.hpp
+climits
+-
+cfloat
+-
+vector
+-
+limits
+-
+opencv2/core/cvdef.h
+/Users/Samantha/sojourner/Raspi Dependancies/opencv/modules/core/include/opencv2/core/opencv2/core/cvdef.h
+opencv2/core/cvstd.hpp
+/Users/Samantha/sojourner/Raspi Dependancies/opencv/modules/core/include/opencv2/core/opencv2/core/cvstd.hpp
+opencv2/core/matx.hpp
+/Users/Samantha/sojourner/Raspi Dependancies/opencv/modules/core/include/opencv2/core/opencv2/core/matx.hpp
+
+/Users/Samantha/sojourner/Raspi Dependancies/opencv/modules/core/include/opencv2/core/types_c.h
+ipl.h
+-
+ipl/ipl.h
+-
+opencv2/core/cvdef.h
+/Users/Samantha/sojourner/Raspi Dependancies/opencv/modules/core/include/opencv2/core/opencv2/core/cvdef.h
+assert.h
+-
+stdlib.h
+-
+string.h
+-
+float.h
+-
+opencv2/core.hpp
+/Users/Samantha/sojourner/Raspi Dependancies/opencv/modules/core/include/opencv2/core/opencv2/core.hpp
+
+/Users/Samantha/sojourner/Raspi Dependancies/opencv/modules/core/include/opencv2/core/utility.hpp
+opencv2/core.hpp
+/Users/Samantha/sojourner/Raspi Dependancies/opencv/modules/core/include/opencv2/core/opencv2/core.hpp
+opencv2/core/core_c.h
+/Users/Samantha/sojourner/Raspi Dependancies/opencv/modules/core/include/opencv2/core/opencv2/core/core_c.h
+
+/Users/Samantha/sojourner/Raspi Dependancies/opencv/modules/core/include/opencv2/core/version.hpp
+
+/Users/Samantha/sojourner/Raspi Dependancies/opencv_contrib/modules/bioinspired/include/opencv2/bioinspired.hpp
+opencv2/core.hpp
+/Users/Samantha/sojourner/Raspi Dependancies/opencv_contrib/modules/bioinspired/include/opencv2/opencv2/core.hpp
+opencv2/bioinspired/retina.hpp
+/Users/Samantha/sojourner/Raspi Dependancies/opencv_contrib/modules/bioinspired/include/opencv2/opencv2/bioinspired/retina.hpp
+opencv2/bioinspired/retinafasttonemapping.hpp
+/Users/Samantha/sojourner/Raspi Dependancies/opencv_contrib/modules/bioinspired/include/opencv2/opencv2/bioinspired/retinafasttonemapping.hpp
+opencv2/bioinspired/transientareassegmentationmodule.hpp
+/Users/Samantha/sojourner/Raspi Dependancies/opencv_contrib/modules/bioinspired/include/opencv2/opencv2/bioinspired/transientareassegmentationmodule.hpp
+
+/Users/Samantha/sojourner/Raspi Dependancies/opencv_contrib/modules/bioinspired/include/opencv2/bioinspired/retina.hpp
+opencv2/core.hpp
+/Users/Samantha/sojourner/Raspi Dependancies/opencv_contrib/modules/bioinspired/include/opencv2/bioinspired/opencv2/core.hpp
+
+/Users/Samantha/sojourner/Raspi Dependancies/opencv_contrib/modules/bioinspired/include/opencv2/bioinspired/retinafasttonemapping.hpp
+opencv2/core.hpp
+/Users/Samantha/sojourner/Raspi Dependancies/opencv_contrib/modules/bioinspired/include/opencv2/bioinspired/opencv2/core.hpp
+
+/Users/Samantha/sojourner/Raspi Dependancies/opencv_contrib/modules/bioinspired/include/opencv2/bioinspired/transientareassegmentationmodule.hpp
+opencv2/core.hpp
+/Users/Samantha/sojourner/Raspi Dependancies/opencv_contrib/modules/bioinspired/include/opencv2/bioinspired/opencv2/core.hpp
+
+/Users/Samantha/sojourner/Raspi Dependancies/opencv_contrib/modules/bioinspired/src/basicretinafilter.cpp
+precomp.hpp
+/Users/Samantha/sojourner/Raspi Dependancies/opencv_contrib/modules/bioinspired/src/precomp.hpp
+iostream
+-
+cstdlib
+-
+basicretinafilter.hpp
+/Users/Samantha/sojourner/Raspi Dependancies/opencv_contrib/modules/bioinspired/src/basicretinafilter.hpp
+cmath
+-
+
+/Users/Samantha/sojourner/Raspi Dependancies/opencv_contrib/modules/bioinspired/src/basicretinafilter.hpp
+cstring
+-
+iostream
+-
+templatebuffer.hpp
+/Users/Samantha/sojourner/Raspi Dependancies/opencv_contrib/modules/bioinspired/src/templatebuffer.hpp
+
+/Users/Samantha/sojourner/Raspi Dependancies/opencv_contrib/modules/bioinspired/src/imagelogpolprojection.cpp
+precomp.hpp
+/Users/Samantha/sojourner/Raspi Dependancies/opencv_contrib/modules/bioinspired/src/precomp.hpp
+imagelogpolprojection.hpp
+/Users/Samantha/sojourner/Raspi Dependancies/opencv_contrib/modules/bioinspired/src/imagelogpolprojection.hpp
+cmath
+-
+iostream
+-
+
+/Users/Samantha/sojourner/Raspi Dependancies/opencv_contrib/modules/bioinspired/src/imagelogpolprojection.hpp
+basicretinafilter.hpp
+/Users/Samantha/sojourner/Raspi Dependancies/opencv_contrib/modules/bioinspired/src/basicretinafilter.hpp
+
+/Users/Samantha/sojourner/Raspi Dependancies/opencv_contrib/modules/bioinspired/src/magnoretinafilter.cpp
+precomp.hpp
+/Users/Samantha/sojourner/Raspi Dependancies/opencv_contrib/modules/bioinspired/src/precomp.hpp
+iostream
+-
+magnoretinafilter.hpp
+/Users/Samantha/sojourner/Raspi Dependancies/opencv_contrib/modules/bioinspired/src/magnoretinafilter.hpp
+cmath
+-
+
+/Users/Samantha/sojourner/Raspi Dependancies/opencv_contrib/modules/bioinspired/src/magnoretinafilter.hpp
+basicretinafilter.hpp
+/Users/Samantha/sojourner/Raspi Dependancies/opencv_contrib/modules/bioinspired/src/basicretinafilter.hpp
+
+/Users/Samantha/sojourner/Raspi Dependancies/opencv_contrib/modules/bioinspired/src/parvoretinafilter.cpp
+precomp.hpp
+/Users/Samantha/sojourner/Raspi Dependancies/opencv_contrib/modules/bioinspired/src/precomp.hpp
+parvoretinafilter.hpp
+/Users/Samantha/sojourner/Raspi Dependancies/opencv_contrib/modules/bioinspired/src/parvoretinafilter.hpp
+iostream
+-
+cmath
+-
+
+/Users/Samantha/sojourner/Raspi Dependancies/opencv_contrib/modules/bioinspired/src/parvoretinafilter.hpp
+basicretinafilter.hpp
+/Users/Samantha/sojourner/Raspi Dependancies/opencv_contrib/modules/bioinspired/src/basicretinafilter.hpp
+
+/Users/Samantha/sojourner/Raspi Dependancies/opencv_contrib/modules/bioinspired/src/precomp.hpp
+opencv2/opencv_modules.hpp
+/Users/Samantha/sojourner/Raspi Dependancies/opencv_contrib/modules/bioinspired/src/opencv2/opencv_modules.hpp
+opencv2/bioinspired.hpp
+/Users/Samantha/sojourner/Raspi Dependancies/opencv_contrib/modules/bioinspired/src/opencv2/bioinspired.hpp
+opencv2/core/utility.hpp
+/Users/Samantha/sojourner/Raspi Dependancies/opencv_contrib/modules/bioinspired/src/opencv2/core/utility.hpp
+opencv2/core/private.hpp
+/Users/Samantha/sojourner/Raspi Dependancies/opencv_contrib/modules/bioinspired/src/opencv2/core/private.hpp
+opencv2/core/ocl.hpp
+/Users/Samantha/sojourner/Raspi Dependancies/opencv_contrib/modules/bioinspired/src/opencv2/core/ocl.hpp
+valarray
+-
+opencv2/ocl/private/util.hpp
+/Users/Samantha/sojourner/Raspi Dependancies/opencv_contrib/modules/bioinspired/src/opencv2/ocl/private/util.hpp
+
+/Users/Samantha/sojourner/Raspi Dependancies/opencv_contrib/modules/bioinspired/src/retina.cpp
+precomp.hpp
+/Users/Samantha/sojourner/Raspi Dependancies/opencv_contrib/modules/bioinspired/src/precomp.hpp
+retinafilter.hpp
+/Users/Samantha/sojourner/Raspi Dependancies/opencv_contrib/modules/bioinspired/src/retinafilter.hpp
+cstdio
+-
+sstream
+-
+valarray
+-
+
+/Users/Samantha/sojourner/Raspi Dependancies/opencv_contrib/modules/bioinspired/src/retina_ocl.cpp
+precomp.hpp
+/Users/Samantha/sojourner/Raspi Dependancies/opencv_contrib/modules/bioinspired/src/precomp.hpp
+retina_ocl.hpp
+/Users/Samantha/sojourner/Raspi Dependancies/opencv_contrib/modules/bioinspired/src/retina_ocl.hpp
+iostream
+-
+sstream
+-
+opencl_kernels.hpp
+/Users/Samantha/sojourner/Raspi Dependancies/opencv_contrib/modules/bioinspired/src/opencl_kernels.hpp
+
+/Users/Samantha/sojourner/Raspi Dependancies/opencv_contrib/modules/bioinspired/src/retina_ocl.hpp
+precomp.hpp
+/Users/Samantha/sojourner/Raspi Dependancies/opencv_contrib/modules/bioinspired/src/precomp.hpp
+
+/Users/Samantha/sojourner/Raspi Dependancies/opencv_contrib/modules/bioinspired/src/retinacolor.cpp
+precomp.hpp
+/Users/Samantha/sojourner/Raspi Dependancies/opencv_contrib/modules/bioinspired/src/precomp.hpp
+retinacolor.hpp
+/Users/Samantha/sojourner/Raspi Dependancies/opencv_contrib/modules/bioinspired/src/retinacolor.hpp
+iostream
+-
+ctime
+-
+
+/Users/Samantha/sojourner/Raspi Dependancies/opencv_contrib/modules/bioinspired/src/retinacolor.hpp
+basicretinafilter.hpp
+/Users/Samantha/sojourner/Raspi Dependancies/opencv_contrib/modules/bioinspired/src/basicretinafilter.hpp
+
+/Users/Samantha/sojourner/Raspi Dependancies/opencv_contrib/modules/bioinspired/src/retinafasttonemapping.cpp
+precomp.hpp
+/Users/Samantha/sojourner/Raspi Dependancies/opencv_contrib/modules/bioinspired/src/precomp.hpp
+basicretinafilter.hpp
+/Users/Samantha/sojourner/Raspi Dependancies/opencv_contrib/modules/bioinspired/src/basicretinafilter.hpp
+retinacolor.hpp
+/Users/Samantha/sojourner/Raspi Dependancies/opencv_contrib/modules/bioinspired/src/retinacolor.hpp
+cstdio
+-
+sstream
+-
+valarray
+-
+
+/Users/Samantha/sojourner/Raspi Dependancies/opencv_contrib/modules/bioinspired/src/retinafilter.cpp
+precomp.hpp
+/Users/Samantha/sojourner/Raspi Dependancies/opencv_contrib/modules/bioinspired/src/precomp.hpp
+retinafilter.hpp
+/Users/Samantha/sojourner/Raspi Dependancies/opencv_contrib/modules/bioinspired/src/retinafilter.hpp
+iostream
+-
+cmath
+-
+
+/Users/Samantha/sojourner/Raspi Dependancies/opencv_contrib/modules/bioinspired/src/retinafilter.hpp
+basicretinafilter.hpp
+/Users/Samantha/sojourner/Raspi Dependancies/opencv_contrib/modules/bioinspired/src/basicretinafilter.hpp
+parvoretinafilter.hpp
+/Users/Samantha/sojourner/Raspi Dependancies/opencv_contrib/modules/bioinspired/src/parvoretinafilter.hpp
+magnoretinafilter.hpp
+/Users/Samantha/sojourner/Raspi Dependancies/opencv_contrib/modules/bioinspired/src/magnoretinafilter.hpp
+imagelogpolprojection.hpp
+/Users/Samantha/sojourner/Raspi Dependancies/opencv_contrib/modules/bioinspired/src/imagelogpolprojection.hpp
+retinacolor.hpp
+/Users/Samantha/sojourner/Raspi Dependancies/opencv_contrib/modules/bioinspired/src/retinacolor.hpp
+
+/Users/Samantha/sojourner/Raspi Dependancies/opencv_contrib/modules/bioinspired/src/templatebuffer.hpp
+valarray
+-
+cstdlib
+-
+iostream
+-
+cmath
+-
+
+/Users/Samantha/sojourner/Raspi Dependancies/opencv_contrib/modules/bioinspired/src/transientareassegmentationmodule.cpp
+precomp.hpp
+/Users/Samantha/sojourner/Raspi Dependancies/opencv_contrib/modules/bioinspired/src/precomp.hpp
+basicretinafilter.hpp
+/Users/Samantha/sojourner/Raspi Dependancies/opencv_contrib/modules/bioinspired/src/basicretinafilter.hpp
+sstream
+-
+
+3rdparty/ippicv/ippicv_osx/include/ipp.h
+ippicv_defs.h
+3rdparty/ippicv/ippicv_osx/include/ippicv_defs.h
+ippicv_types.h
+3rdparty/ippicv/ippicv_osx/include/ippicv_types.h
+ippicv_redefs.h
+3rdparty/ippicv/ippicv_osx/include/ippicv_redefs.h
+ippversion.h
+3rdparty/ippicv/ippicv_osx/include/ippversion.h
+
+3rdparty/ippicv/ippicv_osx/include/ippicv_base.h
+
+3rdparty/ippicv/ippicv_osx/include/ippicv_defs.h
+ippicv_base.h
+3rdparty/ippicv/ippicv_osx/include/ippicv_base.h
+ippicv_types.h
+3rdparty/ippicv/ippicv_osx/include/ippicv_types.h
+
+3rdparty/ippicv/ippicv_osx/include/ippicv_redefs.h
+
+3rdparty/ippicv/ippicv_osx/include/ippicv_types.h
+
+3rdparty/ippicv/ippicv_osx/include/ippversion.h
+
+cvconfig.h
+
+opencv2/opencv_modules.hpp
+

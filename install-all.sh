@@ -1,29 +1,17 @@
 #!/bin/bash
 
 sudo apt-get update
-sudo apt-get upgrade
-echo " "
-echo "This might take a while to complete..."
-echo "!--------------------------------------!"
-echo "!                                      !"
-echo "!               Task List              !"
-echo "!                                      !"
-echo "!--------------------------------------!"
-echo "! [X] Install Developer Tools          !"
-echo "! [X] Install Image Parsing Packages   !"
-echo "! [X] Install Video I/O Packages       !"
-echo "! [X] Install GTK                      !"
-echo "! [X] Build OpenCV from Source         !"
-echo "! [X] Clone Project Git Repo           !"
-echo "! [X] Install python requirements      !"
-echo "!--------------------------------------!"
+sudo apt-get upgrade -y
 
-sleep (3)
+sudo apt-get install build-essential git cmake pkg-config -y
+sudo apt-get install libjpeg8-dev libjasper-dev libpng12-dev -y
+sudo apt-get install libavcodec-dev libavformat-dev libswscale-dev libv4l-dev -y
+sudo apt-get install libgtk2.0-dev -y
 
-echo "##############################"
-echo "# Installing developer tools #"
-echo "##############################"
+cd ~
+wget -O sojourner.zip --no-check-certificate https://github.com/markwatneyy/sojourner/releases/latest.zip
+unzip sojourner.zip
+rm sojourner.zip
+cd sojourner/Raspi\ Dependancies/opencv/build
 
-sudo apt-get install build-essential git cmake pkg-config python3
-
-echo " "
+sudo make install

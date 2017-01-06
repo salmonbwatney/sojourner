@@ -1,0 +1,16 @@
+
+{
+	"sources" : 
+	[
+		
+		{
+			"file" : "/Users/Samantha/sojourner/Raspi Dependancies/opencv_contrib/modules/fuzzy/samples/fuzzy_filtering.cpp",
+			"labels" : [ "Extra", "opencv_fuzzy", "Sample" ]
+		}
+	],
+	"target" : 
+	{
+		"labels" : [ "Extra", "opencv_fuzzy", "Sample" ],
+		"name" : "example_fuzzy_fuzzy_filtering"
+	}
+}

@@ -1,0 +1,9 @@
+# Target labels
+ Extra
+ opencv_reg
+ Sample
+# Source files and their labels
+/Users/Samantha/sojourner/Raspi Dependancies/opencv_contrib/modules/reg/samples/map_test.cpp
+ Extra
+ opencv_reg
+ Sample

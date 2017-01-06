@@ -1,0 +1,16 @@
+
+{
+	"sources" : 
+	[
+		
+		{
+			"file" : "/Users/Samantha/sojourner/Raspi Dependancies/opencv_contrib/modules/optflow/samples/motempl.cpp",
+			"labels" : [ "Extra", "opencv_optflow", "Sample" ]
+		}
+	],
+	"target" : 
+	{
+		"labels" : [ "Extra", "opencv_optflow", "Sample" ],
+		"name" : "example_optflow_motempl"
+	}
+}

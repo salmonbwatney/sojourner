@@ -1,0 +1,16 @@
+
+{
+	"sources" : 
+	[
+		
+		{
+			"file" : "/Users/Samantha/sojourner/Raspi Dependancies/opencv_contrib/modules/ximgproc/samples/deriche_demo.cpp",
+			"labels" : [ "Extra", "opencv_ximgproc", "Sample" ]
+		}
+	],
+	"target" : 
+	{
+		"labels" : [ "Extra", "opencv_ximgproc", "Sample" ],
+		"name" : "example_ximgproc_deriche_demo"
+	}
+}

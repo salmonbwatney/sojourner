@@ -1,0 +1,16 @@
+
+{
+	"sources" : 
+	[
+		
+		{
+			"file" : "/Users/Samantha/sojourner/Raspi Dependancies/opencv_contrib/modules/datasets/samples/or_pascal.cpp",
+			"labels" : [ "Extra", "opencv_datasets", "Sample" ]
+		}
+	],
+	"target" : 
+	{
+		"labels" : [ "Extra", "opencv_datasets", "Sample" ],
+		"name" : "example_datasets_or_pascal"
+	}
+}

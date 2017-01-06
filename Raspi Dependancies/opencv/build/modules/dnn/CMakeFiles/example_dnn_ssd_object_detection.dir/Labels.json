@@ -1,0 +1,16 @@
+
+{
+	"sources" : 
+	[
+		
+		{
+			"file" : "/Users/Samantha/sojourner/Raspi Dependancies/opencv_contrib/modules/dnn/samples/ssd_object_detection.cpp",
+			"labels" : [ "Extra", "opencv_dnn", "Sample" ]
+		}
+	],
+	"target" : 
+	{
+		"labels" : [ "Extra", "opencv_dnn", "Sample" ],
+		"name" : "example_dnn_ssd_object_detection"
+	}
+}

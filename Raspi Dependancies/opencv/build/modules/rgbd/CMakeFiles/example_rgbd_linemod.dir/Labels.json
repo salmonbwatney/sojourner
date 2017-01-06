@@ -1,0 +1,16 @@
+
+{
+	"sources" : 
+	[
+		
+		{
+			"file" : "/Users/Samantha/sojourner/Raspi Dependancies/opencv_contrib/modules/rgbd/samples/linemod.cpp",
+			"labels" : [ "Extra", "opencv_rgbd", "Sample" ]
+		}
+	],
+	"target" : 
+	{
+		"labels" : [ "Extra", "opencv_rgbd", "Sample" ],
+		"name" : "example_rgbd_linemod"
+	}
+}

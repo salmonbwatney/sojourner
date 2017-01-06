@@ -1,0 +1,16 @@
+
+{
+	"sources" : 
+	[
+		
+		{
+			"file" : "/Users/Samantha/sojourner/Raspi Dependancies/opencv_contrib/modules/saliency/samples/computeSaliency.cpp",
+			"labels" : [ "Extra", "opencv_saliency", "Sample" ]
+		}
+	],
+	"target" : 
+	{
+		"labels" : [ "Extra", "opencv_saliency", "Sample" ],
+		"name" : "example_saliency_computeSaliency"
+	}
+}

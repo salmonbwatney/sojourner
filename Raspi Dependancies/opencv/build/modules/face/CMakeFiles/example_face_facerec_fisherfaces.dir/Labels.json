@@ -1,0 +1,16 @@
+
+{
+	"sources" : 
+	[
+		
+		{
+			"file" : "/Users/Samantha/sojourner/Raspi Dependancies/opencv_contrib/modules/face/samples/facerec_fisherfaces.cpp",
+			"labels" : [ "Extra", "opencv_face", "Sample" ]
+		}
+	],
+	"target" : 
+	{
+		"labels" : [ "Extra", "opencv_face", "Sample" ],
+		"name" : "example_face_facerec_fisherfaces"
+	}
+}

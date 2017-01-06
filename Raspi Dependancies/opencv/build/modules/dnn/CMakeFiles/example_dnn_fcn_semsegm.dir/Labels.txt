@@ -1,0 +1,9 @@
+# Target labels
+ Extra
+ opencv_dnn
+ Sample
+# Source files and their labels
+/Users/Samantha/sojourner/Raspi Dependancies/opencv_contrib/modules/dnn/samples/fcn_semsegm.cpp
+ Extra
+ opencv_dnn
+ Sample

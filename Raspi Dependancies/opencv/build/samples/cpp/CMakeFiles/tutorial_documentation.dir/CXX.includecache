@@ -1,0 +1,12 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/Users/Samantha/sojourner/Raspi Dependancies/opencv/samples/cpp/tutorial_code/introduction/documentation/documentation.cpp
+iostream
+-
+

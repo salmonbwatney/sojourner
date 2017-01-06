@@ -1,0 +1,16 @@
+
+{
+	"sources" : 
+	[
+		
+		{
+			"file" : "/Users/Samantha/sojourner/Raspi Dependancies/opencv_contrib/modules/text/samples/segmented_word_recognition.cpp",
+			"labels" : [ "Extra", "opencv_text", "Sample" ]
+		}
+	],
+	"target" : 
+	{
+		"labels" : [ "Extra", "opencv_text", "Sample" ],
+		"name" : "example_text_segmented_word_recognition"
+	}
+}

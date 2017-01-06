@@ -1,9 +1,0 @@
-# Target labels
- Extra
- opencv_xphoto
- Sample
-# Source files and their labels
-/Users/Samantha/sojourner/Raspi Dependancies/opencv_contrib/modules/xphoto/samples/inpainting.cpp
- Extra
- opencv_xphoto
- Sample

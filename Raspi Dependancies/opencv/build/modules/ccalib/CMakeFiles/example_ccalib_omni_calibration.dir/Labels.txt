@@ -1,9 +1,0 @@
-# Target labels
- Extra
- opencv_ccalib
- Sample
-# Source files and their labels
-/Users/Samantha/sojourner/Raspi Dependancies/opencv_contrib/modules/ccalib/samples/omni_calibration.cpp
- Extra
- opencv_ccalib
- Sample

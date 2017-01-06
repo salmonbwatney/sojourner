@@ -1,9 +1,0 @@
-# Target labels
- Extra
- opencv_ximgproc
- Sample
-# Source files and their labels
-/Users/Samantha/sojourner/Raspi Dependancies/opencv_contrib/modules/ximgproc/samples/selectivesearchsegmentation_demo.cpp
- Extra
- opencv_ximgproc
- Sample

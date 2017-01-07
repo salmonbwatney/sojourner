@@ -14,8 +14,8 @@
     limitations under the License.
 
     Program Created by: 	<Your Name>
-	  Date Created:			    <Date>
-	  Date Last Modified: 	<Date>
-    File Name: 				    <File Name>
+    Date Created:		<Date>
+    Date Last Modified: 	<Date>
+    File Name: 			<File Name>
     File Description: 		<Description>
 */

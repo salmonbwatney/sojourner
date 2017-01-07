@@ -31,7 +31,7 @@ class CameraThread(object):
         self.stopEvent = None
 
         # init tkinter window and panel
-        self.root = Tk()
+        self.mainWindow = Tk()
         self.panel = None
 
         #initialize thread
@@ -41,15 +41,46 @@ class CameraThread(object):
         thread.start()          # start thread
 
         #set callback function to handle window close events
-        self.root.wm_title("Sojourner GUI")
-        self.root.wm_protocol("WM_DELETE_WINDOW", self.onClose(
-        
-    def run(self):
-        while True:
-            try:
-    
+        self.mainWindow.wm_title("Sojourner GUI")
+        self.mainWindow.wm_protocol("WM_DELETE_WINDOW", self.onClose(
 
-                
+    def run(self):
+
+        # Note: What you're about to witness is not only just messy
+        # but the only way to get around a Tkinter Runtime error
+        # that is only thrown when using a threaded process
+        try:
+            #loop until we die
+            while not self.stopEvent.is_set():
+                self.frame = self.vidStream.read()
+                self.frame = imutils.resize(self.frame, width=300)
+
+                # Switch from OpenCV's "BGR" mode to PIL's "RGB" mode
+                # then format as ImageTk
+                image = cv2.cvtcolor(self.frame, cv2.COLOR_BGR2RGB)
+                image = Image.fromarray(image)
+                image = ImageTk.PhotoImage(image)
+
+                # Initialize Image Panel
+                if self.panel is None:
+                    self.panel = Label(image = image)
+                    self.panel.image = image
+                    self.panel.grid(row = 2, column = 2, padx = 10, pady = 10)
+
+                # Update panel if already initialized
+                else:
+                    self.panel.configure(image = image)
+                    self.panel.image = image
+
+            #Runtime Error
+        except RuntimeError, e:
+            print("[Sojourner] Caught Runtime Exception")
+    def onClose(self):
+        # set stop event, stop camera and stop rest of process
+        print("[Sojourner] Stopping Camera...")
+        self.stopEvent.set()
+        self.vidStream.stop()
+        self.mainWindow.quit()
 
 # car setup
 drivePin = 12  # attached to physical pin 12
@@ -98,19 +129,19 @@ def keydown(e):
     if (keyDown == 'w' or keyDown == 'W'):
         print("moving forwards")
         driveFwd()
-        
+
     if (keyDown == 's' or keyDown == 'S'):
         print("moving backwards")
         driveRev()
-        
+
     if (keyDown == 'a' or keyDown == 'A'):
         print("turning left")
         turnLeft()
-        
+
     if (keyDown == 'd' or keyDown == 'D'):
         print("turning right")
         turnRight()
-        
+
     if (keyDown == 'b' or keyDown == 'B'):
         print("stopping car")
         rvrStop()
@@ -147,9 +178,8 @@ def cameraDisplay():
     global imgTkin
     imgTkin = ImageTk.PhotoImage(image=newImgFromArray)
 
-    Label(mainWindow, image=imgTkin).grid(row=1, column=2)    
+    Label(mainWindow, image=imgTkin).grid(row=1, column=2)
 
 
 cameraThread = CameraThread()
 mainWindow.mainloop()
-        

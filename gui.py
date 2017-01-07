@@ -9,24 +9,49 @@ import picamera.array
 import os
 import sys
 import time
+import threading
 import RPi.GPIO as gpio
 import cv2
 import cv2.cv as cv
 
 
-#Create new tkinter window object
+# Create new tkinter window object
 mainWindow = Tk()
 
-#Camera Setup
-def vidFeed():
-    with picamera.PiCamera() as camera:
-        captureImg = picamera.array.PiRGBArray(camera)
-        camera.resolution = (300, 300)
-        camera.start_preview()
-        time.sleep(.01)
-        camera.capture(captureImg, format="bgr")
-        global img
-        img = captureImg.array
+# Camera Things
+class CameraThread(object):
+    # Separate thread for the camera object so it can run in the background
+    def __init__(self, interval=1):
+        #Initialization Constructor
+        self.interval = interval
+
+        thread = threading.Thread(target=self.run, args=())
+        thread.daemon = True    # daemonize thread
+        thread.start()          # start thread
+
+    def dispImage():
+        b,g,r = cv2.split(img) # separate image channels
+        newImg = cv2.merge((r,g,b)) #create new image using channels
+        newImgFromArray = Image.fromarray(newImg) #create new image array
+        global imgTkin
+        imgTkin = ImageTk.PhotoImage(image=newImgFromArray) #store the image
+
+        Label(mainWindow, image=imgTkin).grid(row=1, column=2) #display it
+        
+    def run(self):
+        while True:
+            with picamera.PiCamera() as camera:
+                captureImg = picamera.array.PiRGBArray(camera) #new camera object
+                camera.resolution = (300, 300) #set photo resolution
+                camera.start_preview() 
+                time.sleep(.01) #camera warmup time
+                camera.capture(captureImg, format="bgr") #capture photo in bgr format
+                global img
+                img = captureImg.array #new image array
+
+                dispImage() #run image display function
+
+                time.sleep(.41) #sleep for 41ms - gives us ~24 fps
 
 # car setup
 drivePin = 12  # attached to physical pin 12
@@ -127,8 +152,6 @@ def cameraDisplay():
     Label(mainWindow, image=imgTkin).grid(row=1, column=2)    
 
 
-vidFeed()
-cameraDisplay()
-    
+cameraThread = CameraThread()
 mainWindow.mainloop()
         

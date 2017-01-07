@@ -2,6 +2,7 @@
 from Tkinter import *
 from PIL import Image
 from PIL import ImageTk
+from __future__ import print_function
 import subprocess
 import time
 import picamera
@@ -13,45 +14,42 @@ import threading
 import RPi.GPIO as gpio
 import cv2
 import cv2.cv as cv
+import imutils
+import datetime
 
-
-# Create new tkinter window object
-mainWindow = Tk()
 
 # Camera Things
 class CameraThread(object):
     # Separate thread for the camera object so it can run in the background
-    def __init__(self, interval=1):
-        #Initialization Constructor
-        self.interval = interval
+    def __init__(self, vidStream, outputPath):
+        #store video stream object output path
+        #start thread for reading frame and thread stop event
+        self.vidStream = vidStream
+        self.outputPath = outputPath
+        self.frame = None
+        self.thread = None
+        self.stopEvent = None
 
+        # init tkinter window and panel
+        self.root = Tk()
+        self.panel = None
+
+        #initialize thread
+        self.stopEvent = threading.Event()
         thread = threading.Thread(target=self.run, args=())
         thread.daemon = True    # daemonize thread
         thread.start()          # start thread
 
-    def dispImage():
-        b,g,r = cv2.split(img) # separate image channels
-        newImg = cv2.merge((r,g,b)) #create new image using channels
-        newImgFromArray = Image.fromarray(newImg) #create new image array
-        global imgTkin
-        imgTkin = ImageTk.PhotoImage(image=newImgFromArray) #store the image
-
-        Label(mainWindow, image=imgTkin).grid(row=1, column=2) #display it
+        #set callback function to handle window close events
+        self.root.wm_title("Sojourner GUI")
+        self.root.wm_protocol("WM_DELETE_WINDOW", self.onClose(
         
     def run(self):
         while True:
-            with picamera.PiCamera() as camera:
-                captureImg = picamera.array.PiRGBArray(camera) #new camera object
-                camera.resolution = (300, 300) #set photo resolution
-                camera.start_preview() 
-                time.sleep(.01) #camera warmup time
-                camera.capture(captureImg, format="bgr") #capture photo in bgr format
-                global img
-                img = captureImg.array #new image array
+            try:
+    
 
-                dispImage() #run image display function
-
-                time.sleep(.41) #sleep for 41ms - gives us ~24 fps
+                
 
 # car setup
 drivePin = 12  # attached to physical pin 12

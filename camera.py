@@ -64,8 +64,8 @@ class cameraThread:
                     self.panel.configure(image = image)
                     self.panel.image = image
 
-            except RuntimeError, e:
-                print("[Console] A wild RuntimeError was caught!")
+        except RuntimeError, e:
+            print("[Console] A wild RuntimeError was caught!")
 
     #close method
     def onClose(self):

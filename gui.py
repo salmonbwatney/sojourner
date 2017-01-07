@@ -1,7 +1,10 @@
 # import libraries
 from __future__ import print_function
 from Tkinter import *
-from camera import CameraThread
+from PIL import Image
+from PIL import ImageTk
+import threading
+import datetime
 import imutils
 import cv2
 import time
@@ -9,6 +12,72 @@ import os
 import sys
 import time
 import RPi.GPIO as gpio
+
+# create new thread for picamera
+class CameraThread:
+    def __init__(self, vidStream, outputPath):
+        # what this does:
+        # store video stream and output path
+        # initialize most recent frame
+        # thread for reading and processing frams
+        # thread stop event
+
+        self.vidStream = vidStream
+        self.outputPath = outputPath
+        self.frame = None
+        self.thread = None
+        self.stopEvent = None
+
+        # initialize Tkinter window and panel
+        self.mainWindow = Tk()
+        self.panel = None
+
+        # initialize thread event
+        self.stopEvent = threading.Event()
+        thread = threading.Thread(target = self.run, args = ())
+        thread.daemon = True    # daemonize thread
+        thread.start()
+
+        #set function callback for window close events
+        self.mainWindow.wm_title("Sojourner GUI")
+        self.mainWindow.wp_protocol("WM_DELETE_WINDOW", self.onClose)
+
+    def run(self):
+        # what you're about to witness is the laziest and messiest way to
+        # deal with the Tkinter Runtime error that's thrown when Tkinter is
+        # run as a threaded process
+        try:
+            #loop til we die
+            while not self.stopEvent.is_set():
+                self.frame = self.vidStream.read()
+                self.frame = imutils.resize(self.frame, width = 300)
+
+                # Convert from OpenCV BGR to PIL RGB to ImageTk format
+                image = cv2.cvtColor(self.frame, cv2.COLOR_BGR2RB)
+                image = Image.fromarray(image)
+                image = ImageTk.PhotoImage(image)
+
+                # if Tkinter panel no initialized, then initialize it
+                if self.panel is None:
+                    self.panel = Label(image = image)
+                    self.panel.image = image
+                    self.panel.grid(row = 2, column = 2, padx = 10, pady = 10)
+
+                #if already initialized then update the panel
+                else:
+                    self.panel.configure(image = image)
+                    self.panel.image = image
+
+        except RuntimeError, e:
+            print("[Console] A wild RuntimeError was caught!")
+
+    #close method
+    def onClose(self):
+        # set stop event, clean everything up
+        print("[Console] Stopping Camera...")
+        self.stopEvent.set()
+        self.vs.stop()
+        self.mainWindow.quit()
 
 
 # car setup
@@ -79,30 +148,29 @@ def keydown(e):
         print("stopping turn")
         steerStop()
 
-root.bind('<W>', keydown)
-root.bind('<w>', keydown)
+mainWindow.bind('<W>', keydown)
+mainWindow.bind('<w>', keydown)
 
-root.bind('<A>', keydown)
-root.bind('<a>', keydown)
+mainWindow.bind('<A>', keydown)
+mainWindow.bind('<a>', keydown)
 
-root.bind('<S>', keydown)
-root.bind('<s>', keydown)
+mainWindow.bind('<S>', keydown)
+mainWindow.bind('<s>', keydown)
 
-root.bind('<D>', keydown)
-root.bind('<d>', keydown)
+mainWindow.bind('<D>', keydown)
+mainWindow.bind('<d>', keydown)
 
-root.bind('<B>', keydown)
-root.bind('<b>', keydown)
+mainWindow.bind('<B>', keydown)
+mainWindow.bind('<b>', keydown)
 
-root.bind('<N>', keydown)
-root.bind('<n>', keydown)
+mainWindow.bind('<N>', keydown)
+mainWindow.bind('<n>', keydown)
 
 #The GUI Stuff actually starts here
 
 # video feed stuff
-Label(root, text="Video Feed").grid(row=0, column=2)
-vidyaStream = VideoStream(usePiCamera=args["picamera"] > 0).start()
-time.sleep(1)
-vStream = CameraThread(vidyaStream, args["output"])
+Label(mainWindow, text="Video Feed").grid(row=0, column=2)
+cameraThread = CameraThread()
 
-vStream.root.mainloop()
+
+mainWindow.mainloop()

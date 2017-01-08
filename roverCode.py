@@ -11,7 +11,7 @@ with picamera.PiCamera() as camera:
     camera.framerate = 24
 
     client_socket = socket.socket()
-    client_socket.bind(('192.168.0.30', 8001))
+    client_socket.connect(('192.168.0.30', 8001))
 
 
     #Accept single connection and make file-like object

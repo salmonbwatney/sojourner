@@ -55,11 +55,6 @@ class GuiThread:
         self.dutyCycleRight = 55.0
         self.dutyCycleIdle = 100.0
 
-        self.stopEvent = threading.Event()
-        thread2 = threading.Thread(target = self.run, args = ())
-        thread2.daemon = True #daemonize thread
-        thread2.start
-
         #function callback for window close event
         self.root.wm_title("sojourner gui")
         self.root.wp_protocol("WM_DELETE_WINDOW", self.onClose)
@@ -68,9 +63,34 @@ class GuiThread:
         self.keyDown = self.char
         print(self.keyDown)
 
+        if (keyDown == 'w' or keyDown == 'W'):
+            print("moving forwards")
+            driveFwd()
+
+        if (keyDown == 's' or keyDown == 'S'):
+            print("moving backwards")
+            driveRev()
+
+        if (keyDown == 'a' or keyDown == 'A'):
+            print("turning left")
+            turnLeft()
+
+        if (keyDown == 'd' or keyDown == 'D'):
+            print("turning right")
+            turnRight()
+
+        if (keyDown == 'b' or keyDown == 'B'):
+            print("stopping car")
+            rvrStop()
+
+        if (keyDown == 'n' or keyDown == 'N'):
+            print("stopping turn")
+            steerStop()
+
     def run(self):
         # very ugly way to deal with Tkinter runtime error thrown when
         # used as threaded process
+
         try:
             while not self.stopEvent.is_set():
                 self.frame = self.vidStream.read()
@@ -82,6 +102,24 @@ class GuiThread:
                 image = cv2.cvtColor(self.frame, cv2.COLOR_BGR2RGB)
                 image = Image.fromarray(image)
                 image = ImageTk.PhotoImage(image)
+
+                mainWindow.bind('<W>', keydown)
+                mainWindow.bind('<w>', keydown)
+
+                mainWindow.bind('<A>', keydown)
+                mainWindow.bind('<a>', keydown)
+
+                mainWindow.bind('<S>', keydown)
+                mainWindow.bind('<s>', keydown)
+
+                mainWindow.bind('<D>', keydown)
+                mainWindow.bind('<d>', keydown)
+
+                mainWindow.bind('<B>', keydown)
+                mainWindow.bind('<b>', keydown)
+
+                mainWindow.bind('<N>', keydown)
+                mainWindow.bind('<n>', keydown)
 
                 #if tkinter panel isn't initialized, start it.
                 if self.panel is None:

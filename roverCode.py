@@ -14,15 +14,15 @@ import RPi.GPIO as gpio
 
 #New Thread
 class GuiThread:
-    def servoVariables():
-        drivePin = 12
-        steerPin = 11
+    def servoVariables(self):
+        self.drivePin = 12
+        self.steerPin = 11
 
-        dutyCycleFwd = 10.0
-        dutyCycleRev = 55.0
-        dutyCycleLeft = 5.0
-        dutyCycleRight = 55.0
-        dutyCycleIdle = 100.0
+        self.dutyCycleFwd = 10.0
+        self.dutyCycleRev = 55.0
+        self.dutyCycleLeft = 5.0
+        self.dutyCycleRight = 55.0
+        self.dutyCycleIdle = 100.0
 
     #Initialize Thread
     def __init__(self, vidStream, outputPath):
@@ -44,14 +44,14 @@ class GuiThread:
 
         #setup gpio
         gpio.setmode(gpio.BOARD)
-        gpio.setup(drivePin, gpio.OUT)
-        gpio.setup(steerPin, gpio.OUT)
+        gpio.setup(self.drivePin, gpio.OUT)
+        gpio.setup(self.steerPin, gpio.OUT)
 
-        driveServo = gpio.PWM(drivePin, 50)
-        steerServo = gpio.PWM(steerPin, 50)
+        self.driveServo = gpio.PWM(self.drivePin, 50)
+        self.steerServo = gpio.PWM(self.steerPin, 50)
 
-        driveServo.start(dutyCycleStart)
-        steerServo.start(dutyCycleStart)
+        self.driveServo.start(self.dutyCycleStart)
+        self.steerServo.start(self.dutyCycleStart)
 
 
         #initialize thread events
@@ -65,23 +65,23 @@ class GuiThread:
         self.root.wp_protocol("WM_DELETE_WINDOW", self.onClose)
 
 
-    def driveFwd():
-        driveServo.ChangeDutyCycle(dutyCycleFwd)
+    def driveFwd(self):
+        self.driveServo.ChangeDutyCycle(self.dutyCycleFwd)
 
-    def driveRev():
-        driveServo.ChangeDutyCycle(dutyCycleRev)
+    def driveRev(self):
+        self.driveServo.ChangeDutyCycle(self.dutyCycleRev)
 
-    def turnLeft():
-        steerServo.ChangeDutyCycle(dutyCycleLeft)
+    def turnLeft(self):
+        self.steerServo.ChangeDutyCycle(self.dutyCycleLeft)
 
-    def turnRight():
-        steerServo.ChangeDutyCycle(dutyCycleRight)
+    def turnRight(self):
+        self.steerServo.ChangeDutyCycle(self.dutyCycleRight)
 
-    def rvrStop():
-        driveServo.ChangeDutyCycle(dutyCycleIdle)
+    def rvrStop(self):
+        self.driveServo.ChangeDutyCycle(self.dutyCycleIdle)
 
-    def steerStop():
-        steerServo.ChangeDutyCycle(dutyCycleIdle)
+    def steerStop(self):
+        self.steerServo.ChangeDutyCycle(self.dutyCycleIdle)
 
     #Keydown Events
     def keydown(e):
@@ -90,27 +90,27 @@ class GuiThread:
 
         if (keyDown == 'w' or keyDown == 'W'):
             print("moving forwards")
-            driveFwd()
+            self.driveFwd()
 
         if (keyDown == 's' or keyDown == 'S'):
             print("moving backwards")
-            driveRev()
+            self.driveRev()
 
         if (keyDown == 'a' or keyDown == 'A'):
             print("turning left")
-            turnLeft()
+            self.turnLeft()
 
         if (keyDown == 'd' or keyDown == 'D'):
             print("turning right")
-            turnRight()
+            self.turnRight()
 
         if (keyDown == 'b' or keyDown == 'B'):
             print("stopping car")
-            rvrStop()
+            self.rvrStop()
 
         if (keyDown == 'n' or keyDown == 'N'):
             print("stopping turn")
-            steerStop()
+            self.steerStop()
 
     def run(self):
         # very ugly way to deal with Tkinter runtime error thrown when

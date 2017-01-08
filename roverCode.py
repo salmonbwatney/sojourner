@@ -51,13 +51,10 @@ class GuiThread:
                 self.frame = cv2.flip(self.frame, -1) #Flip the camera because it's mounted upside down
                 self.frame = imutils.resize(self.frame, width = 300)
 
-
                 #convert from BGR to RGB to ImageTk
                 image = cv2.cvtColor(self.frame, cv2.COLOR_BGR2RGB)
                 image = Image.fromarray(image)
                 image = ImageTk.PhotoImage(image)
-                self.drivePin = 12 # attached to physical pin 12
-                self.steerPin = 11 # attached to physical pin 11
 
                 #if tkinter panel isn't initialized, start it.
                 if self.panel is None:
@@ -93,4 +90,3 @@ class GuiThread:
         self.stopEvent.set()
         self.vidStream.stop()
         self.root.quit()
-        gpio.cleanup()

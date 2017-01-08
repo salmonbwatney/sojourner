@@ -4,6 +4,8 @@ from roverCode import GuiThread
 from imutils.video import VideoStream
 import argparse
 import time
+import os
+import sys
 
 #create new argument parser & arguments
 argParser = argparse.ArgumentParser()

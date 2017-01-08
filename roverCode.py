@@ -39,7 +39,7 @@ class GuiThread:
         # create button that will allow us to take photos while driving.
         # just like a real rover
         captureScience = Button(self.root, text = "Get Science", command = self.grabScience)
-        captureScience.grid(row = 3, column = 2, expand = "yes", padx = 10, pady = 10)
+        captureScience.grid(row = 3, column = 2, padx = 10, pady = 10)
 
 
         #setup gpio
@@ -66,22 +66,22 @@ class GuiThread:
 
 
     def driveFwd():
-    driveServo.ChangeDutyCycle(dutyCycleFwd)
+        driveServo.ChangeDutyCycle(dutyCycleFwd)
 
     def driveRev():
-    driveServo.ChangeDutyCycle(dutyCycleRev)
+        driveServo.ChangeDutyCycle(dutyCycleRev)
 
     def turnLeft():
-    steerServo.ChangeDutyCycle(dutyCycleLeft)
+        steerServo.ChangeDutyCycle(dutyCycleLeft)
 
     def turnRight():
-    steerServo.ChangeDutyCycle(dutyCycleRight)
+        steerServo.ChangeDutyCycle(dutyCycleRight)
 
     def rvrStop():
-    driveServo.ChangeDutyCycle(dutyCycleIdle)
+        driveServo.ChangeDutyCycle(dutyCycleIdle)
 
     def steerStop():
-    steerServo.ChangeDutyCycle(dutyCycleIdle)
+        steerServo.ChangeDutyCycle(dutyCycleIdle)
 
     #Keydown Events
     def keydown(e):
@@ -157,26 +157,26 @@ class GuiThread:
                 mainWindow.bind('<n>', keydown)
 
 
-            except RuntimeError, e:
-                print("[NASA] Tkinter RuntimeError was caught")
-                print("[NASA] Maybe don't do that again...")
+        except RuntimeError, e:
+            print("[NASA] Tkinter RuntimeError was caught")
+            print("[NASA] Maybe don't do that again...")
 
-        def grabScience(self):
-            # get that science data (photo)
-            # timestamp the file name
-            # output path
-            timeStamp = datetime.datetime.now()
-            filename = "{}.jpg".format(timeStamp.strftime("%Y-%m-%d_%H-%M-%S"))
-            path = os.path.sep.join((self.outputPath, filename))
+    def grabScience(self):
+        # get that science data (photo)
+        # timestamp the file name
+        # output path
+        timeStamp = datetime.datetime.now()
+        filename = "{}.jpg".format(timeStamp.strftime("%Y-%m-%d_%H-%M-%S"))
+        path = os.path.sep.join((self.outputPath, filename))
 
-            # save the file
-            cv2.imwrite(path, self.frame.copy())
-            print("[NASA] Science Data Recieved")
+        # save the file
+        cv2.imwrite(path, self.frame.copy())
+        print("[NASA] Science Data Recieved")
 
-        def onClose(self):
-            #stop event, cleanup camera, gpio and quit process
-            print("[NASA] Halting Scientifc Study")
-            self.stopEvent.set()
-            self.vidStream.stop()
-            self.root.quit()
-            gpio.cleanup()
+    def onClose(self):
+        #stop event, cleanup camera, gpio and quit process
+        print("[NASA] Halting Scientifc Study")
+        self.stopEvent.set()
+        self.vidStream.stop()
+        self.root.quit()
+        gpio.cleanup()

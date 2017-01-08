@@ -25,8 +25,9 @@ class GuiThread:
         dutyCycleIdle = 100.0
 
     #Initialize Thread
-    def __init__(self):
+    def __init__(self, vidStream, outputPath):
         self.vidStream = vidStream
+        self.outputPath = outputPath
         self.frame = None
         self.thread = None
         self.stopEvent = None

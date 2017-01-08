@@ -103,22 +103,22 @@ def keydown(e):
 
 gui = GuiThread(vidStream, args["science"])
 
-gui.bind('<W>', keyDown)
-gui.bind('<w>', keydown)
+gui.root.bind('<W>', keyDown)
+gui.root.bind('<w>', keydown)
 
-gui.bind('<A>', keydown)
-gui.bind('<a>', keydown)
+gui.root.bind('<A>', keydown)
+gui.root.bind('<a>', keydown)
 
-gui.bind('<S>', keydown)
-gui.bind('<s>', keydown)
+gui.root.bind('<S>', keydown)
+gui.root.bind('<s>', keydown)
 
-gui.bind('<D>', keydown)
-gui.bind('<d>', keydown)
+gui.root.bind('<D>', keydown)
+gui.root.bind('<d>', keydown)
 
-gui.bind('<B>', keydown)
-gui.bind('<b>', keydown)
+gui.root.bind('<B>', keydown)
+gui.root.bind('<b>', keydown)
 
-gui.bind('<N>', keydown)
-gui.bind('<n>', keydown)
+gui.root.bind('<N>', keydown)
+gui.root.bind('<n>', keydown)
 
 gui.root.mainloop()

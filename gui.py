@@ -103,7 +103,7 @@ def keydown(e):
 
 gui = GuiThread(vidStream, args["science"])
 
-gui.root.bind('<W>', keyDown)
+gui.root.bind('<W>', keydown)
 gui.root.bind('<w>', keydown)
 
 gui.root.bind('<A>', keydown)

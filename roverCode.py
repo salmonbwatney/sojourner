@@ -14,15 +14,6 @@ import RPi.GPIO as gpio
 
 #New Thread
 class GuiThread:
-    def servoVariables(self):
-        self.drivePin = 12
-        self.steerPin = 11
-
-        self.dutyCycleFwd = 10.0
-        self.dutyCycleRev = 55.0
-        self.dutyCycleLeft = 5.0
-        self.dutyCycleRight = 55.0
-        self.dutyCycleIdle = 100.0
 
     #Initialize Thread
     def __init__(self, vidStream, outputPath):
@@ -31,6 +22,15 @@ class GuiThread:
         self.frame = None
         self.thread = None
         self.stopEvent = None
+
+        self.drivePin = 12
+        self.steerPin = 11
+
+        self.dutyCycleFwd = 10.0
+        self.dutyCycleRev = 55.0
+        self.dutyCycleLeft = 5.0
+        self.dutyCycleRight = 55.0
+        self.dutyCycleIdle = 100.0
 
         #initialize tkinter
         self.root = Tk()

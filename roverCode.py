@@ -10,7 +10,6 @@ import imutils
 import cv2
 import os
 import sys
-import RPi.GPIO as gpio
 
 #New Thread
 class GuiThread:
@@ -59,66 +58,6 @@ class GuiThread:
                 image = ImageTk.PhotoImage(image)
                 self.drivePin = 12 # attached to physical pin 12
                 self.steerPin = 11 # attached to physical pin 11
-
-                #rover controls
-                gpio.setmode(gpio.BOARD)
-                gpio.setup(self.drivePin, gpio.OUT)
-                gpio.setup(self.steerPin, gpio.OUT)
-
-                self.driveServo = gpio.PWM(self.drivePin, 50)
-                self.steerServo = gpio.PWM(self.steerPin, 50)
-
-                self.dutyCycleFwd = 10.0
-                self.dutyCycleRev = 55.0
-                self.dutyCycleLeft = 5.0
-                self.dutyCycleRight = 55.0
-                self.dutyCycleIdle = 100.0
-
-                def keydown(self):
-                    self.keyDown = self.char
-                    print(self.keyDown)
-
-                    if (keyDown == 'w' or keyDown == 'W'):
-                        print("moving forwards")
-                        self.driveServo.ChangeDutyCycle(self.dutyCycleFwd)
-
-                    if (keyDown == 's' or keyDown == 'S'):
-                        print("moving backwards")
-                        self.driveServo.ChangeDutyCycle(self.dutyCycleRev)
-
-                    if (keyDown == 'a' or keyDown == 'A'):
-                        print("turning left")
-                        self.steerServo.ChangeDutyCycle(self.dutyCycleLeft)
-
-                    if (keyDown == 'd' or keyDown == 'D'):
-                        print("turning right")
-                        self.steerServo.ChangeDutyCycle(self.dutyCycleRight)
-
-                    if (keyDown == 'b' or keyDown == 'B'):
-                        print("stopping car")
-                        self.driveServo.ChangeDutyCycle(self.dutyCycleIdle)
-
-                    if (keyDown == 'n' or keyDown == 'N'):
-                        print("stopping turn")
-                        self.steerServo.ChangeDutyCycle(self.dutyCycleIdle)
-
-                mainWindow.bind('<W>', keydown)
-                mainWindow.bind('<w>', keydown)
-
-                mainWindow.bind('<A>', keydown)
-                mainWindow.bind('<a>', keydown)
-
-                mainWindow.bind('<S>', keydown)
-                mainWindow.bind('<s>', keydown)
-
-                mainWindow.bind('<D>', keydown)
-                mainWindow.bind('<d>', keydown)
-
-                mainWindow.bind('<B>', keydown)
-                mainWindow.bind('<b>', keydown)
-
-                mainWindow.bind('<N>', keydown)
-                mainWindow.bind('<n>', keydown)
 
                 #if tkinter panel isn't initialized, start it.
                 if self.panel is None:

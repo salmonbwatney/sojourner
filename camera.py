@@ -10,8 +10,8 @@ import cv2
 import os
 
 # create new thread for picamera
-class cameraThread:
-    def __init__(self, vidStream, outputPath):
+class CameraThread:
+    def __init__(self, vidStream):
         # what this does:
         # store video stream and output path
         # initialize most recent frame
@@ -19,7 +19,6 @@ class cameraThread:
         # thread stop event
 
         self.vidStream = vidStream
-        self.outputPath = outputPath
         self.frame = None
         self.thread = None
         self.stopEvent = None

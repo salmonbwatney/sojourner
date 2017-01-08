@@ -42,33 +42,6 @@ class GuiThread:
         self.root.wm_title("sojourner gui")
         self.root.wp_protocol("WM_DELETE_WINDOW", self.onClose)
 
-    def keydown(self):
-        self.keyDown = self.char
-        print(self.keyDown)
-
-        if (keyDown == 'w' or keyDown == 'W'):
-            print("moving forwards")
-            driveFwd()
-
-        if (keyDown == 's' or keyDown == 'S'):
-            print("moving backwards")
-            driveRev()
-
-        if (keyDown == 'a' or keyDown == 'A'):
-            print("turning left")
-            turnLeft()
-
-        if (keyDown == 'd' or keyDown == 'D'):
-            print("turning right")
-            turnRight()
-
-        if (keyDown == 'b' or keyDown == 'B'):
-            print("stopping car")
-            rvrStop()
-
-        if (keyDown == 'n' or keyDown == 'N'):
-            print("stopping turn")
-            steerStop()
 
     def run(self):
         # very ugly way to deal with Tkinter runtime error thrown when
@@ -80,8 +53,8 @@ class GuiThread:
         gpio.setup(self.drivePin, gpio.OUT)
         gpio.setup(self.steerPin, gpio.OUT)
 
-        driveServo = gpio.PWM(self.drivePin, 50)
-        steerServo = gpio.PWM(self.steerPin, 50)
+        self.driveServo = gpio.PWM(self.drivePin, 50)
+        self.steerServo = gpio.PWM(self.steerPin, 50)
 
         self.dutyCycleFwd = 10.0
         self.dutyCycleRev = 55.0
@@ -89,6 +62,33 @@ class GuiThread:
         self.dutyCycleRight = 55.0
         self.dutyCycleIdle = 100.0
 
+        def keydown(self):
+            self.keyDown = self.char
+            print(self.keyDown)
+
+            if (keyDown == 'w' or keyDown == 'W'):
+                print("moving forwards")
+                self.driveServo.ChangeDutyCycle(self.dutyCycleFwd)
+
+            if (keyDown == 's' or keyDown == 'S'):
+                print("moving backwards")
+                self.driveServo.ChangeDutyCycle(self.dutyCycleFwd
+
+            if (keyDown == 'a' or keyDown == 'A'):
+                print("turning left")
+                self.steerServo.ChangeDutyCycle(self.dutyCycleLeft)
+
+            if (keyDown == 'd' or keyDown == 'D'):
+                print("turning right")
+                self.steerServo.ChangeDutyCycle(self.dutyCycleRight)
+
+            if (keyDown == 'b' or keyDown == 'B'):
+                print("stopping car")
+                self.driveServo.ChangeDutyCycle(self.dutyCycleIdle)
+
+            if (keyDown == 'n' or keyDown == 'N'):
+                print("stopping turn")
+                self.steerServo.ChangeDutyCycle(self.dutyCycleIdle)
         try:
             while not self.stopEvent.is_set():
                 self.frame = self.vidStream.read()

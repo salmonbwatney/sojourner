@@ -16,7 +16,7 @@ import RPi.GPIO as gpio
 class GuiThread:
 
     #Initialize Thread
-    def __init__(self, vidStream, outputPath):
+    def __init__(self, rvr, vidStream, outputPath):
         self.vidStream = vidStream
         self.outputPath = outputPath
         self.frame = None
@@ -34,13 +34,42 @@ class GuiThread:
 
         #initialize thread events
         self.stopEvent = threading.Event()
-        thread = threading.Thread(target = self.run, args=())
-        thread.daemon = True #daemonize thread
-        thread.start()
+        thread1 = threading.Thread(target = self.run, args=())
+        thread1.daemon = True #daemonize thread
+        thread1.start()
+
+
+        rvr.drivePin = 12 # attached to physical pin 12
+        rvr.steerPin = 11 # attached to physical pin 11
+
+        gpio.setmode(gpio.BOARD)
+        gpio.setup(rvr.drivePin, gpio.OUT)
+        gpio.setup(rvr.steerPin, gpio.OUT)
+
+        driveServo = gpio.PWM(rvr.drivePin, 50)
+        steerServo = gpio.PWM(rvr.steerPin, 50)
+
+        rvr.dutyCycleFwd = 10.0
+        rvr.dutyCycleRev = 55.0
+        rvr.dutyCycleLeft = 5.0
+        rvr.dutyCycleRight = 55.0
+        rvr.dutyCycleIdle = 100.0
+
+        rvr.stopEvent = threading.Event()
+        thread2 = threading.Thread(target = rvr.run, args = ())
+        thread2.daemon = True #daemonize thread
+        thread2.start
 
         #function callback for window close event
         self.root.wm_title("sojourner gui")
         self.root.wp_protocol("WM_DELETE_WINDOW", self.onClose)
+
+    def keydown(rvr):
+        rvr.keyDown = rvr.char
+        print(rvr.keyDown)
+
+    def run(rvr):
+        print("test")
 
     def run(self):
         # very ugly way to deal with Tkinter runtime error thrown when

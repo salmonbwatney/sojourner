@@ -10,12 +10,12 @@ with picamera.PiCamera() as camera:
     camera.resolution = (640, 480)
     camera.framerate = 24
 
-    server_socket = socket.socket()
-    server_socket.bind(('0.0.0.0', 8001))
-    server_socket.listen(0)
+    client_socket = socket.socket()
+    client_socket.bind(('192.168.0.30', 8001))
+
 
     #Accept single connection and make file-like object
-    connection = server_socket.accept()[0].makefile('wb')
+    connection = client_socket.makefile('wb')
     try:
         camera.start_recording(connection, format = 'h264')
         camera.wait_recording(10)

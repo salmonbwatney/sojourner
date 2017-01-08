@@ -4,8 +4,8 @@ from Tkinter import *
 
 mainWindow = Tk()
 
-server_socket = socket.socket()
-server_socket.connect(('0.0.0.0', 8001))
+client_socket = socket.socket()
+client_socket.connect(('192.168.0.4', 8001))
 
 connection = client_socket.makefile('wb')
 

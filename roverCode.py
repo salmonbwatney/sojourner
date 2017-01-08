@@ -57,9 +57,6 @@ class GuiThread:
                 image = cv2.cvtColor(self.frame, cv2.COLOR_BGR2RGB)
                 image = Image.fromarray(image)
                 image = ImageTk.PhotoImage(image)
-                self.drivePin = 12 # attached to physical pin 12
-                self.steerPin = 11 # attached to physical pin 11
-
 
                 # Warning: Bad Function Call Ahead.
                 # It's a bad way to do things because everything's harder to
@@ -71,6 +68,10 @@ class GuiThread:
                     print(self.keyDown)
 
                     #rover
+
+                    self.drivePin = 12 # attached to physical pin 12
+                    self.steerPin = 11 # attached to physical pin 11
+
                     gpio.setmode(gpio.BOARD)
                     gpio.setup(self.drivePin, gpio.OUT)
                     gpio.setup(self.steerPin, gpio.OUT)

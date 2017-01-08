@@ -1,11 +1,12 @@
 language: erlang
+sudo: required
 eng:
   - ARCH=x64
   - ARCH=arm
 
 after_success:
   - bash <(curl -s https://codecov.io/bash)
- 
+
 branches:
   only:
     - master

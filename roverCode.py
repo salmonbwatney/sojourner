@@ -65,9 +65,6 @@ class GuiThread:
                 gpio.setup(self.drivePin, gpio.OUT)
                 gpio.setup(self.steerPin, gpio.OUT)
 
-                driveServo = gpio.PWM(self.drivePin, 50)
-                steerServo = gpio.PWM(self.steerPin, 50)
-
                 self.dutyCycleFwd = 10.0
                 self.dutyCycleRev = 55.0
                 self.dutyCycleLeft = 5.0
@@ -77,6 +74,9 @@ class GuiThread:
                 def keydown(self):
                     self.keyDown = self.char
                     print(self.keyDown)
+
+                    self.driveServo = gpio.PWM(self.drivePin, 50)
+                    self.steerServo = gpio.PWM(self.steerPin, 50)
 
                     if (self.keyDown == 'w' or self.keyDown == 'W'):
                         print("moving forwards")

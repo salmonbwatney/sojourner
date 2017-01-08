@@ -23,15 +23,6 @@ class GuiThread:
         self.thread = None
         self.stopEvent = None
 
-        self.drivePin = 12
-        self.steerPin = 11
-
-        self.dutyCycleFwd = 10.0
-        self.dutyCycleRev = 55.0
-        self.dutyCycleLeft = 5.0
-        self.dutyCycleRight = 55.0
-        self.dutyCycleIdle = 100.0
-
         #initialize tkinter
         self.root = Tk()
         self.panel = None
@@ -40,19 +31,6 @@ class GuiThread:
         # just like a real rover
         captureScience = Button(self.root, text = "Get Science", command = self.grabScience)
         captureScience.grid(row = 3, column = 2, padx = 10, pady = 10)
-
-
-        #setup gpio
-        gpio.setmode(gpio.BOARD)
-        gpio.setup(self.drivePin, gpio.OUT)
-        gpio.setup(self.steerPin, gpio.OUT)
-
-        self.driveServo = gpio.PWM(self.drivePin, 50)
-        self.steerServo = gpio.PWM(self.steerPin, 50)
-
-        self.driveServo.start(self.dutyCycleStart)
-        self.steerServo.start(self.dutyCycleStart)
-
 
         #initialize thread events
         self.stopEvent = threading.Event()
@@ -63,54 +41,6 @@ class GuiThread:
         #function callback for window close event
         self.root.wm_title("sojourner gui")
         self.root.wp_protocol("WM_DELETE_WINDOW", self.onClose)
-
-
-    def driveFwd(self):
-        self.driveServo.ChangeDutyCycle(self.dutyCycleFwd)
-
-    def driveRev(self):
-        self.driveServo.ChangeDutyCycle(self.dutyCycleRev)
-
-    def turnLeft(self):
-        self.steerServo.ChangeDutyCycle(self.dutyCycleLeft)
-
-    def turnRight(self):
-        self.steerServo.ChangeDutyCycle(self.dutyCycleRight)
-
-    def rvrStop(self):
-        self.driveServo.ChangeDutyCycle(self.dutyCycleIdle)
-
-    def steerStop(self):
-        self.steerServo.ChangeDutyCycle(self.dutyCycleIdle)
-
-    #Keydown Events
-    def keydown(e):
-        keyDown = e.char
-        print(keyDown)
-
-        if (keyDown == 'w' or keyDown == 'W'):
-            print("moving forwards")
-            self.driveFwd()
-
-        if (keyDown == 's' or keyDown == 'S'):
-            print("moving backwards")
-            self.driveRev()
-
-        if (keyDown == 'a' or keyDown == 'A'):
-            print("turning left")
-            self.turnLeft()
-
-        if (keyDown == 'd' or keyDown == 'D'):
-            print("turning right")
-            self.turnRight()
-
-        if (keyDown == 'b' or keyDown == 'B'):
-            print("stopping car")
-            self.rvrStop()
-
-        if (keyDown == 'n' or keyDown == 'N'):
-            print("stopping turn")
-            self.steerStop()
 
     def run(self):
         # very ugly way to deal with Tkinter runtime error thrown when
@@ -137,24 +67,6 @@ class GuiThread:
                 else:
                     self.panel.configure(image = image)
                     self.panel.image = image
-
-                mainWindow.bind('<W>', keydown)
-                mainWindow.bind('<w>', keydown)
-
-                mainWindow.bind('<A>', keydown)
-                mainWindow.bind('<a>', keydown)
-
-                mainWindow.bind('<S>', keydown)
-                mainWindow.bind('<s>', keydown)
-
-                mainWindow.bind('<D>', keydown)
-                mainWindow.bind('<d>', keydown)
-
-                mainWindow.bind('<B>', keydown)
-                mainWindow.bind('<b>', keydown)
-
-                mainWindow.bind('<N>', keydown)
-                mainWindow.bind('<n>', keydown)
 
 
         except RuntimeError, e:

@@ -102,23 +102,23 @@ class GuiThread:
                         print("stopping turn")
                         self.steerServo.ChangeDutyCycle(self.dutyCycleIdle)
 
-                mainWindow.bind('<W>', keydown)
-                mainWindow.bind('<w>', keydown)
+                self.root.bind('<W>', keydown)
+                self.root.bind('<w>', keydown)
 
-                mainWindow.bind('<A>', keydown)
-                mainWindow.bind('<a>', keydown)
+                self.root.bind('<A>', keydown)
+                self.root.bind('<a>', keydown)
 
-                mainWindow.bind('<S>', keydown)
-                mainWindow.bind('<s>', keydown)
+                self.root.bind('<S>', keydown)
+                self.root.bind('<s>', keydown)
 
-                mainWindow.bind('<D>', keydown)
-                mainWindow.bind('<d>', keydown)
+                self.root.bind('<D>', keydown)
+                self.root.bind('<d>', keydown)
 
-                mainWindow.bind('<B>', keydown)
-                mainWindow.bind('<b>', keydown)
+                self.root.bind('<B>', keydown)
+                self.root.bind('<b>', keydown)
 
-                mainWindow.bind('<N>', keydown)
-                mainWindow.bind('<n>', keydown)
+                self.root.bind('<N>', keydown)
+                self.root.bind('<n>', keydown)
 
                 #if tkinter panel isn't initialized, start it.
                 if self.panel is None:

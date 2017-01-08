@@ -46,49 +46,6 @@ class GuiThread:
     def run(self):
         # very ugly way to deal with Tkinter runtime error thrown when
         # used as threaded process
-        self.drivePin = 12 # attached to physical pin 12
-        self.steerPin = 11 # attached to physical pin 11
-
-        gpio.setmode(gpio.BOARD)
-        gpio.setup(self.drivePin, gpio.OUT)
-        gpio.setup(self.steerPin, gpio.OUT)
-
-        self.driveServo = gpio.PWM(self.drivePin, 50)
-        self.steerServo = gpio.PWM(self.steerPin, 50)
-
-        self.dutyCycleFwd = 10.0
-        self.dutyCycleRev = 55.0
-        self.dutyCycleLeft = 5.0
-        self.dutyCycleRight = 55.0
-        self.dutyCycleIdle = 100.0
-
-        def keydown(self):
-            self.keyDown = self.char
-            print(self.keyDown)
-
-            if (keyDown == 'w' or keyDown == 'W'):
-                print("moving forwards")
-                self.driveServo.ChangeDutyCycle(self.dutyCycleFwd)
-
-            if (keyDown == 's' or keyDown == 'S'):
-                print("moving backwards")
-                self.driveServo.ChangeDutyCycle(self.dutyCycleFwd
-
-            if (keyDown == 'a' or keyDown == 'A'):
-                print("turning left")
-                self.steerServo.ChangeDutyCycle(self.dutyCycleLeft)
-
-            if (keyDown == 'd' or keyDown == 'D'):
-                print("turning right")
-                self.steerServo.ChangeDutyCycle(self.dutyCycleRight)
-
-            if (keyDown == 'b' or keyDown == 'B'):
-                print("stopping car")
-                self.driveServo.ChangeDutyCycle(self.dutyCycleIdle)
-
-            if (keyDown == 'n' or keyDown == 'N'):
-                print("stopping turn")
-                self.steerServo.ChangeDutyCycle(self.dutyCycleIdle)
         try:
             while not self.stopEvent.is_set():
                 self.frame = self.vidStream.read()
@@ -100,6 +57,50 @@ class GuiThread:
                 image = cv2.cvtColor(self.frame, cv2.COLOR_BGR2RGB)
                 image = Image.fromarray(image)
                 image = ImageTk.PhotoImage(image)
+                self.drivePin = 12 # attached to physical pin 12
+                self.steerPin = 11 # attached to physical pin 11
+
+                #rover controls
+                gpio.setmode(gpio.BOARD)
+                gpio.setup(self.drivePin, gpio.OUT)
+                gpio.setup(self.steerPin, gpio.OUT)
+
+                self.driveServo = gpio.PWM(self.drivePin, 50)
+                self.steerServo = gpio.PWM(self.steerPin, 50)
+
+                self.dutyCycleFwd = 10.0
+                self.dutyCycleRev = 55.0
+                self.dutyCycleLeft = 5.0
+                self.dutyCycleRight = 55.0
+                self.dutyCycleIdle = 100.0
+
+                def keydown(self):
+                    self.keyDown = self.char
+                    print(self.keyDown)
+
+                    if (keyDown == 'w' or keyDown == 'W'):
+                        print("moving forwards")
+                        self.driveServo.ChangeDutyCycle(self.dutyCycleFwd)
+
+                    if (keyDown == 's' or keyDown == 'S'):
+                        print("moving backwards")
+                        self.driveServo.ChangeDutyCycle(self.dutyCycleRev)
+
+                    if (keyDown == 'a' or keyDown == 'A'):
+                        print("turning left")
+                        self.steerServo.ChangeDutyCycle(self.dutyCycleLeft)
+
+                    if (keyDown == 'd' or keyDown == 'D'):
+                        print("turning right")
+                        self.steerServo.ChangeDutyCycle(self.dutyCycleRight)
+
+                    if (keyDown == 'b' or keyDown == 'B'):
+                        print("stopping car")
+                        self.driveServo.ChangeDutyCycle(self.dutyCycleIdle)
+
+                    if (keyDown == 'n' or keyDown == 'N'):
+                        print("stopping turn")
+                        self.steerServo.ChangeDutyCycle(self.dutyCycleIdle)
 
                 mainWindow.bind('<W>', keydown)
                 mainWindow.bind('<w>', keydown)

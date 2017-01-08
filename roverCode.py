@@ -34,26 +34,9 @@ class GuiThread:
 
         #initialize thread events
         self.stopEvent = threading.Event()
-        thread1 = threading.Thread(target = self.run, args=())
-        thread1.daemon = True #daemonize thread
-        thread1.start()
-
-
-        self.drivePin = 12 # attached to physical pin 12
-        self.steerPin = 11 # attached to physical pin 11
-
-        gpio.setmode(gpio.BOARD)
-        gpio.setup(self.drivePin, gpio.OUT)
-        gpio.setup(self.steerPin, gpio.OUT)
-
-        driveServo = gpio.PWM(self.drivePin, 50)
-        steerServo = gpio.PWM(self.steerPin, 50)
-
-        self.dutyCycleFwd = 10.0
-        self.dutyCycleRev = 55.0
-        self.dutyCycleLeft = 5.0
-        self.dutyCycleRight = 55.0
-        self.dutyCycleIdle = 100.0
+        thread = threading.Thread(target = self.run, args=())
+        thread.daemon = True #daemonize thread
+        thread.start()
 
         #function callback for window close event
         self.root.wm_title("sojourner gui")
@@ -90,6 +73,21 @@ class GuiThread:
     def run(self):
         # very ugly way to deal with Tkinter runtime error thrown when
         # used as threaded process
+        self.drivePin = 12 # attached to physical pin 12
+        self.steerPin = 11 # attached to physical pin 11
+
+        gpio.setmode(gpio.BOARD)
+        gpio.setup(self.drivePin, gpio.OUT)
+        gpio.setup(self.steerPin, gpio.OUT)
+
+        driveServo = gpio.PWM(self.drivePin, 50)
+        steerServo = gpio.PWM(self.steerPin, 50)
+
+        self.dutyCycleFwd = 10.0
+        self.dutyCycleRev = 55.0
+        self.dutyCycleLeft = 5.0
+        self.dutyCycleRight = 55.0
+        self.dutyCycleIdle = 100.0
 
         try:
             while not self.stopEvent.is_set():

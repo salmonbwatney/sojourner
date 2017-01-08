@@ -60,20 +60,26 @@ class GuiThread:
                 self.drivePin = 12 # attached to physical pin 12
                 self.steerPin = 11 # attached to physical pin 11
 
-                #rover
-                gpio.setmode(gpio.BOARD)
-                gpio.setup(self.drivePin, gpio.OUT)
-                gpio.setup(self.steerPin, gpio.OUT)
 
-                self.dutyCycleFwd = 10.0
-                self.dutyCycleRev = 55.0
-                self.dutyCycleLeft = 5.0
-                self.dutyCycleRight = 55.0
-                self.dutyCycleIdle = 100.0
+                # Warning: Bad Function Call Ahead.
+                # It's a bad way to do things because everything's harder to
+                # read, and could potentially lead to error's you'll never find
+                # until it's too late. We cannot afford to lose this rover
 
                 def keydown(self):
                     self.keyDown = self.char
                     print(self.keyDown)
+
+                    #rover
+                    gpio.setmode(gpio.BOARD)
+                    gpio.setup(self.drivePin, gpio.OUT)
+                    gpio.setup(self.steerPin, gpio.OUT)
+
+                    self.dutyCycleFwd = 10.0
+                    self.dutyCycleRev = 55.0
+                    self.dutyCycleLeft = 5.0
+                    self.dutyCycleRight = 55.0
+                    self.dutyCycleIdle = 100.0
 
                     self.driveServo = gpio.PWM(self.drivePin, 50)
                     self.steerServo = gpio.PWM(self.steerPin, 50)

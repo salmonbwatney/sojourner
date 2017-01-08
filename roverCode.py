@@ -78,27 +78,27 @@ class GuiThread:
                     self.keyDown = self.char
                     print(self.keyDown)
 
-                    if (keyDown == 'w' or keyDown == 'W'):
+                    if (self.keyDown == 'w' or self.keyDown == 'W'):
                         print("moving forwards")
                         self.driveServo.ChangeDutyCycle(self.dutyCycleFwd)
 
-                    if (keyDown == 's' or keyDown == 'S'):
+                    if (self.keyDown == 's' or self.keyDown == 'S'):
                         print("moving backwards")
                         self.driveServo.ChangeDutyCycle(self.dutyCycleRev)
 
-                    if (keyDown == 'a' or keyDown == 'A'):
+                    if (self.keyDown == 'a' or self.keyDown == 'A'):
                         print("turning left")
                         self.steerServo.ChangeDutyCycle(self.dutyCycleLeft)
 
-                    if (keyDown == 'd' or keyDown == 'D'):
+                    if (self.keyDown == 'd' or self.keyDown == 'D'):
                         print("turning right")
                         self.steerServo.ChangeDutyCycle(self.dutyCycleRight)
 
-                    if (keyDown == 'b' or keyDown == 'B'):
+                    if (self.keyDown == 'b' or self.keyDown == 'B'):
                         print("stopping car")
                         self.driveServo.ChangeDutyCycle(self.dutyCycleIdle)
 
-                    if (keyDown == 'n' or keyDown == 'N'):
+                    if (self.keyDown == 'n' or self.keyDown == 'N'):
                         print("stopping turn")
                         self.steerServo.ChangeDutyCycle(self.dutyCycleIdle)
 

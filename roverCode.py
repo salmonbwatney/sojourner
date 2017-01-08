@@ -65,8 +65,8 @@ class GuiThread:
                 gpio.setup(self.drivePin, gpio.OUT)
                 gpio.setup(self.steerPin, gpio.OUT)
 
-                self.driveServo = gpio.PWM(self.drivePin, 50)
-                self.steerServo = gpio.PWM(self.steerPin, 50)
+                driveServo = gpio.PWM(self.drivePin, 50)
+                steerServo = gpio.PWM(self.steerPin, 50)
 
                 self.dutyCycleFwd = 10.0
                 self.dutyCycleRev = 55.0

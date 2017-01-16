@@ -1,4 +1,4 @@
-#    Copyright 2016 © <Your Name>, Some Rights Reserved
+#    Copyright 2016 © Samantha Rachel Belnavis, Some Rights Reserved
 #
 #    Licensed under the GNU General Public License, Version 3.0 (the "License");
 #    you may not use this file except in compliance with the License.

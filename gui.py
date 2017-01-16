@@ -125,6 +125,11 @@ def keydown(e):
 
 gui = GuiThread(vidStream, args["science"])
 
+gui.root.configure(background = "#333333")
+
+fakeGraphW = 640
+
+
 gui.root.bind('<W>', keydown)
 gui.root.bind('<w>', keydown)
 

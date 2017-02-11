@@ -25,8 +25,8 @@ var io = require('socket.io')(http);
 var car = {
 
   motorControls: {
-    drivePin: 12, // Enable Pin 1
-    steerPin: 16, // Input 1
+    drivePinSetup: 12, // Enable Pin 1
+    steerPinSetup: 16, // Input 1
 
     dutyCycleFwd: 10,
     dutyCycleRev: 55.0,
@@ -37,8 +37,8 @@ var car = {
 
   //enable gpio pins
   init: function(){
-    gpio = new Gpio(drivePin, {mode: gpio.OUTPUT});
-    gpio = new Gpio(steerPin, {mode: gpio.OUTPUT});
+    drivePin = new Gpio(drivePinSetup, {mode: gpio.OUTPUT});
+    steerPin = new Gpio(steerPinSetup, {mode: gpio.OUTPUT});
   },
 
   //moving forwards

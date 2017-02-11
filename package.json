@@ -1,0 +1,34 @@
+{
+  "name": "sojourner",
+  "version": "2.1.0",
+  "description": "NASA fight me round 2",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/markwatneyy/sojourner.git"
+  },
+  "author": "Samantha Rachel Belnavis",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/markwatneyy/sojourner/issues"
+  },
+  "homepage": "https://github.com/markwatneyy/sojourner#readme",
+  "dependencies": {
+    "angular": "^1.6.1",
+    "async": "^0.9.0",
+    "bootstrap": "^3.3.7",
+    "chart.js": "^2.4.0",
+    "connect": "^3.5.0",
+    "express": "^4.14.1",
+    "jquery": "^1.12.4",
+    "key-emit": "0.0.4",
+    "keypress": "^0.2.1",
+    "moment": "^2.17.1",
+    "requirejs": "^2.3.2",
+    "serve-static": "^1.11.2",
+    "socket.io": "^1.7.2"
+  }
+}

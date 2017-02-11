@@ -5,7 +5,7 @@ var express = require('express'),
     path = require('path'),
     async = require('async'),
     gpio = require('pigpio'),
-    Pigpio = require('static/js/js-pigpio.js'),
+    Pigpio = require('js-pigpio'),
     app = express();
 
 // set app port

@@ -39,47 +39,47 @@ var car = {
 
   //enable gpio pins
   init: function(){
-    PiGPIO.set_PWM_dutycycle(drivePin, dutyCycleIdle);
-    PiGPIO.set_PWM_dutycycle(steerPin, dutyCycleIdle);
+    PiGPIO.set_PWM_dutycycle(this.drivePin, this.dutyCycleIdle);
+    PiGPIO.set_PWM_dutycycle(this.steerPin, this.dutyCycleIdle);
 
   },
 
   //moving forwards
   mvForward: function() {
     async.parallel([
-      PiGPIO.set_PWM_dutycycle(drivePin, dutyCycleIdle)
+      PiGPIO.set_PWM_dutycycle(this.drivePin, this.dutyCycleFwd)
     ]);
   },
 
   mvBackward: function() {
     async.parallel([
-      PiGPIO.set_PWM_dutycycle(drivePin, dutyCycleIdle)
+      PiGPIO.set_PWM_dutycycle(this.drivePin, this.dutyCycleRev)
 
     ]);
   },
 
   tLeft: function() {
     async.parallel([
-      PiGPIO.set_PWM_dutycycle(drivePin, dutyCycleIdle)
+      PiGPIO.set_PWM_dutycycle(this.steerPin, this.dutyCycleLeft)
 
     ]);
   },
 
   tRight: function() {
     async.parallel([
-      PiGPIO.set_PWM_dutycycle(drivePin, dutyCycleIdle)
+      PiGPIO.set_PWM_dutycycle(this.steerPin, this.dutyCycleRight)
     ]);
   },
 
   dIdle: function() {
     async.parallel([
-      PiGPIO.set_PWM_dutycycle(drivePin, dutyCycleIdle)
+      PiGPIO.set_PWM_dutycycle(this.drivePin, this.dutyCycleIdle)
     ]);
   },
 
   tIdle: function() {
     async.parallel([
-      PiGPIO.set_PWM_dutycycle(drivePin, dutyCycleIdle)
+      PiGPIO.set_PWM_dutycycle(this.steerPin, this.dutyCycleIdle)
     ]);
   },
 };

@@ -5,6 +5,7 @@ var express = require('express'),
     path = require('path'),
     async = require('async'),
     gpio = require('pigpio'),
+    Pigpio = require('static/js/js-pigpio.js'),
     app = express();
 
 // set app port
@@ -21,12 +22,13 @@ var http = http.createServer(app).listen(app.get('port'), function(){
 //init socket.io
 var io = require('socket.io')(http);
 
+var PiGPIO = new Pigpio();
 // new car object
 var car = {
 
   motorControls: {
-    drivePinSetup: 12, // Enable Pin 1
-    steerPinSetup: 16, // Input 1
+    drivePin: 12, // Enable Pin 1
+    drivePin: 16, // Input 1
 
     dutyCycleFwd: 10,
     dutyCycleRev: 55.0,
@@ -37,44 +39,47 @@ var car = {
 
   //enable gpio pins
   init: function(){
-    drivePin = new gpio(this.drivePinSetup, {mode: gpio.OUTPUT});
-    steerPin = new gpio(this.steerPinSetup, {mode: gpio.OUTPUT});
+    PiGPIO.set_PWM_dutycycle(drivePin, dutyCycleIdle);
+    PiGPIO.set_PWM_dutycycle(steerPin, dutyCycleIdle);
+
   },
 
   //moving forwards
   mvForward: function() {
     async.parallel([
-      drivePin.pwmWrite(dutyCycleFwd)
+      PiGPIO.set_PWM_dutycycle(drivePin, dutyCycleIdle)
     ]);
   },
 
   mvBackward: function() {
     async.parallel([
-      drivePin.pwmWrite(dutyCycleRev)
+      PiGPIO.set_PWM_dutycycle(drivePin, dutyCycleIdle)
+
     ]);
   },
 
   tLeft: function() {
     async.parallel([
-      steerPin.pwmWrite(dutyCycleLeft)
+      PiGPIO.set_PWM_dutycycle(drivePin, dutyCycleIdle)
+
     ]);
   },
 
   tRight: function() {
     async.parallel([
-      steerPin.pwmWrite(dutyCycleRight)
+      PiGPIO.set_PWM_dutycycle(drivePin, dutyCycleIdle)
     ]);
   },
 
   dIdle: function() {
     async.parallel([
-      drivePin.pwmWrite(dutyCycleIdle)
+      PiGPIO.set_PWM_dutycycle(drivePin, dutyCycleIdle)
     ]);
   },
 
   tIdle: function() {
     async.parallel([
-      steerPin.pwmWrite(dutyCycleFwd)
+      PiGPIO.set_PWM_dutycycle(drivePin, dutyCycleIdle)
     ]);
   },
 };

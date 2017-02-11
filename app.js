@@ -37,8 +37,8 @@ var car = {
 
   //enable gpio pins
   init: function(){
-    drivePin = new gpio(drivePinSetup, {mode: gpio.OUTPUT});
-    steerPin = new gpio(steerPinSetup, {mode: gpio.OUTPUT});
+    drivePin = new gpio(this.drivePinSetup, {mode: gpio.OUTPUT});
+    steerPin = new gpio(this.steerPinSetup, {mode: gpio.OUTPUT});
   },
 
   //moving forwards

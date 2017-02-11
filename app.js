@@ -28,11 +28,11 @@ var car = {
     drivePin: 12, // Enable Pin 1
     steerPin: 16, // Input 1
 
-    dutyCycleFwd = 10,
-    dutyCycleRev = 55.0,
-    dutyCycleLeft = 5.0,
-    dutyCycleRight = 55.0,
-    dutyCycleIdle = 100.0
+    dutyCycleFwd: 10,
+    dutyCycleRev: 55.0,
+    dutyCycleLeft: 5.0,
+    dutyCycleRight: 55.0,
+    dutyCycleIdle: 100.0
   },
 
   //enable gpio pins

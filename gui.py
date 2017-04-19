@@ -1,23 +1,24 @@
-#    Copyright 2016 © Samantha Rachel Belnavis, Some Rights Reserved
-#
-#    Licensed under the GNU General Public License, Version 3.0 (the "License");
-#    you may not use this file except in compliance with the License.
-#    You may obtain a copy of the License at
-#
-#        http://www.gnu.org/licenses/gpl.html
-#
-#    Unless required by applicable law or agreed to in writing, software
-#    distributed under the License is distributed on an "AS IS" BASIS,
-#    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-#    See the License for specific language governing permissions and
-#    limitations under the License.
-#
-#    Program Created by: 	Samantha Rachel Belnavis
-#    Date Created:		    January 7, 2016
-#    Date Last Modified: 	January 8, 2016
-#    File Name: 			gui.py
-#    File Description: 		Python GUI
+'''
+    Copyright 2016 - 2017 Samantha Rachel Belnavis, Some Rights Reserved
 
+    Licensed under the GNU General Public License, Version 3.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+
+        http://www.gnu.org/licenses/gpl.html
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for specific language governing permissions and
+    limitations under the License.
+
+    Program Created by: 	Samantha Rachel Belnavis
+    Date Created:		January 7, 2017
+    Date Last Modified: 	April 19, 2017
+    File Name: 		gui.py
+    File Description: 		Python GUI
+'''
 
 #import packages
 from __future__ import print_function
@@ -32,8 +33,8 @@ import RPi.GPIO as gpio
 
 #create new argument parser & arguments
 argParser = argparse.ArgumentParser()
-argParser.add_argument("--science", required = True, help = "Science Storage Path")
-argParser.add_argument("--picamera", type = int, default = -1, help = "Set value larger than 1 to use Picamera")
+argParser.add_argument( "--science", required = True, help = "Science Storage Path" )
+argParser.add_argument( "--picamera", type = int, default = -1, help = "Set value larger than 1 to use Picamera" )
 args = vars(argParser.parse_args())
 
 # car setup
@@ -99,48 +100,37 @@ def keydown(e):
     keyDown = e.char
     print(keyDown)
 
-    if (keyDown == 'w' or keyDown == 'W'):
+    if (keyDown == 'w'):
         print("moving forwards")
         driveFwd()
 
-    if (keyDown == 's' or keyDown == 'S'):
+    if (keyDown == 's'):
         print("moving backwards")
         driveRev()
 
-    if (keyDown == 'a' or keyDown == 'A'):
+    if (keyDown == 'a'):
         print("turning left")
         turnLeft()
 
-    if (keyDown == 'd' or keyDown == 'D'):
+    if (keyDown == 'd'):
         print("turning right")
         turnRight()
 
-    if (keyDown == 'b' or keyDown == 'B'):
+    if (keyDown == 'b'):
         print("stopping car")
         rvrStop()
 
-    if (keyDown == 'n' or keyDown == 'N'):
+    if (keyDown == 'n'):
         print("stopping turn")
         steerStop()
 
 gui = GuiThread(vidStream, args["science"])
 
-gui.root.bind('<W>', keydown)
 gui.root.bind('<w>', keydown)
-
-gui.root.bind('<A>', keydown)
 gui.root.bind('<a>', keydown)
-
-gui.root.bind('<S>', keydown)
 gui.root.bind('<s>', keydown)
-
-gui.root.bind('<D>', keydown)
 gui.root.bind('<d>', keydown)
-
-gui.root.bind('<B>', keydown)
 gui.root.bind('<b>', keydown)
-
-gui.root.bind('<N>', keydown)
 gui.root.bind('<n>', keydown)
 
 gui.root.mainloop()

@@ -1,28 +1,29 @@
-#    Copyright 2016 © Samantha Rachel Belnavis, Some Rights Reserved
-#
-#    Licensed under the GNU General Public License, Version 3.0 (the "License");
-#    you may not use this file except in compliance with the License.
-#    You may obtain a copy of the License at
-#
-#        http://www.gnu.org/licenses/gpl.html
-#
-#    Unless required by applicable law or agreed to in writing, software
-#    distributed under the License is distributed on an "AS IS" BASIS,
-#    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-#    See the License for specific language governing permissions and
-#    limitations under the License.
-#
-#    Program Created by: 	Samantha Rachel Belnavis
-#    Date Created:		    January 7, 2016
-#    Date Last Modified: 	January 8, 2016
-#    File Name: 			gui.py
-#    File Description: 		Python GUI
+'''
+    Copyright 2017 Samantha Rachel Belnavis, Some Rights Reserved
 
+    Licensed under the GNU General Public License, Version 3.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+
+        http://www.gnu.org/licenses/gpl.html
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for specific language governing permissions and
+    limitations under the License.
+
+    Program Created by: 	Samantha Rachel Belnavis
+    Date Created:		January 7, 2017
+    Date Last Modified: 	April 19, 2017
+    File Name: 		        roverCode.py
+    File Description: 		Rover Control Code
+'''
 #import packages
 from __future__ import print_function
-from Tkinter import *
 from PIL import Image
 from PIL import ImageTk
+import Tkinter
 import threading
 import datetime
 import time
@@ -81,17 +82,19 @@ class GuiThread:
                 if self.panel is None:
                     self.panel = Label(image = image)
                     self.panel.image = image
-                    self.panel.grid(row = 2, column = 2, padx = 10, pady = 10)
+                    self.panel.grid(row=2, column=2, padx=10, pady=10)
 
                 #if already initialized, then update panel
                 else:
-                    self.panel.configure(image = image)
+                    self.panel.configure(image=image)
                     self.panel.image = image
 
 
         except RuntimeError, e:
             print("[NASA] Tkinter RuntimeError was caught")
             print("[NASA] Maybe don't do that again...")
+            print("[NASA] Detailed Error Below: ")
+            print e
 
     def grabScience(self):
         # get that science data (photo)

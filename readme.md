@@ -4,6 +4,7 @@
  ![platform](https://img.shields.io/badge/platform-Ubuntu_14.04_| 16.04-orange.svg?style=flat-square)
  ![platform](https://img.shields.io/badge/windows-8_| 10-6cdbea.svg?style=flat-square)
  ![python version](https://img.shields.io/badge/python-2.7-blue.svg?style=flat-square)
+ [![CodeFactor](https://www.codefactor.io/repository/github/markwatneyy/sojourner/badge/master)](https://www.codefactor.io/repository/github/markwatneyy/sojourner/overview/master)
 
 A lazy attempt at beating NASA at their own game.
 

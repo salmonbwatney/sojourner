@@ -1,5 +1,5 @@
 '''
-    Copyright 2016 - 2017 Samantha Rachel Belnavis, Some Rights Reserved
+    Copyright 2017 - Samantha Rachel Belnavis, Some Rights Reserved
 
     Licensed under the GNU General Public License, Version 3.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -16,7 +16,7 @@
     Program Created by: 	Samantha Rachel Belnavis
     Date Created:		January 7, 2017
     Date Last Modified: 	April 19, 2017
-    File Name: 		gui.py
+    File Name: 		        gui.py
     File Description: 		Python GUI
 '''
 
@@ -33,8 +33,8 @@ import RPi.GPIO as gpio
 
 #create new argument parser & arguments
 argParser = argparse.ArgumentParser()
-argParser.add_argument( "--science", required = True, help = "Science Storage Path" )
-argParser.add_argument( "--picamera", type = int, default = -1, help = "Set value larger than 1 to use Picamera" )
+argParser.add_argument("--science", required=True, help="Science Storage Path")
+argParser.add_argument("--picamera", type=int, default=-1, help="Set value larger than 1 to use Picamera")
 args = vars(argParser.parse_args())
 
 # car setup

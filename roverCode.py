@@ -1,20 +1,7 @@
 '''
     Copyright 2017 Samantha Rachel Belnavis, Some Rights Reserved
-
-    Licensed under the GNU General Public License, Version 3.0 (the "License");
-    you may not use this file except in compliance with the License.
-    You may obtain a copy of the License at
-
-        http://www.gnu.org/licenses/gpl.html
-
-    Unless required by applicable law or agreed to in writing, software
-    distributed under the License is distributed on an "AS IS" BASIS,
-    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-    See the License for specific language governing permissions and
-    limitations under the License.
-
     Program Created by: 	Samantha Rachel Belnavis
-    Date Created:		January 7, 2017
+    Date Created:		January 8, 2017
     Date Last Modified: 	April 19, 2017
     File Name: 		        roverCode.py
     File Description: 		Rover Control Code

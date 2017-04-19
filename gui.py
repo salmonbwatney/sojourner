@@ -1,6 +1,5 @@
 '''
-    Copyright 2017 - Samantha Rachel Belnavis, Some Rights Reserved
-    
+    Copyright 2017 - Samantha Rachel Belnavis, Some Rights Reserved   
     Program Created by: 	Samantha Rachel Belnavis
     Date Created:		January 7, 2017
     Date Last Modified: 	April 19, 2017

@@ -1,8 +1,8 @@
 # Sojouner
  ![license](https://img.shields.io/badge/license-GPL_v3-green.svg?style=flat-square)
- ![platform](https://img.shields.io/badge/platform-OS_X 10.11+-lightgrey.svg?style=flat-square)
- ![platform](https://img.shields.io/badge/platform-Ubuntu_14.04_| 16.04-orange.svg?style=flat-square)
- ![platform](https://img.shields.io/badge/windows-8_| 10-6cdbea.svg?style=flat-square)
+ ![platform](https://img.shields.io/badge/platform-OSX%2010.11-lightgrey.svg?style=flat-square)
+ ![platform](https://img.shields.io/badge/platform-Ubuntu_14.04_|_16.04-orange.svg?style=flat-square)
+ ![platform](https://img.shields.io/badge/windows-8_|_10-6cdbea.svg?style=flat-square)
  ![python version](https://img.shields.io/badge/python-2.7-blue.svg?style=flat-square)
  [![CodeFactor](https://www.codefactor.io/repository/github/markwatneyy/sojourner/badge/master)](https://www.codefactor.io/repository/github/markwatneyy/sojourner/overview/master)
 
